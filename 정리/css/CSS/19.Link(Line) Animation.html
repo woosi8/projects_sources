@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    .wrapper {
+      max-width: 50rem;
+      width: 100%;
+      margin: 2rem auto;
+    }
+
+    a {
+      color: #3498db;
+      transition: 0.35s;
+    }
+
+    /* 기본 하이퍼링크 점선 대신 도트로 바꾸기 */
+    a.fade_in_bg {
+      text-decoration: none;
+      border-bottom: 0.0625em dotted #3498db;
+      /* 테두리 여유주기
+              위   좌우    아래*/
+      padding: 0 0.25em 0.05em;
+
+    }
+
+    a.fade_in_bg:hover {
+      background: #3498db;
+      color: #fff;
+    }
+
+
+
+    /* 마우스 호버시 다른 글자 나타나게 해주기 */
+    /* 마우스 호버시 다른 글자 나타나게 해주기 */
+    /* 마우스 호버시 다른 글자 나타나게 해주기 */
+    /* 숨겨진 태크에 앱솔루트를 주고 기준점을 현재 태그에 준다 */
+    a[class^="slide"] {
+      text-decoration: none;
+      line-height: 1.5em;
+      padding: 0 0.25em;
+      border-bottom: 0.0625em dotted #3498db;
+      position: relative;
+      overflow: hidden;
+      /* overflow만 주면 이 요소가 자기 크기가 얼마인지 감이 없기때문에 히든을 못하기에 inline-block을 준다 */
+      display: inline-block;
+      /* 여기까지만 하면 높이가 안맞아서 높이를 맞춰야한다.요소 정렬태그 inline or inline-block에서만 적용됨 */
+      vertical-align: bottom;
+
+    }
+
+
+    /* html에는 없지만 css를 통해서 없는 내용을 만드는 방법  before, after */
+    a[class^="slide"]:before {
+      position: absolute;
+      /* content: 'other parts'; */
+      /*  data-(linktext) 이 예제에서 필요해서 data를 붙여주 그 뒤에 내가 필요한 사용자 속성을 만들수 있다.
+          attribute 데이터 속성을 쓰기 위해 만들었다. css 간단하게 해주기 위해*/
+      content: attr(data-linktext);
+      background: #3498db;
+      color: #fff;
+      /* 위에 절대값 기준으로 오른쪽에 나타나게 하기 */
+      /* left: 100%;
+      right: -100%; */
+      transition: 0.35s;
+
+
+    }
+
+
+    /* 마우스 올리기전에 위치*/
+    .slide_from_left:before {
+      left: -100%;
+      right: 100%;
+    }
+
+    a[class^="slide"]:hover:before {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .slide_from_right:before {
+      left: 100%;
+      right: -100%;
+    }
+
+    .slide_from_top:before {
+      top: -100%;
+      border: 100%;
+      /* 너비가 온전하게 잡히지 않아서 잡아줘야함 */
+      left: 0;
+      right: 0;
+    }
+
+    .slide_from_bottom:before {
+      top: 100%;
+      border: -100%;
+      left: 0;
+      right: 0;
+    }
+
+
+    /* 선 나타나게 하기 */
+    /* 선 나타나게 하기 */
+    /* 선 나타나게 하기 */
+    /* 선 나타나게 하기
+        하이퍼링크는 수정이 불가하므로 보더로 해준다 */
+a.fade_in_underline{
+  text-decoration: none;
+  padding: 0 0.125em 0.05em;
+                      /* 색을 투명하게 해서 마우스 호버시 색을 줘서 선이 나오게 한다 */
+  border-bottom: 0.125em solid transparent;
+  transition: all 0.35s;
+}
+a.fade_in_underline:hover{
+  border-color: #3498db;
+}
+
+/* 선이 왼쪽에서 들어오게 하기 . 선으로 하는게 아니고 배경. 해당 a태그의 배경이 아니라 a태그의 before,after로 만든 배경이다*/
+
+
+a[class^="underline"]{
+  text-decoration: none;
+  padding: 0 0.125em 0.05em;
+  position: relative;
+}
+
+/* 만들 비포 속성은 똑같으니깐 공통으로 해준다 */
+a[class^="underline"]::before{
+  /* 빈공간을 만들고 개한테 보더를 준다 */
+  content: '';
+  position: absolute;
+  /* 기준위치에서 끝까지 내려왔다 */
+  top: 100%;
+  /* 보더 말고 백그라운드로 가능 */
+  border-bottom: 0.125em solid #3498db;
+  transition: 0.35s;
+}
+
+
+.underline_from_left::before{
+    left: 0; right: 100%;
+}
+.underline_from_right::before{
+    left: 100%; right: 0%;
+}
+.underline_from_center::before{
+    left: 50%; right: 50%;
+}
+
+/* 호버 이후 값은 레프트나 라이트 센터 다 똑같으니깐 */
+a[class^="underline"]:hover::before{
+  left: 0;
+  right: 0;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <p></p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.<a href="#" class="fade_in_underline" > Duis aute</a> irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <a href="#" class="underline_from_left">Lorem Left</a> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <a href="#" class="underline_from_right">Lorem right</a>irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <a href="#" class="underline_from_center">Lorem center</a>
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, <a href="#" class="fade_in_bg" data-linktext="other parts">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex
+    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur <a href="#" class="fade_in_bg" data-linktext="other parts">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex
+    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in <a href="#" class="slide_from_left" data-linktext="other parts">reprehenderit</a>
+    reprehenderit in voluptate<a href="#" class="slide_from_right" data-linktext="other parts"> velit esse</a> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, <a href="#" class="slide_from_top" data-linktext="other parts">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in <a href="#" class="slide_from_bottom" data-linktext="other parts">reprehenderit</a> in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+    mollit anim id est laborum.
+  </div>
+
+</body>
+
+</html>

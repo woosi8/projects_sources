@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="robots" content="index, follow">
+  <title></title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <button id="aplay">Play music</button>
+  <button id="apause">Pause music</button><br>
+  <hr>
+  <button id="vplay">play video</button>
+  <button id="vpause">pause video</button>
+
+  <!-- <video src="video/vivaldi.mp4" controls></video> -->
+  <!-- <video src="video/vivaldi.mp4" autoplay></video> -->
+  <video src="video/vivaldi.mp4"  muted></video>
+  <audio src="audio/Honey_Bee_01_web.mp3" id="myaudio"></audio>
+
+  <script>
+    var myaAudio = document.getElementById('myaudio');
+    document.getElementById('aplay').addEventListener('click',playAudio);
+    document.getElementById('apause').addEventListener('click',pauseAudio);
+
+
+    function playAudio() {
+      myaAudio.play();
+
+    }
+    function pauseAudio() {
+      myaAudio.pause();
+      // myaAudio.stop();
+
+    }
+  </script>
+
+
+</body>
+
+</html>

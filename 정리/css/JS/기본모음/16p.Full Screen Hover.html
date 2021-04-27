@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    /* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    :root {
+      --red: firebrick;
+      --white: white;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    body {
+      font: 22px/1.5 sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+
+    /* MAIN STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+footer ul{
+  margin-top: 20px;
+  text-align: center;
+          }
+footer ul li{
+ display: inline-block;
+ text-transform: uppercase;
+ margin-right: 33px;
+}
+footer ul li:nth-last-child(1){
+  margin-right: 0;
+}
+
+.cutline{text-align: center; margin: 26px 0 20px;}
+.SocialMedia ul{text-align: center;}
+.SocialMedia ul li{display: inline-block;}
+
+
+.footer_bottom{
+   width: 100%;
+   text-align: center;
+   /* margin: 0 auto; */
+   margin-top: 50px;
+   background: #709dca; color: #fff; height: 40px;
+
+   }
+.footer_bottom .copyright{
+  padding: 10px;
+}
+.copyright.animated{
+  background: #000;
+  animation-delay: 1s;
+}
+
+:root {
+  --red: firebrick;
+  --white: white;
+}
+
+.footer_menu a {
+  /* border-bottom: 2px dashed var(--red); */
+  position: relative;
+  text-decoration: none;
+
+}
+
+.footer_menu a::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scaleX(0);
+  padding: 10px;
+  z-index: -1;
+  transform-origin: center;
+  background: var(--white);
+  transition: all 0.3s ease-out;
+}
+.footer_menu a:hover{
+  z-index: 2;
+  border-bottom-color: transparent;
+  color: var(--red);
+}
+.footer_menu a:hover::before{
+  transform: translate(-50%,-50%) scaleX(1);
+}
+
+.bg{
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: all 0.3s ease-out;
+}
+.footerTop.bg-show .bg{
+  opacity: 1;
+  z-index: 1;
+  /* background: red; */
+}
+  </style>
+</head>
+
+<body>
+  <footer>
+    <div class="footerTop">
+      <div class="bg"></div>
+      <ul class="footer_menu">
+        <li class="home"><a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg"
+         href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" target="_blank">home</a>
+       </li>
+        <li class="service"><a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg"
+         href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" target="_blank">service</a>
+       </li>
+        <li class="service">service</li>
+        <li class="aboutUs">aboutUs</li>
+        <li class="pricingTable">pricingTable</li>
+        <li class="HowItWork_f">HowItWork</li>
+        <li class="HappyClients_f">HappyClients</li>
+        <li class="ContactUs">ContactUs</li>
+      </ul>
+      <div class="cutline"><i class="fas fa-phone-alt"></i> +987 9976 999</div>
+      <div class="SocialMedia">
+        <ul class="snsicons">
+          <li><i class="fab fa-twitter"></i></li>
+          <li><i class="fab fa-facebook-f"></i></li>
+          <li><i class="fab fa-google-plus-g"></i></li>
+          <li><i class="fab fa-instagram"></i></li>
+        </ul>
+      </div>
+    </div><!-- footer_top -->
+
+    <div class="footer_bottom">
+      <div class="copyright" data-scroll>All contents &copy; copyright 2014 Business Theme. All rights reserved Designed by : akhilwebfolio</div>
+    </div><!-- footer_bottom -->
+
+
+  </footer> <!-- footer -->
+   <script>
+   const links = document.querySelectorAll('.footer_menu a');
+   const bg = document.querySelector('.bg');
+   const showclass = 'bg-show';
+   const footerTop = document.querySelector('.footerTop');
+   const footermenu = document.querySelector('.footer_menu');
+
+   for (const link of links) {
+      const img = new Image(); //이미지 생성
+        img.src = link.dataset.bg; //link.getAttribute('data-bg')
+
+        link.addEventListener('mouseenter',function () {
+
+           bg.style.backgroundImage = `url(${this.dataset.bg})`
+           footerTop.classList.add(showclass);
+        });
+        link.addEventListener('mouseleave',function () {
+          footerTop.classList.remove(showclass);
+        });
+
+   }; //for 반복문
+
+
+
+
+
+
+   </script>
+
+</body>
+
+</html>

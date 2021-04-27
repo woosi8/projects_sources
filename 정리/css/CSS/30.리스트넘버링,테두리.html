@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    /* <!-- list는 블럭요소다 --> */
+    .todo {
+      display: inline;
+      padding-left: 0;
+    }
+    .todo li {
+      display: inline;
+    }
+    /* 막내빼고 전부다에게 콤마를 준다 */
+    .todo li:not(:last-child)::after {
+      content: ",";
+    }
+
+    /* 마지막 앞에 and를 넣어준다 */
+    .todo li:last-child::before {
+      content: "and";
+    }
+    .todo li:last-child::after {
+      content: ".";
+    }
+
+    /* 넘버링 해주기 */
+    /* 넘버링 해주기 */
+    /* 넘버링 해주기 */
+
+    h3 {
+      counter-increment: h3counter;
+    }
+    h3{
+    }
+    h3::before {
+      content: counter(h3counter)'. ';
+    }
+
+    .container {
+      width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border: 10px solid rgba(255, 0, 0, .5);
+      background-clip: padding-box;
+      /* 쉐도우도 가능 */
+      /* box-shadow: 0 0 0 10px rgba() */
+    }
+
+    .container h2 {
+      margin-top: 0;
+      font-weight: normal;
+    }
+
+    .tainer {
+      width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      position: relative;
+    }
+
+    .tainer::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      border: 5px solid #d3d4fa;
+    }
+
+    /* 마우스 올리면 테두리 하나 나오게 하기 */
+    /* 마우스 올리면 테두리 하나 나오게 하기 */
+    .tainer::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      /* border: 1px solid black; */
+      transition: 0.5s;
+    }
+
+    .tainer:hover::after {
+      left: -10px;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px solid black;
+
+    }
+  </style>
+</head>
+
+<body>
+  <span>Things to do today;</span>
+  <ul class="todo">
+    <li>eat bacon</li>
+    <li>change the Ac filter</li>
+    <li>pick up another gallon of milk</li>
+    <li> invade Antarctica</li>
+  </ul>
+
+
+  <h1>How to Invade Antarctica</h1>
+  <h3>Purchas</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h3>Design a Flag</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h3>Secure</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h3>Pusrchase</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+  <!-- 투명 테두리 만들기 (배경 그림있을때 패딩에 배경이 나오게 해주기)
+      배경 범위 적용하기-->
+  <div class="container">
+    <h2>TRansare</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <!-- 다중 테두리 만들기 (before로 보더를 준다) -->
+  <!-- 다중 테두리 만들기 -->
+  <!-- 다중 테두리 만들기 -->
+  <div class="con">
+
+    <div class="tainer">
+      <h2>TRansare</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

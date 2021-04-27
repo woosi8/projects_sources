@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    html,
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .panel-question {
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .panel-heading {
+      font-weight: bold;
+      padding: 5px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .panel-body {
+      padding: 15px;
+    }
+
+    #btn-collapse {
+      margin-bottom: 10px;
+      background-color: #999;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 5px;
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button id="btn-collapse">Collapse All</button>
+    <h2>FAQ</h2>
+    <section id="faq">
+      <div class="panel-question active">
+        <div class="panel-heading">
+          + Lorem ipsum dolor sit?
+        </div>
+        <div class="panel-body" id="thisone">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+          <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+        </div>
+      </div>
+
+      <div class="panel-question">
+        <div class="panel-heading">
+          + Lorem ipsum dolor sit?
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+          <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+        </div>
+      </div>
+
+      <div class="panel-question">
+        <div class="panel-heading">
+          + Lorem ipsum dolor sit?
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid voluptate fugit quaerat non molestiae quo magni soluta minima corporis! Soluta, ipsa et.</p>
+          <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+<script type="text/javascript">
+
+const btnCollapse = document.querySelector('#btn-collapse'),
+      question = document.querySelectorAll('.panel-question'),
+      heading = document.querySelectorAll('.panel-heading'),
+      pbody = document.querySelectorAll('.panel-body');
+
+for (var i = 0; i < heading.length; i++) {
+  heading[i].addEventListener('click',clickHandler);
+}
+
+function clickHandler(e) {
+  for (var i = 0; i < question.length; i++) {
+    question[i].classList.remove('active')
+    e.target.parentNode.classList.add('active')
+    this.classList.remove('active')
+    activateBody();
+  }
+}
+
+// 처음에 다 접어놓기 함수로 빠로 클로스를 빼준다
+function closeElem() {
+  for (var i = 0; i < pbody.length; i++) {
+    pbody[i].style.display = 'none';
+  }
+}
+
+function activateBody() {
+  closeElem();
+  const activePanel = document.querySelector('.panel-question.active .panel-body')
+  let activeElem = document.querySelector('.panel-question.active')
+  if (activeElem) {
+    activePanel.style.display = 'block'
+  }
+};
+
+btnCollapse.addEventListener('click',closeElem);
+
+//본인 클릭시 본인 닫히기.......실패
+
+//하나만 열어놓기
+activateBody();
+
+//선택적 열어놓기 ......실패
+// activateBody([1]);
+
+
+
+// 처음에 다 접어놓기
+// closeElem();
+
+
+
+</script>
+
+</html>

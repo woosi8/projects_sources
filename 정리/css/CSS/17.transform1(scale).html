@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="/css/master.css" />
+        <style media="screen">
+            img {
+                width: 30vw;
+                height: 30vw;
+            }
+
+            div {
+                /* perspective: 1000px;
+        perspective-origin: 50% 50%; */
+            }
+
+            div img {
+                transition: all 0.35s;
+                /* transform-origin: 50% 0; */
+                transform-origin: left center;
+                perspective-origin: 50% 50%;
+
+                /* 순서중요 바뀌면 scaleZ이 리셋된다 */
+                /* transform: scaleZ(1)  translateZ(100px); */
+
+                /* 이미지에 바로 펄스펙티브 주기 */
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+            div:hover img {
+                /* transform: scaleZ(2) translateZ(100px); */
+                transform: perspective(1000px) rotateX(-90deg);
+                transform: skewX (-45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="cant.jpg" class="" alt="" />
+            <span>photo description</span>
+        </div>
+    </body>
+</html>

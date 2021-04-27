@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>배열</title>
+  </head>
+  <body>
+    <h2>배열</h2>
+    <script>
+      // 배열만들기 []대괄호
+      // 배열은 0 = 찻반쩨
+
+      // 1. var arr = [];
+      // var fruits = [];
+      // fruits[0]= 'apple'
+      // fruits[1]= 'apple1'
+      // fruits[2]= 'apple3'
+
+      // 2. var arr = new Array();
+        var fruits = ['사과','배','바나나','딸기']
+        var animals= ['사자','호랑이','곰']
+
+        var amount = fruits.length;
+        var newStr = fruits.join('/')
+        var newArr = fruits.reverse();
+        var newArr2 = fruits.sort(function (a,b) {
+          return b-a;
+        });
+        // 배열 합치기
+        var newArr3 = fruits.concat(animals);
+        // 배열안에 특정값 자르기 (인덱스1번(포함)부터 3번(미포함) 전까지 자른다) (원본유지)
+        var newArr4 = fruits.slice(1,3);
+        // 1번부터 3번까지 (splice는 원본을 자른다. 원본에도 영향을 미침)
+        var newArr5 = fruits.splice(1,3);
+
+
+        document.write(fruits+' <br/>');
+        document.write(fruits[0]+'<br/>');
+        document.write(amount+'<br/>');
+        document.write(newStr+'<br/>');
+        document.write(newArr+'<br/>');
+        document.write(newArr2+'<br/>');
+        document.write(newArr3+'<br/>');
+        document.write(newArr4+'<br/>');
+        document.write(newArr5+'<br/>');
+    </script>
+    <h2>값 추가하기 -push</h2>
+    <p>기본의 값 뒤에 추가한다</p>
+    <script>
+        var beers =['하이네켄','코로나','스텔라','카스'];
+        beers.push('수제맥주','제주비어');
+        document.write(beers);
+    </script>
+    <h2>값 앞 추가하기 - unshift</h2>
+    <p>기본의 값 앞에 추가한다</p>
+    <script>
+        var beers =['하이네켄','코로나','스텔라','카스'];
+        beers.unshift('수제맥주','제주비어');
+        document.write(beers);
+    </script>
+    <h2>값 삭제하기 - pop </h2>
+    <p>기본의 값 맨뒤값을 삭제한다</p>
+    <script>
+        var beers =['하이네켄','코로나','스텔라','카스'];
+        beers.pop();
+        document.write(beers);
+    </script>
+    <h2>값 앞 삭제하기 - shift </h2>
+    <p>기본의 맨앞값을 삭제한다</p>
+    <script>
+        var beers =['하이네켄','코로나','스텔라','카스'];
+        beers.shift();
+        document.write(beers);
+    </script>
+  </body>
+</html>

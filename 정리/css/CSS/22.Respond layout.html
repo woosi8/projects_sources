@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>434343434343434</title>
+  <!-- 43
+  43
+  43
+  43 -->
+
+
+  <style media="screen">
+
+
+body{
+  /* 모든 요소의 크기는 보더까지다 */
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  background: #ecf0f1;}
+
+.wrapper{
+  /* 60램 보다 브라우저가 넓으면 이 최대 크기는 60램이고 60램보다 줄어들면 그 줄어든 너비안에서 100%쓰라 */
+    max-width: 60rem;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.gradientbg ::before,
+.gradientbg ::after{
+  content: "";
+  display: table;
+}
+.gradientbg ::after{
+  /* 전체를 플롯으로 배열해서 애 값이 안나오니깐 클리어해줘서 나오게한다 */
+  clear: both;
+}
+
+.gradientbg .sidebar{
+  width: 20%;
+  padding: 1.618rem;
+  color: #fff;
+  /* 반응형에서 창크기에 따라 변화되는 것에는 하이트를 주지마라
+      크기가 커지면 패딩을 더줘라 */
+  /* height: 430px; */
+
+
+}
+
+.gradientbg main{
+  width: 60%;
+  padding: 1.618rem;
+  /* 왼쪽으로가 */
+  float: left;
+  /* 왼쪽공간 20비워놓기 사이드 바 공간떔에 */
+  margin-left: 20%;
+  /* background: #fff; */
+}
+
+.gradientbg .left{
+float: left;
+/* 부모를 따라서 왼쪽에 붙기 떄문에 지금 메인이 부모라서 오른쪽에 붙어있기에 마진 레프트로 왼쪽으로 보내준다 */
+margin-left: -91%;
+/* background: #3498db; */
+}
+.gradientbg .right{
+float: right;
+margin-right: -11%;
+/* background: #3498db; */
+}
+
+
+.gradientbg{
+  background: linear-gradient(to right,#3498db 0%,#3498db 20%, #fff 20%,#fff 80%,#34495e 80%,#34495e 100%);
+}
+
+/*
+대화면 데스크탑   1200이상
+기본,데스크탑    980이상
+태블릿          768
+스마트폰~태블릿  767
+스마트폰        480 */
+
+/* 반응형 css는 항상 마지막에 둬야 한다 , 우선순위떄문에 */
+@media screen and (max-width:768px) {
+  /* 768이하 */
+  body{background: blue;}
+  /* main{}으로 하면 위에 우선순위에서 지기 떄문에 우선순위높도록 상세히 한다 */
+  .gradientbg main{float: none; margin-left:0; width: 100%;
+  background: #fff;}
+  .gradientbg .left{ margin-left: 0;}
+  .gradientbg .sidebar{width: 50%;}
+  .gradientbg {background: linear-gradient(to right,)
+}
+};
+  </style>
+</head>
+
+<body>
+  <div class="wrapper gradientbg">
+    <main>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    </main>
+
+    <div class="sidebars">
+      <aside class="sidebar left">
+        <p>you might hav eosom latest posta her on the left</p>
+      </aside>
+      <div class="sidebar right">And somem toher widgets here on the right</div>
+    </div>
+
+  </div>
+</body>
+
+</html>

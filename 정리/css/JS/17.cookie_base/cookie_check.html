@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ABC corporation</title>
+  </head>
+  <style media="screen">
+    .notice{
+      position: fixed;
+      padding: 20px;
+      border: 1px solid #ccc;
+      left: 100px;
+      top: 100px;
+
+    }
+  </style>
+  <body>
+
+    <div class="notice">Notice</div>
+
+
+
+    <script>
+      console.log(document.cookie);
+      //방문한적이 있다면 currentCooke에 값이 있을테니깐
+      var currentCooke = document.cookie;
+      // indexof가 -1보다는 크다 라는것으로 판다
+      var cookieCheck = currentCooke.indexOf('ABC');
+      // indexOf값이 나오는건 처음이 아니라는뜻
+      if (cookieCheck >-1) {
+        documenet.querySelector('.notice').style.display = 'none';
+      }else {
+        documenet.querySelector('.notice').style.display = 'block';
+
+      }
+
+      /////////creat값 밑에 추가
+      var date = new Date();
+      date.setDate(date.getDate()+7); //쿠키의 파기날짜
+
+      var setCookie = '';
+      setCookie += 'CookieName = ABC;';
+      setCookie += 'expires =' + date.toUTCString();
+
+      document.cookie = setCookie;
+
+      // 삭제( 버튼 만들어줘서 추가해주면 됨)
+      function deleteCookie() {
+        var date = new Date();
+        date.setDate(date.getDate()-1);
+
+        var setCookie = '';
+        setCookie += 'CookieName = ABC;';
+        setCookie += 'expires =' + date.toUTCString();
+        document.cookie = setCookie;
+
+      }
+
+    </script>
+
+  </body>
+</html>

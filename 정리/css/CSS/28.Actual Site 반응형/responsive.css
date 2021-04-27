@@ -1,0 +1,66 @@
+@media screen and (max-width:768px){
+
+/* 아이디 wrap에 백그라운드로 준 선도 반응형에 따로오도록 기존에 170값을 22%로 바꿔준다*/
+#wrap {width: 100%; background-position: 22% 0;}
+/* footer 줄였을때 가로줄 안생기게 100%준다 */
+#footer .footerArea {width: 100%;}
+
+/* 전체를 줄여도 비율유지하면서 가로줄 안생기게 하기 */
+/* 170(원하는 요소)/760*100 */
+.snb{width: 22%;}
+#content {width:74%;}
+
+}
+
+
+
+
+@media screen and (max-width:480px){
+
+  .topnav, .locate , .snb h2 {display: none;}
+  /* 로고 가운데 중심에 위치 */
+  .logo a {margin: 0 auto;}
+  /* 여기까지는 log에 왼쪽패딩이 남아있어서 정가운데가 아니므로 왼쪽패딩 지워준다 */
+  .logo {padding-left: 0;}
+
+  /* 이제 플롯필요없다 가로로 안나오게 */
+  .mainnav li {float: none; text-align: center;}
+  .mainnav {padding-left: 0;}
+
+  /* 세로로 나오는 About 메뉴 가로로 바꾸기 */
+  .snb,#content{width:100%;}
+  /* 선없애기 */
+  #wrap{background:none; }
+
+  /* 세로 메뉴 가로로 바꾸기 float방법도 있지만 여기선 더 쉬운 애들은 글자블락취급하고 부모에게 텍스트얼라인 센터주면끝*/
+  .snb ul {text-align: center; margin-left: 0;
+          border-bottom: 1px solid #ccc;}
+  .snb ul li {display: inline-block;}
+
+  /* 이미지를 글 위로 보내기 */
+  /* 이미지를 글 위로 보내기 */
+  /* 이미지를 글 위로 보내기 */
+  /* 기존에는 나무에 플롯을 주고 애한테 뛰어들어 시키고 텍스트 왼쪽에 여백을 주었으니
+     플롯을 꺼버리고 여백을 꺼버린다 */
+     #content .thum{float: none; }
+     #content .text{margin-left: 0;}
+
+    /* 푸터 플롯 없애주기 */
+    /* 푸터 플롯 없애주기 */
+    /* 푸터 플롯 없애주기 */
+    .btmnav,.copy{float: none;}
+    /* btmnav에 높이가 안나오는 이유는 btmnav 내부안에 list dd에 플롯을 걸로 해지해주지 않았기 때문이다 */
+    .btmnav::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .btmnav, .copy{margin-left: 14px;}
+}
+
+
+    /* 481이상 767이하 구간 */
+        /* minwidth 아래까지 영향이 끼치진앟는다 */
+@media (min-width:481px) and (max-width:767px) {
+  body{background: yellow;}
+}

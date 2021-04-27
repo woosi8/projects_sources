@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS3 Loading Animations</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="style 24.css"> -->
+  <style media="screen">
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Open Sans";
+    line-height: 1.618em;
+    color: #555;
+    background: #2c3e50;
+  }
+  .wrapper {
+    max-width: 50rem;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 5rem;
+    background: #fff;
+    border: 0.5rem solid #34495e;
+  }
+  a {
+    text-decoration: none;
+    color: #3498db;
+  }
+  .fa {
+    font-size: 4rem;
+    margin: 1rem;
+  }
+  .fa-twitter {
+    color: #00b0ed;
+  }
+  .fa-facebook {
+    color: #3b5998;
+  }
+  .footnotes {
+    margin: 60rem auto;
+  }
+  #footnote:target {
+    background: #ecf0f1;
+  }
+
+  /* <!-- 팁의 부모인 a는 인라인 요소라서 크기를 반영 못한다,
+    a는 인라인 요소라 크기를 다 안먹는다, 여기서 온전히 자기 자리를 먹게 인라인 블럭해준다. --> */
+  .tooltip{
+    display: inline-block;
+    position: relative;
+  }
+  .tip{
+    position: absolute;
+    left: 100%;  padding: 1em;
+    font-size: 0.8em; font-weight: normal;
+    background: #34495e; border-radius: 1em; color: #fff;
+    /* 줄을 넘기가 말고를 결정 ,기본값은 내려가는것*/
+    white-space: nowrap;
+
+    /* 말풍선 부모기준으로 센터에 놓기 */
+    /* 말풍선 부모기준으로 센터에 놓기 */
+    /* 여기서 팁의 부모인 a는 인라인 요소라서 크기를 반영 못한다
+         */
+    /* top값이 50%다. 부모인 a기준으로. 그래서 아직까지 중앙에 위치를 못하고 있다 */
+    top: 50%;
+    /* 기준위치에서 자기 크기 반만큼 올려주기 */
+    transform: translateY(-50%);
+
+    /* display: none; 이건 미디어 쿼리에서 써야함, 트랜지션에 적합하지 않은듯함 */
+    opacity: 0;
+    transition: 0.5s;
+    /* 이동효과 */
+    margin-left: 1rem;
+  }
+  .tip::before{
+    content: '';
+    /* 크기에 값이 안더해지게 0을 준다 */
+    width: 0; height: 0;
+    /* 보더가 사방으로 다 똑같은 색이고 모양이면 하나로 써주지만 여기선 말풍선 꼬다리 만들기위해
+    방향별로 색깔이 달라야 하니깐 따로 설정해줘야 한다 */
+    border-style: solid;
+    border-width: 0.5rem;
+                    /* 위      오른쪽      아래      왼쪽 */
+    border-color: transparent #34495e transparent transparent;
+    /* tip을 기준으로 */
+    position: absolute;
+    /* tip기준으로 위치 잡아주기 , */
+    right: 100%; top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .tooltip:hover .tip{
+    /* display: block; */
+   opacity: 1;
+   margin-left: 0;
+
+  }
+
+   /* 클릭이동 스타일 변경*/
+  /* 클릭이동 */
+  /* 클릭이동 */
+
+  #footnote:target{
+    background: silver;
+    color: red;
+  }
+
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1>Tooltips</h1>
+
+  <div>
+    <a href="https://www.twitter.com" target="_blank" class="tooltip">
+      <i class="fa fa-twitter"></i>
+      <!-- a태그를 기준으로 절대값 잡아줘야 하니깐 a를 부모로 둬야한다 -->
+      <span class="tip">Follow Us on Twitter</span>
+    </a>
+  </div>
+  <div>
+    <a href="https://www.facebook.com" target="_blank" class="tooltip">
+      <i class="fa fa-facebook"></i>
+      <span class="tip">Follow Us on Facebook page</span>
+    </a>
+  </div>
+
+  <p>&nbsp;</p>
+
+  <h1>Citations</h1>
+
+
+
+  <!-- /* 클릭이동 */
+  /* 클릭이동 */
+  /* 클릭이동 */ -->
+
+  <p>My father had a small estate in Nottinghamshire: <a href="#footnote"><sup>[1]</sup></a> I was the third of five sons.   He sent me to Emanuel College in Cambridge at fourteen years old, where I resided three years, and applied myself close to my studies; but the charge of maintaining me,<sup>[2]</sup> although I had a very scanty allowance, being too great for a narrow fortune, I was bound apprentice to Mr. James Bates,<sup>[3]</sup> an eminent surgeon in London, with whom I continued four <a href=".">years.</a></p>
+
+  <div class="footnotes">
+    <p id="footnote">1. ^ If you need footnotes this works too</p>
+    <p class="ipnote">2. ^ Another example footnote for demonstration purposes</p>
+    <p>3. ^ One more demonstrative footnote here</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Basic Event</title>
+  </head>
+  <style media="screen">
+    .active{
+      color: red;
+    }
+
+  </style>
+  <body>
+    <div class="container">
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <button id="submit">자식 삭제
+      <button id="submit1">부모 삭제</button>
+      <button id="submit2">본인삭제</button>
+    </button>
+
+    <script>
+      const btn = document.querySelector('#submit'),
+            container = document.querySelector('.container'),
+            btn1 = document.querySelector('#submit1'),
+            btn2 = document.querySelector('#submit2'),
+            pElme = document.querySelectorAll('.ers'),
+            ersp = document.getElementsByTagName('p'),
+
+            //하나만 선택하기
+            ers = document.getElementsByClassName('ers'),
+            erss = ers[0],
+
+            child = document.querySelector('.container').children,
+            Conchild = container.childNodes;
+
+      // 1. 요소 붙였다 뗐다
+      // btn.addEventListener('click',function () {
+      //     container.classList.remove('active')
+      //
+      // });
+      // btn1.addEventListener('click',function () {
+      //     container.classList.add('active')
+      //
+      // });
+
+      //
+      // 2. 자식 삭제 (부모가 자식 삭제)
+      // btn.addEventListener('click',function () {
+      //   // container.removeChild(container.childNodes[ 0 ]);
+      //   container.removeChild(erss)
+      //       })
+
+      // 2.2 foreach 문으로 같은 클래스 자식 전부 삭제하기
+      // pElme.forEach(function (item) {
+      // // pElme.forEach(function (item,index,arr2) {
+      //     btn.addEventListener('click',function () {
+      //     container.removeChild(item)
+      //           })
+      // })
+
+
+      // 클릭시 순차적으로  삭제하기(실패.....)
+      // for (var i = 0; i < Conchild.length; i++) {
+      //
+      //   console.log(Conchild[i]);
+      //
+      //   btn.addEventListener('click',function () {
+      //   // container.removeChild(child[i])
+      //     // container.removeChild(container.childNodes[ 1 ]);
+      //     this.parentNode.parentNode.removeChild(Conchild[i].parentNode);
+      //         })
+      // }
+
+      // console.log(ersp);
+      // btn.addEventListener('click',function () {
+      // container.removeChild(pElme)
+      //       })
+
+      // for (var i = 0; i < pElme.length; i++) {
+      //   var item =pElme.item(i);
+      //   console.log(item);
+      //
+      //   btn.addEventListener('click',function () {
+      //   container.removeChild(item)
+      //   // this.parentNode.removeChild(item);
+      //         })
+      // }
+
+
+
+
+
+      // (바로 위 부모만 삭제하기) 실패.......
+      // for (var i = 0; i < Conchild.length; i++) {
+      //
+      //   btn.addEventListener('click',function () {
+      //   // Conchild[i].classList.remove(Conchild[i]);
+      //     container.removeChild(Conchild[i]);
+      //
+      //         })
+      // }
+
+
+
+      // 3. 부모 전부삭제 (나도 삭제됨...)
+      // btn1.addEventListener('click',function () {
+      //   this.parentNode.parentNode.removeChild(this.parentNode);
+      //
+      // })
+
+
+
+      //4. 클릭시 본인 삭제
+      // btn2.addEventListener('click',function () {
+      //   this.parentNode.removeChild(this);
+      //
+      // })
+
+
+      //5. 노드 선택자 예제
+      // function funcLoop() {
+      // var c = document.getElementById("divParent").children;
+      //
+      //     for (var i=c.length; i--;) {
+      //         c[i].click();
+      //     }
+      // }
+
+
+
+      // 6. 이벤트 반복문 (비효율)
+      // function clickHandler() {
+      //   for (var i = 0; i < ersp.length; i++) {
+      //     ersp[i].classList.remove('active')
+      //   }
+      //   this.classList.add('active')
+      // }
+      //
+      // for (var i = 0; i < ersp.length; i++) {
+      //   ersp[i].addEventListener('click',clickHandler)
+      // }
+
+      // 6-2. 이벤트 반복문 (속도가 살짝 느리다. 요소가 많아질경우)
+      // function clickHandler() {
+      //   var activeMenu = document.querySelector('.active');
+      //   if (activeMenu) {
+      //     activeMenu.classList.remove('active')
+      //   }
+      //   this.classList.add('active')
+      // }
+      //
+      // for (var i = 0; i < ersp.length; i++) {
+      //   ersp[i].addEventListener('click',clickHandler)
+      // }
+
+      // 6-3. 벤트 반복문 이상적
+      // 현재 활성화된 메뉴를 담을 변수를 선언만 한상태(클릭시 활성화된 애를 담아놓기)
+
+      // var currentMenu;
+      //
+      // function clickHandler() {
+      //   if (currentMenu) {
+      //     currentMenu.classList.remove('active');
+      //   }
+      //   this.classList.add('active')
+      //   currentMenu = this;
+      // }
+      //
+      // for (var i = 0; i < ersp.length; i++) {
+      //   ersp[i].addEventListener('click',clickHandler)
+      // }
+
+
+      // 7 이벤트 위임 (스튜디오밀 자바스크립기초3 02:05:00) , for문없이 부모에게 주니깐 가독성도 좋다
+      // target이 핵심
+      // var currentMenu;
+      // var menu =document.querySelector('.container');
+      //
+      // function clickHandler(e) {
+      //   // console.log(this ==e.currentTarget);
+      //   //target을 하면 menu 가 아닌 내가 진짜 찍은 요소를 가르킨다
+      //   // console.log(e.target);
+      //   if (currentMenu) {
+      //     currentMenu.classList.remove('active');
+      //   }
+      //   e.target.classList.add('active');
+      //   currentMenu = e.target;
+      // }
+      //
+      // menu.addEventListener('click',clickHandler);
+
+
+
+      // 7 이벤트 위임 (함수를 기능별로  빼서 사용해주기) 구조적으로 바람직한 형태
+      var currentMenu;
+      var menu =document.querySelector('.container');
+
+      function activate(elem) {
+        //이벤트 핸들러가 아니기때문에 e.target은 못쓰고  elem만들어 주고 그것을 currentMenu에 넣어준다
+        // e.target.classList.add('active');
+        elem.classList.add('active');
+        currentMenu = elem;
+      }
+
+      function inactivate(elem) {
+        elem.classList.remove('active');
+      }
+
+      //이벤트 핸들러이기 때문에 e.target이 가능 (currentTarget은 함수에서 가르키는 menu를 가리키고 target은 진짜 클릭한 타겟을 가리킨다)
+      function clickHandler(e) {
+        if (currentMenu) {
+          inactivate(currentMenu);
+        }
+        activate(e.target);
+
+      }
+
+      menu.addEventListener('click',clickHandler);
+
+      //선택적 활성화 (미리 효과 주어지기)
+      // activate(document.querySelectorAll('.ers')[0] )
+      activate( pElme[1] )
+    </script>
+  </body>
+</html>

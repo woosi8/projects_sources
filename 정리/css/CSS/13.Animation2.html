@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+
+  img{
+    width: 400px;
+    height: 200px;
+  }
+  li{
+    width: 400px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+
+  }
+
+  li span{
+    position: absolute;
+      /* span태그가 li를 다 커버하게 해주기 */
+    /* width,height에 100%로 주면 padding 구현할때 width height 더해져서 커진다
+      li기준으로 위아래 다쓰게 하는것*/
+    /* 아래에서 나타나기 */
+    /* left: 0; top: 100%; right: 0; bottom: -100%;  */
+    /* 오른쪽에서 니타나기  %는 안쪽으로 들어오면 양수고 밖으로 나가는건 음수다*/
+    left: 100%; right: -100%; top: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    color: #fff; text-align: center; line-height: 200px;
+    /* opacity: 0; */
+    transition: 0.5s;
+  }
+
+  li:hover span{
+    /* opacity: 1; */
+    /* top : 0;
+    bottom: 0; */
+    left: 0;
+    right: 0;
+  }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <img src="cant.jpg">
+      <span>image title</span>
+    </li>
+    <li>
+      <img src="cant.jpg">
+      <span>image title</span>
+    </li>
+  </ul>
+</body>
+
+</html>

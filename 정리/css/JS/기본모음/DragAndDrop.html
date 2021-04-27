@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <style>
+body {
+  background: darksalmon;
+}
+
+.fill {
+  background-image: url('K-679.png');
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.hold {
+  border: solid 5px #ccc;
+}
+
+.empty {
+  display: inline-block;
+  height: 160px;
+  width: 160px;
+  margin: 10px;
+  border: solid 3px salmon;
+  background: white;
+}
+
+.hovered {
+  background: #f4f4f4;
+  border-style: dashed;
+}
+
+   </style>
+
+
+
+<body>
+
+  <div class="empty">
+    <div class="fill" draggable="true"> </div>
+  </div>
+
+  <div class="empty">
+  </div>
+
+  <div class="empty">
+  </div>
+
+  <div class="empty">
+  </div>
+
+  <div class="empty">
+  </div>
+
+
+<script>
+// Fill Listeners
+const empties = document.querySelectorAll('.empty');
+const fill = document.querySelector('.fill');
+
+fill.addEventListener('dragstart',dragStart);
+fill.addEventListener('dragend',dragEnd);
+
+// Loop through empties and call drag events
+// for(const empty of empties ) {
+//   empty.addEventListener('dragover',dragOver);
+//   empty.addEventListener('dragenter',dragEnter);
+//   empty.addEventListener('dragleave',dragLeave);
+//   empty.addEventListener('drop',dragDrop);
+// }
+empties.forEach(empty => {
+  empty.addEventListener('dragover',dragOver);
+  empty.addEventListener('dragenter',dragEnter);
+  empty.addEventListener('dragleave',dragLeave);
+  empty.addEventListener('drop',dragDrop);
+})
+
+
+// Drag Functions
+function dragStart() {
+  this.className += ' hold';
+  // to make sure that this happens after we actually move it
+  setTimeout(() => {
+    this.className = 'invisible';
+  }, 0);
+}
+
+function dragEnd() {
+  this.className = 'fill';
+}
+
+function dragOver(e) {
+  e.preventDefault();
+}
+function dragEnter(e) {
+  e.preventDefault();
+  // empty + hovered
+  this.className +=' hovered';
+
+}
+function dragLeave() {
+  // replaces empty
+  this.className ='empty';
+
+}
+// don't work until dragover prevent
+function dragDrop() {
+  this.className = 'empty';
+  this.append(fill);
+}
+
+</script>
+  </body>
+</html>

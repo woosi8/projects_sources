@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>3D wall</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <!--1 애가 진한 회색바 꽉 차있는거 -->
+        <div class="progress-bar-con">
+            <!-- 1 애가 하늘색 막대기 -->
+            <div class="progress-bar"></divw>
+        </div>
+        <div class="select-character">
+            <button
+                class="select-character-btn select-character-btn-ilbuni"
+                data-char="ilbuni"></button>
+            <button
+                class="select-character-btn select-character-btn-ragirl"
+                data-char="ragirl"></button>
+        </div>
+
+        <!-- world는 포지션 픽스로 줘서 휠을 내려도 그대로 있게한다 (perspective 공간을 만들어준다) -->
+        <div class="world"> 
+
+            <!-- stage:자바스크립트로 캐릭터 추가시 캐릭터와 벽들을 같이 묶어주기 위해서 -->
+            <div class="stage">
+                <!-- default 화면은 꽉차게 -->
+                <!-- 스크롤시 전체가 다 움직인다 -->
+                <div class="house">
+                    <!-- left right는 폭을 늘리고 y축 기준으로 90도 수직이동  -->
+                    <section class="wall wall-left"></section>
+                    <section class="wall wall-right"></section>
+                    <!-- wall을 다 포개놓은다 -->
+                    <!-- 각각 다른 z값을 줘서 순서대로 나오게한다 -->
+                    <section class="wall wall-front wall-front-a">
+                        <div class="wall-content">
+                            <h2 class="wall-title">안녕하세요</h2>
+                        </div>
+                    </section>
+                    <section class="wall wall-front wall-front-b">
+                        <div class="wall-content">
+                            <h2 class="wall-title">Hello</h2>
+                        </div>
+                    </section>
+                    <section class="wall wall-front wall-front-c">
+                        <div class="wall-content">
+                            <h2 class="wall-title">Hola</h2>
+                        </div>
+                    </section>
+                    <section class="wall wall-front wall-front-d">
+                        <div class="wall-content">
+                            <h2 class="wall-title">こんにちは</h2>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- <div class="character">
+                    <div class="character-face-con character-head">
+                        <div class="character-face character-head-face face-front"></div>
+                        <div class="character-face character-head-face face-back"></div>
+                    </div>
+        
+                    <div class="character-face-con character-torso">
+                        <div class="character-face character-torso-face face-front"></div>
+                        <div class="character-face character-torso-face face-back"></div>
+                    </div>
+        
+                    <div class="character-face-con character-arm character-arm-right">
+                        <div class="character-face character-arm-face face-back"></div>
+                        <div class="character-face character-arm-face face-front"></div>
+                    </div>
+        
+                    <div class="character-face-con character-arm character-arm-left">
+                        <div class="character-face character-arm-face face-front"></div>
+                        <div class="character-face character-arm-face face-back"></div>
+                    </div>
+        
+                    <div class="character-face-con character-leg character-leg-right">
+                        <div class="character-face character-leg-face face-front"></div>
+                        <div class="character-face character-leg-face face-back"></div>
+                    </div>
+        
+                    <div class="character-face-con character-leg character-leg-left">
+                        <div class="character-face character-leg-face face-front"></div>
+                        <div class="character-face character-leg-face face-back"></div>
+                    </div>
+                </div> -->
+            </div><!--// stage -->
+            
+        </div>
+
+
+        <script src="character.js"></script>
+        <script src="wall-3d.js"></script>
+    </body>
+
+</html>

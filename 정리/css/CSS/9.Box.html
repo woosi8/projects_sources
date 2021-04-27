@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        /* 여백을 제로로 해주기, 기본적으로 태그들이 여백을 갖기 떄문에 먼저 0으로 없애주기 */
+        margin: 0;
+        padding: 0;
+            /* font-size/line-height font-family:arial,sans-serif */
+        font-size: 12px/1.6 arial,sans-serif;
+      }
+      .boxmodel{
+
+       padding: 10px;
+       width: 500px;
+       /* 하이트는 안주는게 좋다 */
+       /* height: 100px; */
+
+
+       /* 합체==border : 5px solid red; */
+      /* border-width: 5px 20px 5px;
+      border-style: solid dotted dashed solid;
+      border-color: red blue green dodgerblue; */
+      /* 보더나 페딩이나 마진이나 다 똑같은 규칙으로 크기를 잡는다
+      숫자가 하나면 1 =사방  2= 상하 좌우 3 =상 좌우 하  4= 상 우 하 좌 (시계방향)  */
+
+      /* border-right: 5px solid red; */
+      /* border-right-width: 5px;
+      border-right-style: solid;
+      border-right-color: red; */
+
+      /* border: 1px solid; */
+      /* border-radius: 20px 5px 0 30px; */
+      /* 1 = 사방
+        2 =박스x좌상우하, 우상좌하
+        3 = 좌상 우상좌하(x자) 우하
+        4 = 그냥 시계방향
+        */
+        /* border-top-right-radius: 50px; */
+        /* 이렇게 방향 지정도 가능 */
+
+        /* padding: 10px 50px 100px 20px; */
+        /* padding-top: 50px; */
+
+        /* 마진은 세로방향만(상하),상하가 중첩되면 하나만 나오게 된다. */
+        margin:auto;
+        /* == margin:0 auto; */
+        display: block;
+        margin: 100px auto;
+        width: 500px;
+        border: 5px solid black;
+
+
+        /* 박스모델안에 어떤요소가 들어오든 20px여백을 만들고 싶을경우
+            크기를 컨탠트의 크기부터 한다.
+            내가 준 width500의 크기는 어디까지야? 보더까지야*/
+        padding: 20px;
+        /* 보더까지라고 선언했으니 내가준 width 500px안쪽으로 보더와 패딩을 뽑게된다 */
+        box-sizing: border-box;
+        /* 디폴트값은 컨탠트 */
+        box-sizing: content-box;
+
+     }
+
+
+     /* 위width는 안바꾸고 안쪽에 보더유지하고 20px 여분을 남기고싶다*/
+
+     /* .boxmodel p{
+      /* 부모 boxmodel의 width안에서 패딩 20px을 먹는다는뜻
+      너비는 항상 width가 있어야 크기가 만들어진다
+       padding: 20px;
+
+     } */
+
+
+
+
+
+
+
+     .circle{
+       width: 300px;
+       height: 300px;
+       background: green;
+       color: #fff;
+       border: 2px solid black;
+       /* %로 하는게 더 정교한다 */
+       border-radius: 50%;
+       text-align: center;
+       font-size: 5em;
+        /* 폰트 가운데 놓기, 크기는 위에 놓은 크기와같이 */
+       line-height: 300px;
+     }
+
+    .box{
+      width: 500px;
+      border: 5px solid red;
+      margin: auto;
+      display: block;
+
+    }
+
+    </style>
+  </head>
+  <body>
+<div class="boxmodel">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+</div>
+
+<div class="circle">
+  circle
+
+</div>
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+  </body>
+</html>

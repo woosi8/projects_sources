@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript for Web Designers - Back to top button demo</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700italic|Lato:400,400italic,700">
+  <style media="screen">
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialised;
+    }
+
+    body {
+      background-color: #313944;
+      padding: 5em 20em;
+    }
+
+    h1 {
+      color: #fff;
+      font-family: 'Cormorant Infant';
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 72px;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    h1:after {
+      color: #1fcfcb;
+      display: block;
+      content: '. . .';
+      font-size: 26px;
+      line-height: 24px;
+      height: 24px;
+      margin: 48px auto;
+    }
+
+    h2 {
+      color: #fff;
+      font-family: 'Cormorant Infant';
+      font-size: 54px;
+      font-weight: 700;
+      line-height: 72px;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    p {
+      color: #bbc8d8;
+      font-family: 'Lato';
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 36px;
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    a {
+      color: #1fcfcb;
+      font-family: 'Lato';
+    }
+
+    a:hover {
+      color: #fff;
+    }
+    .output {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      font-size: 2rem;
+      font-weight: 200;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    #back-to-top {
+      position: fixed;
+      bottom: 3em;
+      right: 3em;
+      background-color: rgba(255, 255, 255, .9);
+      color: #313943;
+      border: none;
+      border-radius: 5px;
+      padding: 1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 0 2em 0 rgba(0, 0, 0, .25);
+      transition: all .3s ease-in-out;
+      display: inline-block;
+      opacity: 0;
+      text-decoration: none;
+      font-size: .75em;
+    }
+
+    #back-to-top:hover {
+      background-color: #fff;
+      padding: 1em 3em;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="output">output</div>
+  <header id="top">
+    <h1>Moby Dick</h1>
+    <h2 class="ilbuni">by Herman Melville</h2>
+  </header>
+
+  <main>
+    <p>Presently a breeze sprang up; Stubb feigned to cast off from the whale; hoisting his boats, the Frenchman soon increased his distance, while the Pequod slid in between him and Stubb's whale. Whereupon Stubb quickly pulled to the floating body,
+      and hailing the Pequod to give notice of his intentions, at once proceeded to reap the fruit of his unrighteous cunning. Seizing his sharp boat-spade, he commenced an excavation in the body, a little behind the side fin. You would almost have
+      thought he was digging a cellar there in the sea; and when at length his spade struck against the gaunt ribs, it was like turning up old Roman tiles and pottery buried in fat English loam. His boat's crew were all in high excitement, eagerly
+      helping their chief, and looking as anxious as gold-hunters.</p>
+
+    <p>And all the time numberless fowls were diving, and ducking, and screaming, and yelling, and fighting around them. Stubb was beginning to look disappointed, especially as the horrible nosegay increased, when suddenly from out the very heart of
+      this plague, there stole a faint stream of perfume, which flowed through the tide of bad smells without being absorbed by it, as one river will flow into and then along with another, without at all blending with it for a time.</p>
+
+    <p>"I have it, I have it," cried Stubb, with delight, striking something in the subterranean regions, "a purse! a purse!"</p>
+
+    <p>Dropping his spade, he thrust both hands in, and drew out handfuls of something that looked like ripe Windsor soap, or rich mottled old cheese; very unctuous and savory withal. You might easily dent it with your thumb; it is of a hue between
+      yellow and ash colour. And this, good friends, is ambergris, worth a gold guinea an ounce to any druggist. Some six handfuls were obtained; but more was unavoidably lost in the sea, and still more, perhaps, might have been secured were it not
+      for impatient Ahab's loud command to Stubb to desist, and come on board, else the ship would bid them good bye.</p>
+
+    <p>Now this ambergris is a very curious substance, and so important as an article of commerce, that in 1791 a certain Nantucket-born Captain Coffin was examined at the bar of the English House of Commons on that subject. For at that time, and
+      indeed until a comparatively late day, the precise origin of ambergris remained, like amber itself, a problem to the learned. Though the word ambergris is but the French compound for grey amber, yet the two substances are quite distinct. For
+      amber, though at times found on the sea-coast, is also dug up in some far inland soils, whereas ambergris is never found except upon the sea. Besides, amber is a hard, transparent, brittle, odorless substance, used for mouth-pieces to pipes,
+      for beads and ornaments; but ambergris is soft, waxy, and so highly fragrant and spicy, that it is largely used in perfumery, in pastiles, precious candles, hair-powders, and pomatum. The Turks use it in cooking, and also carry it to Mecca, for
+      the same purpose that frankincense is carried to St. Peter's in Rome. Some wine merchants drop a few grains into claret, to flavor it.</p>
+
+    <p>Who would think, then, that such fine ladies and gentlemen should regale themselves with an essence found in the inglorious bowels of a sick whale! Yet so it is. By some, ambergris is supposed to be the cause, and by others the effect, of the
+      dyspepsia in the whale. How to cure such a dyspepsia it were hard to say, unless by administering three or four boat loads of Brandreth's pills, and then running out of harm's way, as laborers do in blasting rocks.</p>
+  </main>
+
+  <footer>
+    <p><small><em>Typography and color scheme based on <a href="http://typespiration.com/design/the-signal/">"The Signal"</a>.</em></small></p>
+    <a id="back-to-top" href="#">Top</a>
+  </footer>
+
+  <script>
+    // *변수 지정하기
+    //
+    // -스크롤과 클릭 이벤트 작성하기 *
+    // -문서의 높이를 계산하고 원하는 부분이 상단에서 얼마큼 떨어져 있는지 offset 값을 계산하기 *
+
+    var btt = document.querySelector('#back-to-top'),
+      // html문서 차체를 가져온다
+      docElem = document.documentElement,
+      offset,
+      scrollPos,
+      docHeight;
+
+    // 문서 전체 높이 계산하기
+    //  Math.max(100,800);
+    //  브라우저 마저 높이 계산이 다르기 떄문에 offset,scroll둘다 써서 그중에 높은값을 갖는다
+    docHeight = Math.max(docElem.offsetHeight, docElem.scrollHeight)
+    //                      스크롤 위치
+    // scrollPos = docElem.scrollTop;
+
+    // 문서에 높이가 생길때만
+    //docHeight에 값이 있으면 이란 뜻
+    if (docHeight != 0) {
+      // 스크롤 다 안내렸을때 값 4분의1로
+      offset = docHeight / 4;
+    }
+
+
+    // 스크롤 이벤트 추가
+    window.addEventListener('scroll', function() {
+      scrollPos = docElem.scrollTop;
+      //                  scrollTop은 창의 스크롤양
+      //btt.className= 'test'; 기존 클래스명 바꾸기
+      // 아래는 if문 축약형                           else
+      //                                   ?참이면 클래스네임을 visible로 바꾸고 그게 아니면 ''빈값으로해라
+      btt.className = (scrollPos > offset) ? 'visible' : '';
+      // if (scrollPos >offset)) {
+      //   btt.className= 'visible';
+      // } else {
+      //   btt.className= '';
+      // }
+    });
+
+    // 클릭 이벤트 추가 (스크롤 부드럽게 올리기scrollBy)
+    //                                     ev는 btt의 기본속성
+    btt.addEventListener('click', function(ev) {
+      ev.preventDefault(); //a링크의 #본연의 기능을 막는다
+      // docElem.scrollTop = 0;
+      scrollToTop();
+    });
+    // 스크롤양을 조금씩 빼마다 0이되면 멈춰라
+    function scrollToTop() {
+      //일정시간 마다 할일
+      //var scrollInterval=setInterval(할일,시간)
+      //0.0015 = 15
+      //할일 = function () {실제로 할일}
+      // 실제로 할일: 윈도우 스크롤 양이 0이 아닐때 스크롤을 빼는법 window.scrollBy(0,-??);발생
+      // 스크롤이 0이면 setInterval을 멈춰라. clearInterval(이름);
+      var scrollInterval = setInterval(function() {
+        // window scrollPos양이 0이 아닐때까지 해준다
+        if (scrollPos != 0) {
+          //윈도우에서 스크롤 값을 뺴는법 -55씩 뺀다
+          window.scrollBy(0, -55)
+          // window scrollPos양이 0일때
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 15);
+
+    };
+
+
+    ///스크롤값 높이값 구하기
+
+    const outputElem = document.querySelector('.output');
+    const ilbuniElem = document.querySelector('.ilbuni');
+
+    function showValue() {
+
+      let posY = ilbuniElem.getBoundingClientRect().top;
+      outputElem.innerHTML= posY;
+
+      if (posY<window.innerHeight*0.5) {
+        ilbuniElem.classList.add('zoom');
+      } else {
+        ilbuniElem.classList.remove('zoom');
+      }
+
+
+    }
+
+      window.addEventListener('scroll',function () {
+        showValue();
+
+      })
+  </script>
+</body>
+
+</html>

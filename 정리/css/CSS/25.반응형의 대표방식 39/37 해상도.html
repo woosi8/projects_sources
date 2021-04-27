@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>min-device-pixel-ratio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 핸드폰 해상도 크기 보기 -->
+<!-- troy.labs.daum.net -->
+<style>
+	*{margin: 0; padding: 0;}
+	body,h1,h2,h3,h4{font-family: verdana,sans-serif; font-size: 12px;}
+	li{list-style: none;}
+
+	.photo{
+		width: 240px;
+		height: 200px;
+		background-image: url(photo-240.png);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 100% 100%;
+		text-indent: -9999em;
+	}
+
+			/* 이건 크롬 웹킵이 아니다. 모바일 디바이스에서 css,html해석하는 엔진 */
+								/* 픽셀 비율(라티오)가 2 이상인 디바이스 */
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+	/* 여기에는 포토에 있는 그림보다 두배 큰 그림을 넣어줘야 한다 */
+	.photo{
+		background-image: url(photo-480.png);
+		/* background-size: contain; */
+	}
+}
+</style>
+</head>
+
+<body>
+
+<p class="photo">photo example</p>
+
+</body>
+</html>

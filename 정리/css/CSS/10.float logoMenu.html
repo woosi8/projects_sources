@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    header {
+      width: 80vw;
+      background: #ccc;
+      /* 화면가운데 */
+      margin: 0 auto;
+    }
+
+    h1 {
+      float: left;
+    }
+
+    /* h1과 nav가 동일선상이니깐 자식이 아니라 부모인 nav야 한다 */
+    nav {
+      float: right;
+    }
+
+    /* h1,nav에 플롯을 줬으니 부모인 헤더 마지막에 클리어 해준다 */
+    header:after {
+      content: '';
+      display: block;
+      clear: both;
+
+    }
+
+    nav ul li {
+      float: left;
+      margin-left: 20;
+      list-style: none;
+      line-height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><a href=""></a>Logo</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="">login</a>
+          <a href="">meberjoin</a>
+          <a href="">site map</a>
+          <a href="">location</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+</html>

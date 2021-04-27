@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+html{ font-size: 16px;}
+body {font-size: 1rem;}
+
+/* 피씨에서는 가운데 정렬이지만 여기부터는 전체 다쓰는거다 . margin은 0으로 초기화*/
+header > div {width: 100%; margin: 0;}
+header > div h1 { padding: 1.1rem 0 1.2rem 1rem;}

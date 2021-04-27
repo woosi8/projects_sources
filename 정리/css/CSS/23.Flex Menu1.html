@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Menu Style</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- 41 -->
+  <!-- 41 -->
+  <!-- 41 -->
+  <!-- 41 -->
+  <style media="screen">
+    body {
+      font-family: "Open Sans";
+      line-height: 1.618em;
+    }
+
+    .wrapper {
+      max-width: 60rem;
+      width: 100%;
+      margin: 5rem auto;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+
+    .menu_item {
+      height: 3em;
+      line-height: 3em;
+    }
+
+    .menu_item a{
+      /* 부모가 만든 3em 하이트를 온전히 다쓰라는것 */
+      display: block;
+      background: #3498db;
+      color: #fff;
+      border-right: 0.25em solid #fff;
+      padding-right: 2em;
+      position: relative;
+      overflow:hidden;
+      /* 1.여기를 띄우고 */
+      z-index: 1;
+    }
+
+    .menu_item:last-child a {
+      border-right: 0;
+    }
+
+    .menu_item .fa{
+      background: #2980b9;
+      width: 3em;
+      /* 부모라인 하이트 상속받아와라 */
+      line-height: inherit;
+      text-align: center;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      transition: 1s;
+    }
+
+    .menu_item span {
+      margin-left: 4.5em;
+      display: block;
+    }
+    .menu_item a::before{
+      /* a태그에서 오버플로우 히든해줘야함 */
+      content: '';
+      position: absolute;
+      left: -100%; top: 0; bottom: 0; right: 100%;
+      background: #2980b9;
+      transition: 0.35s;
+      /* 2. 여기를 비집고 들어가게 */
+      z-index: -1;
+
+    }
+
+    /* 햄버거 버튼 만들기  check box활용*/
+    /* 햄버거 버튼 만들기 */
+    /* 햄버거 버튼 만들기 */
+    /* nav위에 만들기 */
+    /* pc화면에서는 안나오고 모바일 화면에 나오기 */
+  .open_menu,.burger{ display: none;}
+
+
+
+    @media screen and (min-width:55rem) {
+      /* 55rem보다 줄이면 작동하지 않는다 */
+
+    .menu_item a:hover::before{
+      left: 0; right: 0;
+    }
+    .menu_item a:hover .fa{
+      font-size: 1.25em;
+      width: 3.6em;
+    }
+   }
+
+
+   @media screen and (max-width:55rem) {
+    /* 55이하에선 span태그가 없는것 */
+    .menu_item span{
+      margin-left: 1em;
+      width: 0;
+      transition: 0.5s ease;
+    }
+    .menu_item a:hover span{
+      /* auto준건 원래 상태로 돌아가라는것 */
+      width: auto;
+      margin-left: 4.5em;
+    }
+   };
+
+   @media screen and (max-width:30rem) {
+     .burger {display: block;}
+
+   };
+
+
+   @media screen and (max-width:30rem) {
+     /* 55rem보다 줄이면 작동하지 않는다 */
+     .burger {display: block;
+      width: 3em; height: 3em; background: #3498db; color: #fff;
+      text-align: center; line-height: 3em; margin-bottom: 0.25em;
+      cursor: pointer;
+      transition: background 0.35s;
+     }
+     /* input 이 체크되면 뒤에 따라오는 label 스타일을 바꾼다 */
+      .open_menu:checked + .burger{
+        background:#2980b9;}
+        nav{
+          flex-direction: column;
+
+          /* 이값만 주면 컨텐츠 만큼만 크기를 잡기 떄문에 크기를 조정하고 싶다면 width를 줘야한다 */
+          position: absolute;
+          width: 100%;
+          /* 숨겨놓기 */
+          left: -100%; right: 100%;
+          transition: 0.35s;
+        }
+
+        /* 버거가 아니라 버거 뒤에 네브를 선택 */
+        /* .open_menu:checked + .burger + nav{ */
+        /* 뒤에 따라오는 형제 네브 전부다 ~~*/
+        .open_menu:checked ~ nav{
+          left: 0; right: 0;
+        }
+        .menu_item{border-right: 0; box-sizing: content-box;}
+        .menu_item a{border-bottom: 0.25em solid #fff;}
+
+        .menu_item a:hover::before{
+          left: 0; right: 0;
+        }
+        .menu_item a:hover .fa{
+          font-size: 1.25em;
+          width: 3.6em;
+        }
+        .menu_item span{margin-left: 4.5em;}
+
+  };
+  </style>
+
+</head>
+
+<body>
+<div class="wrapper">
+
+   <input type="checkbox" class="open_menu" id="open_menu"/>
+    <!-- labe[for="open menu"].burger>i.fa.fa-bars -->
+    <!-- 이 라벨은 for open_menu를 위한거다 -->
+   <label for="open_menu" class="burger"><i class="fa fa-bars"></i></label>
+  <nav>
+
+    <div class="menu_item">
+      <a href="#design">
+        <i class="fa fa-paint-brush"></i>
+        <span>Design</span>
+      </a>
+    </div>
+
+    <div class="menu_item">
+      <a href="#code">
+        <i class="fa fa-code"></i>
+        <span>Coding</span>
+      </a>
+    </div>
+
+    <div class="menu_item">
+      <a href="#ecommerce">
+        <i class="fa fa-credit-card"></i>
+        <span>E-Commerce</span>
+      </a>
+    </div>
+
+    <div class="menu_item">
+      <a href="#marketing">
+        <i class="fa fa-bullhorn"></i>
+        <span>Marketing</span>
+      </a>
+    </div>
+
+  </nav>
+
+</div>
+</body>
+</html>

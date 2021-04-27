@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="">
+
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Layout</title>
+  </head>
+  <body>
+  <div class="container">
+      <div class="item">
+         <img src="cant.jpg" width="7%" height="11%">
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+         <p>aaaaaaaaaaaaa</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>bbbbbbbbbbbbbbbbb</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+      <div class="item">
+         <img src="cant.jpg" width="7%">
+         <p>ccccc</p>
+      </div>
+
+
+
+  </div>
+
+
+<style media="screen">
+
+  .container {
+
+    background: lightgray;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+
+    grid-gap: 1rem;
+
+
+  }
+  .item{
+    background: rgba(255, 0, 0, 0.5);
+
+
+  }
+
+  .item:nth-child(odd){
+     background: rgba(255, 255, 0, 0.5);
+
+  }
+
+
+  /* grid 그리드배치 그리드영역 */
+
+  .item:nth-child(1){
+        grid-column: 1/4;
+        /* (1)번 열을 1부터 4까지 하겠다 */
+  }
+
+  .item:nth-child(4){
+        grid-row: 2/4;
+        /* (4)번의 행을 2부터 4까지 하겠다 */
+        grid-column: 3;
+        /* 위에 경우 원하는대로 안가기때문에 강제로 열 3번째에 배치한다 */
+  }
+
+
+  .item:nth-child(9){
+        grid-row: 3/5;
+        /* 영역 중복시키기 */
+        grid-column: 3;
+  }
+
+
+</style>
+
+
+  </body>
+</html>

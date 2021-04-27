@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #943;
+                color: white;
+            }
+
+            a {
+                color: white;
+            }
+
+            .main-nav {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .main-nav li {
+                float: left;
+                text-align: center;
+                font-family: 'Arial Narrow', Arial, sans-serif;
+                font-size: 14px;
+                text-transform: uppercase;
+                /* 1 */
+                /* 1 */
+                /* 1 */
+                /* border-bottom: 1px solid transparent;
+      transition: 0.5s; */
+                /* 아래에서 올라오게하기 */
+                /* padding-bottom: 8px; */
+            }
+            /* .main-nav li:hover{
+      border-color: #b65;
+      padding-bottom: 0;
+
+    }
+    .main-nav li:hover a{
+      color: #d87;
+      font-size: 15px;
+
+    } */
+            .main-nav li a {
+                text-decoration: none;
+                width: 100px;
+                margin-right: 4px;
+                display: block;
+                font-size: 16px;
+                /* transition: 0.5s; */
+                position: relative;
+            }
+
+            /* #2 */
+            /* #2 */
+            /* #2 */
+            .main-nav li a::before {
+                content: '[';
+                /* 대괄호 높이 맞추기 위로 올라가야한다. 앱솔루투니깐 공간을 안차지한다. 마진을 움직여도 틀어지지않는다*/
+                position: absolute;
+                top: -2px;
+                margin-left: 4px;
+                opacity: 0;
+                transition: 0.5s;
+            }
+            .main-nav li a::after {
+                content: ']';
+                position: absolute;
+                top: -2px;
+                margin-left: -0.5px;
+                opacity: 0;
+                transition: 0.5s;
+            }
+            .main-nav li a:hover::before {
+                opacity: 1;
+                margin-left: -6px;
+            }
+            .main-nav li a:hover::after {
+                opacity: 1;
+                margin-right: 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

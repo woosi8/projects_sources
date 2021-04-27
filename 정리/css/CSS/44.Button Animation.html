@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            body {
+                background-color: #eee;
+            }
+
+            button {
+                font-family: 'Josefin Sans';
+                display: block;
+                margin: 20px;
+            }
+            .btn {
+                font-size: 30px;
+                color: #bbb;
+                cursor: pointer;
+                background: #fff;
+                border: 1px solid #ddd;
+                box-shadow: 0 0 3px rgb(220, 220, 200);
+                width: 70px;
+                height: 70px;
+                border-radius: 35px;
+                /* 버튼에 태생적으로 생긴 패딩을 없애서 제자리로 맞춰준다 */
+                padding: 0;
+                /* 태생적인 포커스 아웃라인 없애기 (포커스의 속성을 살려줘야한다) */
+                outline: none;
+                position: relative;
+                /* 밖에 있는 텍스트 감추기 */
+                overflow: hidden;
+                transition: 0.5s;
+            }
+
+            .btn-icon {
+                width: 70px;
+                height: 70px;
+                text-align: center;
+                line-height: 70px;
+            }
+            .btn-stretch .btn-text {
+                position: absolute;
+                /* 글자 위치 맞추기 */
+                left: 75px;
+                top: -10px;
+                transition: 0.5s;
+                opacity: 0;
+            }
+            .btn-stretch:hover {
+                width: 200px;
+            }
+            .btn-stretch:hover .btn-text {
+                top: 15px;
+                opacity: 1;
+            }
+            /* #2 */
+            /* #2 */
+            /* #2  모서리, 너비 변경, 화살표 90도 돌다 사라지기, 텍스트는 왼쪽에서 들어오게*/
+
+            .btn-spin:hover {
+                width: 200px;
+                border-radius: 4px;
+            }
+            .btn-spin:hover .btn-icon {
+                transform: rotate(360deg);
+                opacity: 0;
+            }
+            .btn-spin .btn-icon {
+                transition: 0.8s;
+            }
+
+            .btn-spin .btn-text {
+                position: absolute;
+                left: -20px;
+                top: 15px;
+                opacity: 0;
+                transition: 0.5s;
+            }
+            .btn-spin:hover .btn-text {
+                left: 65px;
+                opacity: 1;
+                top: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button class="btn btn-stretch">
+            <!-- 부모 추가해주기 : i태그 감추고 나타내기위해 -->
+            <div class="btn-icon">
+                <i class="fa fa-arrow-right"></i>
+            </div>
+            <span class="btn-text">submit</span>
+        </button>
+
+        <button class="btn btn-spin">
+            <div class="btn-icon">
+                <i class="fa fa-arrow-right"></i>
+            </div>
+            <span class="btn-text">submit</span>
+        </button>
+    </body>
+</html>

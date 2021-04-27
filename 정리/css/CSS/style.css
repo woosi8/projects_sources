@@ -1,0 +1,74 @@
+h1,p{
+  margin:0;
+  padding:0;
+}
+
+body{
+  margin:0;
+  /* font-size: 1em; */
+}
+
+
+.container{
+    background-color: pink;
+
+}
+
+.container:after{
+  content:'i made it';
+  display: block;
+  clear:both;
+  height: 0;
+  visibility: hidden;
+}
+
+
+.item {
+    padding: 5%;
+    float: left;
+    /* 왼쪽에 두고 감싸도 돈다. */
+
+
+}
+
+
+
+.item-a{
+    width: 30%;
+    background-color: yellow;
+
+
+}
+
+.item-b{
+    width: 50%;
+    background-color: yellowgreen;
+
+}
+
+
+
+
+
+
+@media(min-width: 700px){
+
+  .container {
+    font-size: 0;
+    background-color: red;
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+  .item-a {
+    width: 30%;
+  }
+
+  .item-b {
+    width: 50%;
+  }
+
+}

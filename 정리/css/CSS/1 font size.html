@@ -1,0 +1,89 @@
+
+div>ul>li
+div+p+bq
+ul>li.item*5
+div>(header>ul>li*2>a)+footer>p
+td[title="Hello world!" colspan=3] 안에속성넣기
+ul>li.item$*5     클래스명 숫자로만들기
+ul>li.item$$$*5   숫자+세자리수
+ul>li.item$@-*5   숫자역순
+ul>li.item$@3*5   3부터 5개 더만들기
+ul>li.item$@-3*5  역순
+a{Click me}      텍스트넣기
+p>{Click }+a{here}+{ to continue}
+
+
+
+% : width에 거의 사용
+
+폰트 사이즈에 비례해야 되는 값은 rem, em을 사용해야 한다
+rem은 html(root) 폰트 사이즈를 기준으로 계산
+em은 부모 태그의 폰트 사이즈를 기준으로 계산
+rem, em : 폰트 사이즈, 나머지 padding같은 것들에 사용
+
+
+일반적으로 폰트 사이즈는 rem, 나머지 padding같은 것들은 em 하는것이 나음
+
+width : auto; /* 요소의 부모 크기 기준으로 가득 찬다 */
+height : auto; /* 요소의 자식 기준으로 자동 조절된다 */
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/css/master.css">
+  <style media="screen">
+    /* @import url(sample.css)  */
+
+    :root{
+      /* rem : root에 12px를 줬으니 기본 16px에서 기본이 12px로 변한다 */
+      font-size: 12px;
+    }
+    h1 {
+      /* rem 문서의 기본값의 배수 */
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem
+    }
+
+    p {
+      /* em은 em단위가 쓰여진 곳의(부모) 폰트 사이즈 배수이다(default값은 16px) */
+      /* 1em = 16px*/
+      font-size: 1.5em;
+      /* 16*1.5 *20 = 480px */
+      /* width: 20em; */
+
+      /* 문서의 기본값16px*20=   */
+      /* width: 20rem; */
+
+      /* %퍼센트는 부모(body)가 만들어준 공간안에서 너비 비율 */
+      /* 뷰포트vw는 브라우저 너비를 다 쓴다. 화면 전체*/
+      width: 100vw;
+    }
+    h1 span{
+      /* h1에 폰트사이즈기준을 h1에서 ,1.5em이면 그것을 기준으로 따른다. */
+      font-size: 0.8em;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1><span>Lorem</span> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+  <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</body>
+
+</html>

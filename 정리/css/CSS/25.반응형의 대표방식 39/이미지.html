@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!--
+  1. 태블릿 > 모바일 순으로 가는게 편하다 (이때 태블릿에서 잡아준 css를 모바일로 가져와서 태블릿>모바일 변경사항만 바꿔준다)
+  2. 태블릿 반응부터는 전체 크기나 부모 크기는 틀의 width는 %로 가야한다. 패딩이나 라인하이트, 하이트, 폰트사이즈 픽셀 가능
+
+ -->
+</head>
+<style media="screen">
+  .image {
+    width: 580px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: dodgerblue;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contents {
+    position: relative;
+    width: 240px;
+    margin: 10px 30px 10px 0;
+    border: 1px solid #fff;
+  }
+
+  .contents:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .contents img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .contents p {}
+
+  .button {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    border-radius: 1px;
+    background: red;
+    color: #000;
+  }
+
+  @media (max-width:600px) {
+    .image{
+      display: block;
+      width: 100%;
+    }
+      .contents{
+        width: 100%;
+      }
+  }
+</style>
+
+<body>
+
+
+  <div class="image">
+    <div class="contents">
+      <img src="photo-240.png" alt="">
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <button class="button " type="button" name="button">
+        PUSH
+      </button>
+    </div>
+    <div class="contents">
+      <img src="photo-240.png" alt="">
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <button class="button " type="button" name="button">
+        PUSH
+      </button>
+    </div>
+    <div class="contents">
+      <img src="photo-240.png" alt="">
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <button class="button " type="button" name="button">
+        PUSH
+      </button>
+    </div>
+    <div class="contents">
+      <img src="photo-240.png" alt="">
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <p class="content">바로가기</p>
+      <button class="button " type="button" name="button">
+        PUSH
+      </button>
+    </div>
+
+
+
+
+</body>
+
+</html>

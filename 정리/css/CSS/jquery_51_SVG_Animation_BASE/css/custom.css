@@ -1,0 +1,101 @@
+h1, h2, h3, p {
+	font-family:'Source Sans Pro';
+	font-weight: 300;
+}
+.clearfix { clear:both; }
+p {
+	font-size:1.2em;
+}
+
+h1, h2, h3 {
+	font-size:3em;
+}
+
+#blue-container {
+	background:#000 url(../images/bg.png) repeat-x;
+	padding: 120px 0;
+}
+
+#gray-container {
+	background:#fff url(../images/bg2.png);
+	padding: 120px 0;
+	margin-top:310px;
+}
+
+
+.alc {
+	text-align:center;
+}
+
+h1 {
+	color:#fff;
+}
+
+/* ### */
+/* ### 겹치게 하기*/
+.notepads{
+	position: relative;
+	margin-top: 40px;
+	/* 자식 둘다 앱솔루투 처리하면 notepads가 안나오니깐 나오게 하기 위해 하이트를 준다 */
+	height: 252px;
+
+}
+.notepads img, .notepads svg{
+								position: absolute;
+								transition: 0.5s;
+								opacity: 0;}
+.notepads svg {background: #fff;}
+
+.notepads #bigpad{
+	left: 0; top: 0;
+}
+.notepads #smallpad{
+	right: 50px;
+	bottom: -5px;
+}
+/* 클래스명 넣어주기 */
+/* 클래스명 넣어주기 애니메이트 클래스가 들어오면(j query 이용해서) bigpad,smallpad에 효과 */
+.notepads .animate #bigpad{
+		left: 70px;
+		opacity: 1;
+}
+.notepads .animate #smallpad{
+		right: 150px;
+		opacity: 1;
+}
+
+
+<style type="text/css">
+
+	.st0{fill:#E6E7E8;}
+	.st1{fill:#231F20;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#BCBEC0;stroke-width:4;stroke-miterlimit:10;}
+	.st4{fill:#231F20;stroke:#000000;stroke-width:9;stroke-miterlimit:10;}
+	.st4{
+		/* <!-- 브라우저 검사요소로 확인한 선길이 --> */
+		stroke-dasharray:96;
+		stroke-dashoffset:96;
+	}
+
+	/* animate요소가 있을때 st4에 애니메이션 해라 */
+	.notepads.animate .st4{
+		animation: dash 0.4s linear forwards;
+	}
+  /* 아래처럼도 가능 */
+	/* .st4 .animate{
+		animation: dash 0.4s linear forwards;
+	} */
+
+
+	@keyframes dash{
+	from{stroke-dashoffset:96;}
+	to{stroke-dashoffset:0;}
+	}
+	/* <!-- 여기에다 차등순서(dealay)를 줘야한다 --> */
+	#line1{animation-delay:0.1s;}
+	#line2{animation-delay:0.2s;}
+	#line3{animation-delay:0.3s;}
+	#line4{animation-delay:0.4s;}
+	#line5{animation-delay:0.5s;}
+</style>

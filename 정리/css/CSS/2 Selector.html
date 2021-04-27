@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            .color {
+            }
+
+            .color:nth-child(n + 2):nth-child(-n + 3) {
+                color: red;
+            }
+
+            .weight {
+                font-weight: bold;
+            }
+
+            /* div의 h2인 친자식만 (손자 말고)선택 */
+            div > h2 {
+                color: red;
+            }
+
+            /* h1 형제에서 첫번째 h2만 선택 */
+            div h1 + h2 {
+                color: dodgerblue;
+            }
+
+            /* nav의 형제 h2 전부선택 */
+            div nav ~ h2 {
+                color: green;
+            }
+
+            /* 두개 합치기 */
+            /* #title{text-decoration: underline;}
+            nav ~h2{text-decoration: underline;} */
+            #title,
+            nav ~ h2 {
+                text-decoration: underline;
+            }
+
+            /* 속성으로 지정하기 */
+            /* ###attribute selector */
+            /* ###attribute selector */
+            /* ###attribute selector */
+            /* a링크에 타겟 지정 */
+            a target 사이에 공백이 있으면 자식요소 중에 라는뜻 공백이 없으면 a태그 중에 a[target] {
+                text-decoration: none;
+            }
+
+            a[target='_blank'] {
+                background: dodgerblue;
+                color: white;
+            }
+
+            a[target='_self'] {
+                background-color: red;
+                color: white;
+            }
+
+            /* li에 클래스 link1,2 선택하기 */
+            /* ^는 class명이 link로 시작하는것 */
+            [class^='link'] {
+                list-style: none;
+            }
+
+            /* 가상선택자 */
+            /* pseudo selector */
+            /* pseudo selector */
+            /* pseudo selector */
+            a:link {
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: red;
+                text-decoration: underline;
+            }
+
+            /* 누르는순간 */
+            a:active {
+                background-color: red;
+                color: black;
+            }
+
+            /* 이미 방문한거 눌렀던 거 */
+            a:visited {
+                color: silver;
+            }
+
+            a:link {
+                outline: none;
+            }
+
+            /* 가상선택자들 tab 요소들*/
+            a:focus {
+                background-color: blue;
+                color: white;
+            }
+
+            h1:hover {
+                text-decoration: none;
+            }
+
+            input:focus {
+                background-color: red;
+                color: white;
+            }
+
+            h1:before {
+                /* 가상텍스트-앞자리에 글넣기'', 태그앞이 아니라 텍스트 앞이다. 태그앞은 js로 가능*/
+                /* 모양으로 만들기 */
+                content: '';
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                background-color: red;
+                margin-right: 20px;
+            }
+
+            h1:after {
+                content: 'After';
+                color: red;
+            }
+
+            li:first-child {
+                text-decoration: underline;
+                color: red;
+            }
+            /* li:last-child{
+    color:green;
+  }
+  li:nth-child(3){
+    color: blue;
+  }
+  li:nth-child(2n){
+    background-color: silver;
+  }
+  li:nth-child(2n+1){
+    background-color: dodgerblue;
+  } */
+            /* 아래 li값은 6개니깐 n은 0부터5까지세어보자, 3번쨰까지만(2니깐) 나온다 */
+            li:nth-child(-n + 3) {
+                background-color: black;
+            }
+            li:nth-child(n + 4) {
+                background-color: dodgerblue;
+            }
+            h2 {
+                color: green;
+            }
+            /* 특정 엘리먼트 말고 나머지 색 다 선택하기 */
+            :not(h1) {
+                /* !important 써주면 어떠한 것보다 최고 우선순위를 갖는다. */
+                color: black !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="">
+            <h1 id="title">css</h1>
+            <h2>selector</h2>
+            <h2>selector</h2>
+            <ul>
+                <li><a href="#" target="_blank">google</a></li>
+                <li><a href="#" target="_blank">daum</a></li>
+                <li><a href="#" target="_self">naver</a></li>
+            </ul>
+            <ul>
+                <li class="google"><a href="#" target="_blank">google</a></li>
+                <li class="link1"><a href="#" target="_blank">daum</a></li>
+                <li class="link2"><a href="#" target="_self">naver</a></li>
+            </ul>
+            <ul>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+                <li>list item</li>
+            </ul>
+            <nav>
+                <h2>title</h2>
+            </nav>
+            <h2>title</h2>
+            <h2>title</h2>
+        </div>
+        <ul>
+            <li class="color">List item</li>
+            <li class="color line">List item</li>
+            <li class="color line weight">List item</li>
+        </ul>
+
+        <p>
+            <span>Lorem ipsum</span> dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </p>
+        <p>
+            <span>Lorem ipsum</span> dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </p>
+        <input type="text" name="" value="" placeholder="이름 입력" />
+    </body>
+</html>

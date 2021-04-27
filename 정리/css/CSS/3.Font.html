@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!--11 웹폰트 구글에서 가져오기 -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald:400,700&display=swap" rel="stylesheet"> -->
+
+  <style media="screen">
+    /* css에서 웹폰트 넣기 */
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald:400,700&display=swap');
+
+
+    /* fonts.google.com */
+    /* 사실 웹폰트가 바라직
+        font-family:  폰트명; src:url();
+      } */
+    body {
+      /* font-family: '돋움' */
+      font-size: 12px;
+    }
+
+    /* 22 웹폰트 지정해주기 */
+    .en {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+    }
+
+    .ko {
+      font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .ko a {
+      text-decoration: none;
+      color: dodgerblue;
+      font-size: 25px;
+    }
+
+    h1 {
+      /* medium = 16px; larger = body가 준 크기보다 좀더 크게 smaller */
+      font-size: larger;
+        /* 12*3 */
+      font-size: 3em;
+      font-weight: bold;
+      /* 세일가칠때 */
+      text-decoration: line-through;
+    }
+    /* em = 텍스트에서 특정 글자 효과줄때 쓰는 태그 */
+     /* 이 둘은 기본값이 이태릭체라서 기본으로 돌려줘야함 */
+    em,address{
+      font-style: normal;
+    }
+    del{
+      font-style: italic; /*=oblique; */
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <h1>SUbject</h1>
+  <del>1,000,000W</del>
+  <p class="ko"><a href="https://fonts.google.com/" target="_blank">Lorem </a>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+    mollit anim id est laborum.</p>
+  <p class="en"><em>Lorem</em> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <address>
+      &copy; all right reserved.<br/>
+      contact us
+    </address>
+</body>
+
+</html>

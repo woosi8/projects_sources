@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            /* .photo img{
+        width: 100px;
+
+
+          호버 속성 각각 다르게 주기
+              duration dealy
+           width 2s 0.3s ease-in-out,
+          margin-left 2s 1s ease-in;
+
+          호버 속성 같을때 한번에 주기
+          all 2s 1s cubic-bezier(.17,.67,.83,.67);
+      } */
+            /* .photo img:hover{
+        width: 400px;
+        margin-left: 100px;
+      } */
+
+            /* 111 사이드 메뉴 side menu 만들기 */
+            /* 111 사이드 메뉴 side menu 만들기 */
+            /* 111 사이드 메뉴 side menu 만들기 */
+
+            .mainmenu {
+                background: #333;
+                padding-left: 40px;
+            }
+            .mainmenu ul {
+                /* background: #666;
+      display: none;
+      opacity: 0; */
+                /* 메뉴에서 선택한 메뉴만  붕 뜨게 하기위해서 */
+                /* position: absolute;
+      transition: opacity 0.8s; */
+                /* 지금 이 상태에서는 서브메뉴에 포인트를 갖다대면 작동하기때문에 event를 꺼줘야 한다 */
+                /* pointer-events: none; */
+                /* 하지만 지금 이상태에서는 서브메뉴가 나왔을때 포인트를 대면 사라져서 문제가된다 . 호버에 다시 오토로 켜줘야한다*/
+            }
+            /* .mainmenu li{}  이렇게 주면 메인메뉴아래 있는 li 전부를 뜻한다. 
+            여기선 mainmenu 직속 첫째 아들li선택하는것이므로 >  */
+            /* .mainmenu>li{float: left; list-style: none; margin-right: 30px; line-height: 35px; color: #fff;} */
+
+            .mainmenu:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .mainmenu > li ul li {
+                padding: 0 10px;
+            }
+
+            /* hover에서 부모를 바꿀수 없다. 형제나 자식은 가능 */
+            /* .mainmenu>li:hover ul { /*display: block; */
+            /* opacity: 1;
+       pointer-events: auto;
+    } */
+
+            /* *22222 메뉴가 커튼처럼 내려오게하기 */
+            /* *22222 메뉴가 커튼처럼 내려오게하기 */
+            /* *22222 메뉴가 커튼처럼 내려오게하기 */
+
+            .mainmenu ul {
+                background: #666;
+                /* opacity: 0; */
+                /* position 기준이 필요하다. 지금 상태에서는 화면상태 왼쪽애 디폴트로 잡고있다 */
+                position: absolute;
+
+                /* 위에 숨겨놓기 호버할때 나타나게 하기위해*/
+                top: -150px;
+
+                transition: top 0.7s;
+                z-index: -1;
+            }
+            .mainmenu > li {
+                float: left;
+                list-style: none;
+                line-height: 35px;
+                color: #fff;
+                padding: 0 30px;
+                position: relative;
+            }
+
+            /* 위에 짤리는 메뉴없이 다 나오게 하기위해서 ul높이값 계산 필요없이 100%주면 된다 */
+            .mainmenu > li:hover ul {
+                top: 100%;
+            }
+            /* 줄넘기 하지마라라 공간이 적어서 임의대로 넘어가니깐 */
+            .mainmenu ul li {
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="photo"><img src="cant.jpg" alt=""></div> -->
+
+        <ul class="mainmenu">
+            <li>
+                About Us
+                <ul>
+                    <li>ceo greeting</li>
+                    <li>history</li>
+                    <li>vision</li>
+                </ul>
+            </li>
+            <li>
+                Location
+                <ul>
+                    <li>ceo greeting</li>
+                    <li>history</li>
+                    <li>vision</li>
+                </ul>
+            </li>
+            <li>
+                Service
+                <ul>
+                    <li>ceo greeting</li>
+                    <li>history</li>
+                    <li>vision</li>
+                </ul>
+            </li>
+            <li>
+                Works
+                <ul>
+                    <li>ceo greeting</li>
+                    <li>history</li>
+                    <li>vision</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+<style media="screen">
+
+
+
+
+
+
+
+
+----------------  //4 버튼 이벤트 위임
+
+  const selectCharacterElem = document.querySelector('.select-character');
+
+
+  /* // 1 stgae에 append차일드를 붙여서 클릭하는 곳에 캐릭터가 나타나게 하기 */
+  stageElem.addEventListener('click',function (e) {
+    //  2퍼센트로 변환해서 캐릭터 엘리먼트에 %값으로 들어가게 하기
+    //  innerWeight가 전체폭 100%이니깐 분에 클라이언트엑스
+         console.log(e.clientX/window.innerWidth *100);
+
+
+    // 이런 식으로 매개변수 자리에 xPos의 정보를 가진 객체(Object)를 인자로 넣어서 생성자를 호출하게 되는데
+    // 바로 이 때 만든 객체가 Chracter.js안에 function Character(info)로 들어가는것
+     new Character({
+      //  3 xPos객체에다 넣어주기. 아래 계산값을 바로 생성자에 안넣어주고 객체의 속성을 넣어준다.
+      // 왜냐면 여기다가 기능을 추가하기 용의하게 >>4 js 생성자 고치기
+      xPos: e.clientX/window.innerWidth *100,
+      speed: Math.random()*0.5
+      speed: Math.random() * 0.5 + 0.2
+
+      //움직임 속도 랜덤으로 주기
+
+     });
+
+  });
+
+
+// 생성자 호출이라 new 가 붙는다. 여기서 호출해야 생성자로 인스턴스가 생성되니깐
+// 그리고  캐릭터 스크립트는 여기 스크립트보다 먼저 넣어줘야 한다. 그래야 불러오지 여기에
+ new Character();
+
+
+//캐릭터 버튼
+  selectCharacterElem.addEventListener('click',function (e) {
+  const value = e.target.getAttribute('data-char');
+  document.body.setAttribute('data-char', value);
+
+})
+
+
+
+
+-------------- //3 마우스 이동하는 곳으로 창 기울기 (3d-11)
+
+
+
+              /* 마우스 가운데가 원점이 되도록 하는 값을 이 객체 x,y값에 넣어준다 */
+const mousePos = {x: 0,y: 0};
+
+//회전시 캐릭터랑 화면 전체를 회전시키위해 감싸고있는 stage를 사용 (이것을 위해 stage을 만들어놈)
+const stageElem = document.querySelector('.stage');
+
+
+window.addEventListener('mousemove', function(e) {
+
+/* 가운데를 원점(0)으로 바꿔주기
+어떤 수치든간에 -1에서 1 사이의 값이 나오도록 하려고 하는 계산인데요,
+예를들어 브라우저의 width가 1000, 마우스로 클릭한 지점(e.clientX)이 500이라고 가정하면
+mousePos.x = -1 + (500/1000) * 2 = -1 + 0.5 * 2 = 0이 되겠죠?
+즉, 정 가운데를 클릭하면 0, 클릭한 지점의 위치에 따라 -1에서 1 사이의 "비율로 사용하기 좋은 값"을 갖게되어//
+                현재 마우스 x위치 / 현재 윈도우창 width위치 */
+  mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
+  mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
+
+  /* 트랜스폼 속성 여러개 쓸 경우 띄어 써줌// x축회전한다는 것은 y포지션의 영향을 받는것 .*5는 보이는 효과 대비시키려고              */
+  stageElem.style.transform = 'rotateX(' + (mousePos.y * 5) + 'deg) rotateY(' + (mousePos.x * 5) + 'deg)';
+
+})
+
+
+
+--------------//2 스크롤해서 창 움직이게 하기 (3d-7) +  파란 진행창 (3d-10)
+
+const houseElem = document.querySelector('.house');
+const barElem = document.querySelector('.progress-bar');
+
+window.addEventListener('scroll', function() {
+              //  스크롤바의 offset /
+                  // 스크롤을 얼마나 했는지 확인
+
+
+
+  const scrollPer = pageYOffset / maxScrollValue;
+                  //                퍼센트
+  barElem.style.width = scrollPer * 100 + '%';
+
+
+                      // 비율 상 1000을 곱해줌. 0~1000까지 세팅되도록(-20 마지막에 살짝 남겨서 보기좋게하기위해)
+                                //(css house에 -490준 상태니깐 똑같이 해주기.디폴트값 = 하기)
+  const zMove = scrollPer * 980 - 490;
+  houseElem.style.transform = 'translateZ(' + zMove + 'vw)';
+});
+
+
+
+
+--------------    // 1 창 크기에 맞춰서 크기재조정하기 (3d-9)
+let maxScrollValue;
+function resizeHandler() {
+// 최대 스크롤할 수 있는 높이 = 바디(전체) 높이 - 현재보이는 스크롤바 창 높이( 전체를 마지막 스크롤바 머리까지만 재야하니깐)
+// (스크롤바 마지막 머리까지) =
+  maxScrollValue = document.body.offsetHeight - window.innerHeight;
+}
+
+// 1 창 크기에 맞춰서 크기재조정하기
+                          //윈도우 창을 리사이즈할때마다 핸들러 함수의 스크롤 값이 갱신 된다.
+window.addEventListener('resize', resizeHandler);
+
+//문서가 로드되면 마지막에 리사이즈를 한번 실행해준다. (초기화)
+resizeHandler();
+
+
+
+
+})();

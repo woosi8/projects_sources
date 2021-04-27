@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <!-- #12
+    #12
+    #12 -->
+        <style media="screen">
+            #page-loader {
+                width: 150px;
+                height: 150px;
+            }
+            #page-loader circle {
+                /* fill= 면, 여기선 면은 없다 */
+                fill: none;
+                /* svg는 백그라운드가 아니다. 스트록이다 */
+                stroke-width: 10px;
+                stroke-linecap: round;
+                /* 써클을 돌린다 */
+                /* 중간은 빠르게 */
+                animation: loader 4s infinite ease-in-out;
+                /* 가운데를 중심으로 돌기 */
+                transform-origin: 50% 50%;
+            }
+            /* <!-- 선 간격 주기 -->
+                            "100"선의길이, 선간격이고 (두개다 적으면 길이,간격 순서)(4개도 가능) -->
+                             좌표: x1~y1에서, x1~y2까지
+    <line stroke-dasharray="100" x1="" y1="" x2="" y2=""/>
+    <line stroke-dasharray="5, 5" x1="" y1="" x2="" y2=""/> */
+            /* 선의 길이 50,간격 50이다 */
+            #page-loader circle:nth-child(1) {
+                stroke: #ffc114;
+                stroke-dasharray: 50;
+                animation-delay: 0.2s;
+            }
+            /* 딜레이로 차등 속도를 준다 */
+            #page-loader circle:nth-child(2) {
+                stroke: #ff5248;
+                stroke-dasharray: 100;
+                animation-delay: 0.4s;
+            }
+            #page-loader circle:nth-child(3) {
+                stroke: #19cdca;
+                stroke-dasharray: 180;
+                animation-delay: 0.6s;
+            }
+            #page-loader circle:nth-child(4) {
+                stroke: #4e80e1;
+                stroke-dasharray: 350;
+                animation-delay: 0.8s;
+                /* 선자체를 움직이게 하기 양수 왼쪽 ,음수 오른쪽
+                                                  왼쪽으로 50
+    <line stroke-dasharray="100" stroke-dashoffset= "50" */
+                stroke-dashoffset: -100;
+            }
+
+            @keyframes loader {
+                /* 0%{           0값들은 지워줄수있따
+      transform: rotate(0deg);
+      } */
+                50% {
+                    transform: rotate(360deg);
+                }
+                /* 100%{
+      transform: rotate(0deg);
+
+      } */
+            }
+        </style>
+    </head>
+    <body>
+        <svg id="page-loader">
+            <!-- 원 만들때 필요한것  : 중심점(x축,y축),반지름 -->
+            <circle cx="75" cy="75" r="20" />
+            <circle cx="75" cy="75" r="35" />
+            <circle cx="75" cy="75" r="50" />
+            <circle cx="75" cy="75" r="65" />
+        </svg>
+    </body>
+</html>

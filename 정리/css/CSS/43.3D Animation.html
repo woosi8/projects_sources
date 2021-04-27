@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            /* #1 들어올리기 */
+            /* #1 들어올리기 */
+            /* #1 들어올리기 */
+
+            /* body {
+              font-family: sans-serif;
+              padding: 0;
+              margin: 0;
+            }
+
+            .main-nav {
+              background-color: #298234;
+              color: white;
+              width: 100%;
+              height: 80px;
+            }
+
+            .nav-list {
+              text-align: center;
+              list-style: none;
+              padding-left: 0;
+              padding-top: 10px;
+            }
+
+            .nav-list li {
+              display: inline-block;
+              width: 160px;
+              height: 40px;
+              margin: 10px 5px;
+              text-align: center;
+              position: relative;
+            }
+
+            .nav-list li a {
+              background-color: rgba(255, 255, 255, .1);
+              color: white;
+              text-transform: uppercase;
+              text-decoration: none;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 160px;
+              height: 40px;
+              line-height: 40px;
+            }
+
+            .nav-list li a::after {
+              content: attr(data-title);
+              background-color: #197224;
+              display: block;
+              width: 160px;
+              height: 40px;
+              /* 먼저 포개놓고 */
+              /* position: absolute;
+              top:0;
+              transform: scaleY(0);
+              transition: 0.5s;
+              transform-origin: bottom; */
+              /* transform-origin: 0 100%; */
+            }
+
+
+            /* .nav-list li a span{
+              먼저 공간 다 먹게하기
+              display: block;
+              width: 160px;
+              height: 40px;
+              transition: 0.5s;
+              background: rgba(255,255,255,0.3);
+              현재 가운데(기본값)로 줄기떄문에 위를 기준으로 줄어야 한다
+                            X축 Y축
+              transform-origin: 50% 0;
+              transform-origin: top;
+            }
+            .nav-list li a:hover span{
+              transform: scaleY(0);
+            }
+            .nav-list li a:hover::after {
+              transform: scaleY(1);
+            } */
+
+
+
+
+
+            /* #2  살짝들기+그림자*/
+            /* #2  scale이용*/
+            /* #2  span태그를 호버하면 높이를 줄이고, after는 0이였다가 호버하면 15%로 높이를 늘린다. 착시효과*/
+            body {
+              font-family: sans-serif;
+              padding: 0;
+              margin: 0;
+            }
+
+            .main-nav {
+              background-color: #333;
+              color: white;
+              width: 100%;
+              height: 80px;
+            }
+
+            .nav-list {
+              text-align: center;
+              list-style: none;
+              padding-left: 0;
+              margin-top: 0;
+            }
+
+            .nav-list li {
+              display: inline-block;
+              width: 160px;
+              height: 40px;
+              margin: 10px 5px;
+              text-align: center;
+              position: relative;
+            }
+
+            .nav-list li a span {
+              color: white;
+              text-transform: uppercase;
+              text-decoration: none;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 160px;
+              height: 40px;
+              line-height: 40px;
+              transform-origin: 0 0;
+              transition: all .5s;
+            }
+
+
+            .nav-list li a::after {
+              content: '';
+              display: block;
+              width: 156px;
+              height: 40px;
+              line-height: 40px;
+              position: absolute;
+              top: 0;
+              left: 2px;
+              color: white;
+              text-transform: uppercase;
+              transform-origin: 0 100%;
+              transition: all .5s;
+              background: #222;
+              transform: scaleY(0);
+            }
+
+            .nav-list li a:hover span {
+              background: #444;
+              transform: scaleY(0.85);
+            }
+            .nav-list li a:hover::after {
+              transform: scaleY(0.15);
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="#" data-title="Home"><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="#" data-title="About Us"><span>About Us</span></a>
+                </li>
+                <li>
+                    <a href="#" data-title="Products"><span>Products</span></a>
+                </li>
+                <li>
+                    <a href="#" data-title="Blog"><span>Blog</span></a>
+                </li>
+                <li>
+                    <a href="#" data-title="Contact Us"><span>Contact Us</span></a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

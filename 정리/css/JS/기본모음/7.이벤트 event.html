@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Basic Event</title>
+  </head>
+  <style media="screen">
+    .active{
+      color: red;
+    }
+
+  </style>
+  <body>
+    <div class="container">
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <button id="submit">Click me</button>
+    </div>
+    <script>
+      // Event Click
+      const btn = document.querySelector('#submit'),
+            menu = document.querySelector('.container');
+
+
+      //자식 삭제 (자식 다 삭제하기)
+      btn.addEventListener('click',function () {
+        container.removeChild(container.childNodes[ 0 ]);
+            })
+
+      // 부모 삭제
+      // btn.addEventListener('click',function () {
+      //   this.parentNode.parentNode.removeChild(this.parentNode);
+      //
+      // })
+
+
+      //클릭시 본인 삭제
+      // btn.addEventListener('click',function () {
+      //   this.parentNode.removeChild(this);
+      //
+      // })
+
+      btn.addEventListener('click',function () {
+        btn.style.color = 'red';
+
+        console.log('버튼이 클릭되었습니다')
+      })
+
+      //마우스가 들어오면 할일 , Event종류('mouseover','mouseout','change','click',mouseup,mousedown,select,focus,,load)
+      menu.addEventListener('mouseenter',function () {
+        console.log('버튼이 클릭되었습니다')
+      })
+      menu.addEventListener('mouseleave',function () {
+        console.log('버튼이  나갔습니다')
+      })
+
+      //키를 눌렀을때 발생
+      window.addEventListener('keydown',function () {
+            console.log(event.key);
+            console.log(event.keyCode);
+
+      })
+
+
+
+    const ers  = document.querySelectorAll('.ers');
+    let currentMenu;
+
+    // function testing (){
+    //
+    //         var tag = document.getElementById( "demo" );
+    //
+    //         tag.removeChild( tag.childNodes[ 0 ] );
+    // }
+
+  function activate(elem) {
+    elem.classList.add('active');
+    // elem = currentMenu;
+    currentMenu = elem;
+  }
+  function inactivate(elem) {
+    elem.classList.remove('active')
+  }
+
+  function clickHandler(e) {
+    if (currentMenu) {
+      inactivate(currentMenu);
+    }
+    activate(e.target);
+  }
+
+  menu.addEventListener('click',clickHandler)
+
+  activate(ers[0]);
+
+  // 전체 반복
+  // for (var i = 0; i < ers.length; i++) {
+  //   activate(ers[i]);
+  // }
+  // 몇번째까지 반복
+  // for (var i = 0; i < 5; i++) {
+  //   activate(ers[i]);
+  // }
+
+  // 홀수 반복
+  // for (var i = 0; i < ers.length; i+=2) {
+  //   activate(ers[i]);
+  // }
+  // 짝수 반복
+  for (var i = 1; i < ers.length; i+=2) {
+    activate(ers[i]);
+  }
+
+
+</script>
+  </body>
+</html>

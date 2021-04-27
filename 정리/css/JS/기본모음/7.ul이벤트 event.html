@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Basic Event</title>
+  </head>
+  <style media="screen">
+    .active{
+      color: red;
+    }
+
+  </style>
+  <body>
+    <div class="container">
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="ers">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <button id="submit">자식 삭제
+      <button id="submit1">부모 삭제</button>
+      <button id="submit2">본인삭제</button>
+    </button>
+
+    <ul class="row">
+     <li class="row_l"><div class="icon"><i class="fas fa-user-alt"></i></div><input type="Name" name="Name" placeholder="      Full Name"/></li>
+     <li class="row_l"><div class="icon"><i class="fas fa-envelope"></i></div><input type="Email" name="Email" placeholder="      Email Address"/></li>
+     <li class="row_l"><div class="icon"><i class="fas fa-phone-alt"></i></div><input type="Phone" name="Phone" placeholder="      Phone number"/></li>
+     <a href="" class="btn">Request a quote</a>
+    </ul>
+    <script>
+    const row = document.querySelector('.row');
+    const rowl = document.querySelectorAll('.row_l');
+        const icon = document.querySelectorAll('.icon');
+    const ers = document.querySelectorAll('.ers');
+    const btn = document.querySelector('.btn');
+    const container = document.querySelector('.container');
+    const children = document.querySelector('.container').children;
+    Conchild = container.childNodes;
+    let currentMenu;
+
+
+    function activate(elem) {
+      elem.classList.add('active');
+      currentMenu = elem;
+    }
+    function inactivate(elem) {
+      elem.classList.remove('active');
+    }
+
+    function clickHandler(e) {
+      if (currentMenu) {
+         inactivate(currentMenu);
+      }
+      activate(e.target);
+    }
+
+    row.addEventListener('click',clickHandler);
+    container.addEventListener('click',clickHandler);
+
+    activate(rowl[2]);
+    activate(ers[1]);
+
+    </script>
+  </body>
+</html>

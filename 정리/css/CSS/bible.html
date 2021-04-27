@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="">
+
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Layout</title>
+  </head>
+  <body>
+  <div class="container">
+      <div class="item item-1">
+         <p>아멘</p>
+      </div>
+      <div class="item item-2">
+        <ol class="oleft">
+          <li><a href="S0.html" style="color:red"> 기쁨<br><br></a></li>
+          <li><a href="S1.html" class="saw" > 대적<br><br></a></li>
+          <li><a href="S2.html" class="saw" id="see"> 정죄<br><br></a></li>
+          <li><a href="S3.html"> 두려움<br><br></a></li>
+          <li><a href="S4.html"> 지혜&성령<br><br></a></li>
+          <li><a href="S5.html" style="color":red;> 로마서 6장<br><br></a></li>
+
+        </ol>
+      </div>
+      <div class="item item-3">
+         <p>3</p>
+      </div>
+      <div class="item item-4">
+         <p>4</p>
+      </div>
+      <div class="item item-5">
+         <p>5</p>
+      </div>
+      <div class="item item-6">
+         <p>6</p>
+      </div>
+      <div class="item item-7">
+         <p>7</p>
+      </div>
+
+
+
+
+  </div>
+
+<!-- 택스트에 반응해서 그리그 크기 자동으로변형되기
+     창줄여도 그대로 고정되기
+     
+     플렉스로 해보기
+
+          -->
+
+
+<style media="screen">
+
+  .container {
+
+    background: lightgray;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 8fr 1fr;
+    /* grid-template-rows: 1fr 5fr 1fr; */
+
+  }
+  .item{
+    background: rgba(255, 0, 0, 0.5);
+
+
+  }
+
+  .item:nth-child(odd){
+     background: rgba(255, 255, 0, 0.5);
+
+  }
+
+  .item-1{
+
+    align-self: center;
+    justify-self:center;
+  }
+
+  .item-2{
+      /* grid-auto-rows: minmax(10px, auto) */
+
+
+
+       /* justify-items: end;
+       align-items: start; */
+      }
+
+    .item-2 li{
+        text-align: inherit;
+        /* float: left; */
+        float: left;
+        padding: 0 15px;
+        /* 각 메뉴 간격 */
+        margin: 0 50px;
+        /* 각 li간의 간격 */
+    }
+
+
+
+    .item-3{
+      grid-row: 1/5;
+      grid-column: 3;
+      }
+
+    .item-4{
+      grid-row: 2/4;
+      grid-column: 1;
+      align-self: center;
+      }
+
+
+    .item-5{
+      /* justify-self: center; */
+      grid-row: 2/4;
+      grid-column: 2;
+      }
+    .item-6{
+
+      align-self: center;
+      justify-self:center;
+
+
+      }
+
+      .item-7{
+
+
+
+        }
+
+</style>
+
+
+  </body>
+</html>

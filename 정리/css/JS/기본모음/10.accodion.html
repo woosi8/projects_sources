@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            html,
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+
+            .container {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .panel-question {
+                margin-bottom: 20px;
+                background-color: #fff;
+            }
+
+            .panel-heading {
+                font-weight: bold;
+                padding: 5px;
+                background-color: #333;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .panel-body {
+                padding: 15px;
+            }
+
+            #btn-collapse {
+                margin-bottom: 10px;
+                background-color: #999;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                padding: 5px;
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <button id="btn-collapse">Collapse All</button>
+            <h2>FAQ</h2>
+            <section id="faq">
+                <div class="panel-question active">
+                    <div class="panel-heading">
+                        + Lorem ipsum dolor sit?
+                    </div>
+                    <div class="panel-body" id="thisone">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid
+                            voluptate fugit quaerat non molestiae quo magni soluta minima corporis!
+                            Soluta, ipsa et.
+                        </p>
+                        <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+                    </div>
+                </div>
+
+                <div class="panel-question">
+                    <div class="panel-heading">
+                        + Lorem ipsum dolor sit?
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid
+                            voluptate fugit quaerat non molestiae quo magni soluta minima corporis!
+                            Soluta, ipsa et.
+                        </p>
+                        <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+                    </div>
+                </div>
+
+                <div class="panel-question">
+                    <div class="panel-heading">
+                        + Lorem ipsum dolor sit?
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid
+                            voluptate fugit quaerat non molestiae quo magni soluta minima corporis!
+                            Soluta, ipsa et.
+                        </p>
+                        <p>Quos quibusdam, nesciunt totam ullam quasi neque!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script>
+        //27:00 클릭시 기존에 요소에 엑티브가 빠지고 클릭한 요소에 엑티브가 추가되는데
+        //이방법말고 엑티브가 클릭할때마다 요소에 중복되게 할수도있을까요?
+        const btnCollapse = document.querySelector('#btn-collapse'),
+            question = document.querySelectorAll('.panel-question'),
+            heading = document.querySelectorAll('.panel-heading'),
+            pbody = document.querySelectorAll('.panel-body')
+
+        //** 제목을 클릭하면 할일
+        // heading[0],[1]이 같이 하나가 아니라 전부인 heading을 가져오는 거기 때문에 반복문으로 해줘야한다
+        for (var i = 0; i < heading.length; i++) {
+            // 누구를 클릭했는지 물고오려면 매게변수(ev)가 있어야함
+            heading[i].addEventListener('click', function (ev) {
+                //question 마다 할일
+                for (var j = 0; j < question.length; j++) {
+                    //현재 열려있는게 있으면 remove해서 닫아놓는다
+                    question[j].classList.remove('active')
+                    // Target 타겟 . 지금 클릭한 부모에 붙은 active 활성화 시켜 나오게 한다
+                    ev.target.parentNode.classList.add('active')
+
+                    activateBody()
+                }
+            })
+        }
+        //** 1.panel-body 모두 안보이도록
+        //   2. panel-question에 active가 붙으면 자식중 panel-body가 나타나게 하는 변수
+        function activateBody() {
+            for (var x = 0; x < pbody.length; x++) {
+                pbody[x].style.display = 'none'
+            }
+            //css선택자 (active가 있는 부모중에 자식 panel-body 선택)
+            const activePanel = document.querySelector('.panel-question.active .panel-body')
+            //다시 보이게
+            activePanel.style.display = 'block'
+            // querySelectorAll로 지정하면 배열로 들어가서 아래처럼 지정을 해줘야 한다
+            // activePanel[0].style.display = "block";
+        }
+        //열자마자 작동해서 닫아져있게 하기위해
+        activateBody()
+
+        //** collapse all 버튼을 클릭하면 모든  pbody 안보이도록 한다
+        btnCollapse.addEventListener('click', function () {
+            for (var a = 0; a < pbody.length; a++) {
+                pbody[a].style.display = 'none'
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        // <!-- 처음부터 다 접힌 상태로 해주기-->
+        //
+        // 처음에 다 접어놓기 함수를 빠로 클로스 함수로 빼준다
+
+        // function closeElem() {
+        //   for (var i = 0; i < pbody.length; i++) {
+        //     pbody[i].style.display = 'none';
+        //   }
+        // }
+        // function activateBody() {
+        //   closeElem();
+        //   const activePanel = document.querySelector('.panel-question.active .panel-body')
+        // activePanel.style.display = 'block'
+        //   let activeElem = document.querySelector('.panel-question.active')
+        //   if (activeElem) {
+        //     activePanel.style.display = 'block'
+        //
+        //   }
+        // };
+
+        //다 열어놓기
+        // activateBody();
+
+        // 처음에 다 접어놓기
+        // closeElem();
+    </script>
+</html>

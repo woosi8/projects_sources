@@ -1,0 +1,28 @@
+header ul li
+{
+  list-style: none;
+  text-decoration: none;
+}
+header ul li a{
+  text-decoration: none;
+  color:#000000
+}
+/* main - section */
+/* main - section */
+
+.rewards {background:linear-gradient(to right, #272727,#272727 50%, #d6c798 50% , #d6c798);
+          width: 54.5rem ; margin: 0 auto;
+}
+.rewards > div{ width: 54.5rem; margin: 0 auto;}
+.rewards > div::after{content: ""; display: block; clear: both;}
+.rewards  h2{ background: url(../../bg_header.png) no-repeat;
+  width: 20.3rem ; height: 10.8rem; overflow: hidden; display: table; float: left;}
+.rewards  h2 span{display: table-cell; vertical-align: middle; padding: 0 0 0 3.15rem;}
+.rewards .info{ width: calc(100% - 20.3rem);background: url(../../photo-240.png) no-repeat; float: left;}
+.rewards .info span{ font-size: 1.15rem; color: #333; line-height: 100%;}
+.rewards .info p{ font-size:.7rem ; color: #666;  line-height: 1rem; padding: .6rem 0 0 ;}
+.btn {
+  display: inline-block; height: 1.9rem; line-height: 1.9rem; font-size: .7rem ; color: #222; border: 2px solid #222 ; border-radius:3px;
+  min-width: 6.25rem; text-align: center; text-decoration: none;
+}
+.btn.type1 {background: #222; color: #fff;}

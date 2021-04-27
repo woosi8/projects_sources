@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+<style media="screen">
+/* <!-- 111 -->  문단끝 , 막내빼고 , 막내만 마침표 넣어주기
+  <!-- 111 -->
+  <!-- 111 --> */
+
+  /* .todo{
+    display: inline;
+     ul에는 기본적으로 패딩이 있어서 붙이려면 패딩 0 해줘야한다
+    padding-left: 0;
+  }
+  .todo li{
+    display: inline;
+  }
+  .todo li:not(last-child):after{
+    content: "," ;
+  }
+  .todo li:last-child:before{
+    content: "and " ;
+  }
+  .todo li:last-child:after{
+    content: ". " ;
+  }
+*/
+
+
+/* 222  넘버링 하기
+   222
+   222 */
+ /* h3{counter-increment: h3counter;}
+ h3::before{
+   content: counter(h3counter) '.';
+ } */
+
+ * { box-sizing: border-box; }
+ body {
+   font-family: sans-serif;
+   margin: 0;
+   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/flowers.jpg') top center no-repeat;
+ }
+ .container {
+   width: 600px;
+   margin: 40px auto;
+   background: #fff;
+   /* 백그라운드는 보더까지 색이 나온다 */
+   /* 그래서 패딩까지만 나오게 써준다 */
+   background-clip: padding-box;
+   color: #777;
+   padding: 20px;
+   border: 10px solid rgba(255, 0, 0, 0.5);
+   position: relative;
+ }
+
+.container::before{
+  content: '';
+  position: absolute;
+  left: 5px; top: 5px; right: 5px; bottom: 5px; border: 5px solid #d3d4fa;
+}
+.container::after{
+  content: '';
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  border: 1px solid #fff;
+  transition: 0.4s;
+}
+.container:hover:after{
+  left: -10px; top: -10px; right: -10px; bottom: -10px;
+
+}
+
+ .container h2 {
+   margin-top: 0;
+   font-family: 'Arial Narrow', sans-serif;
+   font-weight: normal;
+   text-transform: uppercase;
+ }
+
+
+
+
+
+</style>
+</head>
+
+<body>
+<!-- 111 -->
+<!-- 111 -->
+<!-- 111 -->
+  <!-- <span>Things to do today:</span>
+  <ul class="todo">
+    <li>eat bacon</li>
+    <li>change the AC filter</li>
+    <li>pick up another gallon of milk</li>
+    <li>invade Antarctica</li>
+  </ul> -->
+
+
+  <!-- 222  넘버링 해주기-->
+  <!-- 222 -->
+  <!-- 222 -->
+  <!-- <h1>How to Invade Antarctica</h1>
+<h3>Purchase a Thick Coat</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis inventore, molestias consequuntur sit iste, deleniti perspiciatis veniam autem esse placeat, ex sequi! Aut, consequatur repellat necessitatibus nostrum quis reiciendis nisi.</p>
+<h3>Design a Flag</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti numquam facilis quis, natus dolorem tenetur ad possimus tempore similique nulla, iure perferendis! Dolorum laborum totam earum. Blanditiis aperiam iure numquam.</p>
+<h3>Secure Passage South</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed libero itaque veritatis architecto enim repudiandae quae dolores cum, fugiat numquam soluta commodi quaerat, alias doloremque et eveniet reiciendis pariatur beatae.</p>
+<h3>Bonus Tip: Befriend the Penguins</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id vel eveniet molestias! Eum quod illum id modi eaque aspernatur, excepturi doloribus libero repellat placeat tenetur distinctio fugiat aliquam ipsam neque?</p>
+<h3>Plant Your Custom Flag</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet maxime, obcaecati laudantium laboriosam expedita debitis in. Magni laudantium sequi et quaerat dolores placeat minima ipsam. Inventore numquam tempore corporis voluptatibus!</p> -->
+
+<div class="container">
+  <h2>Transparent Borders</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur maiores accusamus non veniam repellat ab delectus autem cupiditate dignissimos, blanditiis nisi nesciunt earum esse odit iusto nihil consequatur doloremque dicta?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis et nulla dignissimos corporis ab pariatur magnam, impedit incidunt, iure at porro voluptate, iste architecto voluptas commodi blanditiis suscipit perferendis quas!</p>
+</div>
+
+
+
+</body>
+
+</html>

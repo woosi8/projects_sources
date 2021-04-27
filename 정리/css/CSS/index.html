@@ -1,0 +1,733 @@
+----------------------------------------grid -----------------------------------------------------------------------
+
+3. grid 그리드배치 그리드영역
+
+.item:nth-child(1){
+      grid-column: 1/4;
+      /* (1)번 열을 1부터 4까지 하겠다 */
+}
+
+.item:nth-child(4){
+      grid-row: 2/4;
+      /* (4)번의 행을 2부터 4까지 하겠다 */
+      grid-column: 3;
+      /* 위에 경우 원하는대로 안가기때문에 강제로 열 3번째에 배치한다 */
+}
+
+
+.item:nth-child(9){
+      grid-row: 3/5;
+      /* 영역 중복시키기 */
+      grid-column: 3;
+}
+
+
+1. 그리드간격
+.container {
+
+  background: lightgray;
+  display: grid;
+  /* grid-template-columns: 40% 60% ; */
+
+  grid-template-columns: repeat(3,1fr); // 열3개,1비율로
+  /* grid-template-columns: 4fr 6fr ; // /* %보다는 fr 비율을 많이 쓴다 */
+
+  /* grid-template-columns: 200px    1fr; */
+                     /*    고정값  , 첫째선택    창이 늘어나도 첫째비율에 고정값을 줘서 200px로 고정 */
+
+  /* grid-auto-rows: minmax(200px, auto); */
+  /* 컨탠츠 높이는 다르지만 각 그리드 칸 높이는 똑같이 맞추고 싶다.
+  최소minmax 200씩은 확보하고 그다음 컨텐츠 양에 따라 auto로 늘려준다. */
+
+
+  /* justify-items: end;  칸에서 왼쪽으로 정렬  */
+  /* align-items: end;     칸에서 위쪽으로 정렬 */
+
+
+  grid-gap: 1rem;
+
+
+}
+.item{
+  background: rgba(255, 0, 0, 0.5);
+
+
+}
+
+.item:nth-child(odd){
+   background: rgba(255, 255, 0, 0.5);
+
+}
+
+2 그리드정렬
+grid 각각 정렬
+.item:nth-child(5){
+   background: rgba(255, 255, 0, 0.5);
+   /* justify-self: center;
+   align-self: center;       각각 정리하기 */
+}
+
+
+
+
+
+
+
+
+----------------------------------------flex -----------------------------------------------------------------------
+2. flex 비율
+
+.item{
+  background: rgba(255, 0, 0, 0.5);
+}
+
+  flex-grow: 1;
+  /* 신축성 있는 박스, 컨탠츠 말고 남아있는 여백을 나눠 갖는다*/
+  flex-basis: 0;
+  /* 남아있는 여백을 0으로 해줘서 전체 비율로 나눠갖게 해준다 */
+
+  flex-shrink:2 ;  컨테이너가 아이템보다 적어질때 비율 정하기
+  flex-grow:2;    컨테이너가 아이템보다 커질때 비율 정하기
+
+
+
+  사실 아래처럼 그냥 flex:1
+                   flex:2
+                   flex:1
+                         해주면 된다.
+
+.item:nth-child(odd){
+/* 특정 순번이나,홀수,짝수요소 선택 */
+   background: rgba(255, 255, 0, 0.5);
+}
+
+
+
+1.flex 정렬
+
+.container {
+  display: flex;
+   /* colume 레이어 대신 사용하기, width자신 만큼 갖는다  */
+   flex-direction: column;    //반전 시키기
+  /* 배치 방향 바꾸기 */
+   flex-wrap: wrap;
+  /* 윈도우 창을 줄일때 떨어지게 하기,반대로 nowrap도 있음 */
+
+* 전체 정렬
+  justify 세로축
+  algin   가로축
+
+  (1)
+  justify-content:    flex-start;
+  /* 축 수평에 따라정렬     기본값       space-between,around,center 간격갖기*/
+
+  (2)
+   align-items:          flex-start;
+  /* 축 수직에 따라 정렬하기 ,위쪽부터,  center,      */
+  (3)
+  align-content: center;
+  /* flex-wrap이 wrap상태일때 가능, */
+
+
+  height: 100vh;
+  background: lightgray;
+}
+
+
+* flex 각각 정렬
+
+.item:nth-child(1){
+  width: 200px;
+  위쓰값을 주면 (1)은 고정되고 나머지 (2),(3),flex비율은 창을 늘리면 늘어난다
+
+  align-self: flex-start; // 각각 정렬하기
+
+  order: 3;      // 숫자 매겨서 배치 바꿔주기
+
+}
+
+.item:nth-child(2){
+    flex:2;
+    align-self: center;
+    order: 2;
+  }
+
+.item:nth-child(3){
+    flex:1;
+    align-self: flex-end;
+    order: 1;
+    }
+
+
+
+----------------------------------------인라인 블럭-----------------------------------------------------------------------
+3.반응형 웹- 미디어 쿼리 (medai query)
+미디어 쿼리는 맨 마지막이 좋다, 위에 것들에 영향을 안 받기 위해
+
+@media query and (min-width: 700px){
+  /* media query 쿼리 ,최소 폭이 700 = 브라우저창이 700이 넘어가면
+  위 값들이 적용된다  700 전에는 다른 디자인값을 주겠다는 의미*/
+
+
+  .container {
+    font-size: 0;
+    // flex-direction: column; 700이하부터 수직으로 세우기
+    // flex-basis: auto;
+
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+  .item-a {
+    width: 30%;
+  }
+
+  .item-b {
+    width: 50%;
+  }
+
+}
+
+
+2.float 공간 클리어 하기 : 하는 이유는 자식들을 float로 배치 했기때문에
+부모 엘리먼트가 끝나는 시점에 클리어를 해줘라. 부모엘리컨트가 정상적으로
+높이를 확보하기 위해
+
+.container:after{
+  /* 컨테이너에 가상엘리먼 :after를 생성
+  자식들이 float를 갖고 있기에 자식으로 치지 않는다
+  그래서 float 가진 자식을 제외한 공간은 클리어하여 부모값을 가지게 한다  */
+  content:'i made it';
+  display: block;
+  clear:both;
+  height: 0;
+  visibility: hidden;
+}
+
+
+
+
+1. 패딩 , 마진값
+h1,p{
+  margin:0;
+  padding:0;
+}
+
+body{
+  margin:0;
+  /* font-size: 1em; */
+}
+
+
+.container{
+    font-size: 0;
+    /* html문서상 비어있는 여백들이 패딩을 먹어서 100%넘어가서
+    문제가 되기때문에 그 여백들을 0으로 만들어 주기위함
+    자식까지 영향 받기때문에 따로 폰트 사이즈를 지정해줌 */
+
+    max-width: 1000px;
+    /* 창 폭에 맞게 정렬,
+      창이 1000이 넘어가면 1000까지만 늘어난다 */
+    margin-left: auto;
+    margin-right: auto;
+    /* 가운데 정렬하기, 마진을 둘이 공평하게 나눠 먹는다
+                margin: 0 auto;
+     축약하여 상하는 0, 좌우 auto라는 뜻 */
+
+}
+
+.item {
+    display: inline-block;
+    padding: 5%;
+    font-size: 1rem;
+           /* root em html 기본 글자를 쓴다는 말 ,기본 16px*/
+    vertical-align: top;
+    /* 수직정렬 a,b가 수직에 맞게 정리*/
+
+
+
+
+
+}
+
+
+
+.item-a{
+    width: 30%;
+    background-color: yellow;
+    font-size: 1rem;
+
+
+}
+
+.item-b{
+    width: 50%;
+    background-color: yellowgreen;
+
+}
+
+
+<div class="container">
+  <section class="item item-a">
+    <h1>section a</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
+         officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+  <section class="item item-b">
+    <h1>section b</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
+         officia deserunt mollit anim id est laborum.</p>
+
+    </section>
+</div>
+
+
+----------------------------------------디스플레이-----------------------------------------------------------------------
+
+디스플레이
+
+div{
+  display: block;
+  background-color: red;
+  width: 300px;
+  height: 200px;
+
+}
+
+span{
+  display:inline-block;
+   /* 인라인 크기조정 불가, block을 붙이면 block속성을 갖게되서 가능 */
+  background-color: blue;
+
+}
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+폰트
+
+
+구글 폰트 사용하기
+<link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo|Nanum+Pen+Script|Roboto&display=swap" rel="stylesheet">
+font-family: 'Roboto', sans-serif;
+font-family: 'Nanum Pen Script', cursive;
+font-family: 'East Sea Dokdo', cursive;
+
+
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Roboto&display=swap" rel="stylesheet">
+  <style>
+    p{
+      font-size: 50px;
+      font-family: 'Roboto', sans-serif;
+      font-family: 'Nanum Pen Script', cursive;
+
+    }
+  </style>
+
+  폰트 순서
+  font: font-style font-variant font-weight font-size/line-height font-family|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+  h1{
+      font: 15px arial, sans-serif;
+  }
+
+
+text-align: justify;
+px는 사용자가 임의설정해도 안변하는 고정값
+rem 은 사용자의 임의설정에 반응해서 변화
+font-family: arial, verdana, "Helvetica Neue"; arial이 없으면 verdana 또 없으면 helve, 따음표로 묶은 이유는 띄어쓰기가 있어서
+line-height: 2; 폰트 간격
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+선택자 예시
+
+
+
+
+       (.class)
+div:not(:first-child){
+  dive에서 첫번째가 아닌 나머지들
+}
+
+li::last-of-type
+li:only-of-type{
+  형제중에 왕따인것, 자기만 존재하는놈
+}
+plate:nth-of-type(2n+1){
+n0넣고, 그다음 1, 2, 3,
+}
+
+plate:nth-of-type(even){
+  짝수
+}
+
+plate:nth-child(3)
+
+.small:last-child{}
+
+*:only-child{
+  외아들만 선택
+}
+
+
+plate orange:first-child{
+  plate 자식 오렌지중에 첫번째 자식만 선택
+}
+
+
+a,b{ 이웃
+
+}
+
+a b{자식
+}
+
+#fancy pickle{
+  id= fancy 자식인 pickle 을 선택
+}
+
+orange.small{
+  웹페이지에 있는 모든 오렌지 중에서 클래스값이 스몰인 태그
+}
+
+bento orange.small {
+  벤토에 있는 모든 오렌지 중에서 클래스값이 small
+}
+
+plate,bento{
+  모든 플레이트와 벤토 선택
+}
+
+
+plate *{
+plate 전부
+}
+
+plate+apple
+{
+  plate 옆에 에플만 선택한다는것
+}
+
+bento~pickle{
+  bento에 인접한 모든 pickle
+}
+
+<!--
+선택자
+
+  >를 넣으면 직계자식만 선택이됨
+#lecture>li{
+  border:1px solid red;
+  color:blue;
+-->
+
+---------------------------------------------------------------------------------------------------------------
+손자까지 번호 설정
+
+ul{list-style-type:none;
+   counter-reset: my-counter;
+}
+ul li{
+   counter-increment: my-counter;
+   line-height:25px;
+}
+ul li::before{
+   content:counters(my-counter, ".") " ";
+}
+
+
+자식안에 번호 숫자 설정
+ul{list-style-type:none;}
+/* 먼저 효과 없애기 */
+
+li{
+  counter-increment: sub-counter ;  //식별자 sub으로
+
+}
+
+li::before{
+  content:counter(my-counter) "." counter(sub-counter) " ";
+}
+
+
+
+번호 설정
+p{
+  counter-increment:my-counter;
+}
+
+ p::before{
+  content:counter(my-counter) ".";
+}
+
+/* :: 이거는 버젼떄문에 써주는거 :하나써도 노상관 */
+
+
+/* div{ 여기부터 다시 카운터 하기위해서 reset
+  margin-top: 30px;
+  counter-reset: my-counter 10;
+} */
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+ 그리드 모바일 화면(작은창) 설정
+
+ @media all and (max-width:575px){
+   .container{
+   grid-template-columns: 1fr;
+   grid-template-rows: 100px 1fr 100px 100px;
+   grid-gap:20px;
+   grid-template-areas:
+   "header"
+   "main"
+   "side"
+   "footer";
+   }
+ }
+
+
+
+
+
+
+------------------------------그리드 반응형, 에어리어스 이용---------------------------------------------------------------------------------
+
+
+
+
+.container{
+  display:grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  height:100%;
+  grid-gap:20px;
+  grid-template-areas:
+  "header header"
+  "side main"
+  "footer footer"
+}
+
+
+.header{
+    grid-area: header;
+}
+
+.side{
+    grid-area: side;
+}
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+}
+
+
+<div class="container">
+  <div class="header">Header</div>
+  <div class="side">Side</div>
+  <div class="main">Main</div>
+  <div class="footer">Footer</div>
+</div>
+
+
+------------------------------그리드 나누기 박스형--------------------------------------------------------------------------
+
+
+.box1 {
+  border: 2px solid lightblue;
+  grid-column-start: 1;    grid-column: 1 / 3;
+                            grid-row: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+---------------------------------------------------------------------------------------------------------------
+
+
+그리드 grid 종류
+
+display:grid,inline-grid,subgrid(중첩,부모의 영향받) 세 종류가 있다
+
+
+grid-template-columns: repeat(3, 1fr);
+grid-auto-rows: minmax(100px, auto);
+
+
+
+/* body{
+  margin:40px;
+}
+
+*{
+  border: 5px solid black;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-rows: 50px 200px 44px;
+}
+
+
+.item5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+} */
+
+
+
+
+/*
+.container{
+  border: 5px solid red ;
+  display:grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 100px 1fr 100px;
+
+  height:100%;
+  grid-gap: 20px;
+}
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+ 박스모델, 마진
+
+*{ 모든 엘리먼트에 박스속성 적용
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+box-sizing: border-box; 박스 일치 시키기
+
+/* max-width:800px; 창 조정할때 내용도 같이 조정 */
+
+/*      margin: 150px auto 200px 100px; */
+/* 0 auto;순서는 위   오른쪽 아래   왼 */
+/* visibility: hidden; */
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+<block, inline>
+block엘레먼트은 div,p,section,header,footer 등 width,heigth가 먹음, 한 블락 전체를 다 먹음 요소가 없다면
+               )줄바꿈 발생
+
+inline엘레먼트은 span,a 단락의 흐름을 방해하지 않고 그대로 사용, width,height 안먹음
+                엘리먼트 성격에 따라 적용 될수도 안될수도 있다
+                display:inline;
+                display:block;
+
+                block 속성을 inline으로 바꿀수 있다, 반대도 마찬가지
+
+none은 visibility: hidden; 내용은 없어지고 자리는 먹는다
+
+
+---------------------------------------------------------------------------------------------------------------
+*{
+    box-sizing:border-box;
+
+    모든 엘리먼트가 보드이 크기를 위스와 하이트 값을 사용하게 하기
+}content-box;
+ -->
+
+
+
+<style>
+    h1,a{border:1px solid red;}
+    h1{display: inline;}
+    a{display: block;}
+
+    p,a{
+
+      border:10px solid red;
+      padding:20px;
+      margin:40px;
+      width:150px;
+      height:50px;
+      width,height 는 inline에서는 적용안된다.
+
+    }
+
+</style>
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+부모 자식 relative,absolute
+
+
+<!-- <style>
+#me{
+    background-color:
+    black;
+    color:white;
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:30px;
+    text-align: center;
+
+
+
+#parent,#other{
+      border: 5px solid tomato;
+}
+
+  #parent{
+      position: relative;
+  }
+  #me {
+      background-color: black;
+      color: white;
+      position: absolute;
+
+      기본값은 부모  기준으로 해서 자리를 잡는다 or html기준으로(값 있을시에) ex left:0;
+      top:0
+      absolute를 쓰면 더이상 부모와는 상관이 없어진다*/
+      absoulte,fixed :  부모 엘리먼트 중에 위치가 지정되지 않은 엘리먼트에 위치를 기준으로 해서 off셋 값이 지정되는것
+                   off셋있으면 전체 html을 기준
+                  그리고 부모와의 관계성이 끊어지기 떄문에 크기는 자신의 컨텐츠 크기 만해진다
+                  부모역시 자식을 없는셈 친다.
+
+      relative: 부모를 기준으로 해 위치가 정해진
+
+
+  }
+</style>
+
+---------------------------------------------------------------------------------------------------------------

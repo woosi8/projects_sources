@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Animate css</title>
+        <!-- Stylesheets -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
+<link rel="stylesheet" href="animate.css"/>
+<style media="screen">
+  .slideInLeft{
+    animation-delay: 1s;
+    animation-iteration-count: 2;}
+    div:hover h1{
+      animation:bounce 1s;
+
+    }
+    div:hover h1{
+      animation:slideInLeft 1s;
+
+    }
+    .switch:checked ~ p{
+      animation: slideOutLeft	0.5s forwards;
+    }
+    .switch ~ p{
+      animation: slideInLeft	0.4s forwards;
+    }
+</style>
+    </head>
+    <div>
+    <body>
+        <h1 class="animated">A simple example of using Animate.css</h1>
+
+        <p class="animated">
+            Here's the element that will be animated.
+        </p>
+</div>
+
+<input type="checkbox" class="switch" id="aside">
+<label for="aside">toggle</label>
+<p class="animated">Here's the element that will be animated.</p>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+    <style>
+      .drop{
+          outline: 2px dashed #92b0b3 ;
+          outline-offset:-10px;
+          text-align: center;
+          transition: all .15s ease-in-out;
+          width: 300px;
+          height: 300px;
+          background-color: gray;
+      }
+   </style>
+  <body>
+
+  <p id="drag" draggable="true">드래그해보세요.</p>
+  <br>
+  <div id="drop">여기에 드롭하세요</p>
+
+  </body>
+
+<script>
+document.getElementById('drag').ondragstart = function(e) {
+  console.log('드래그 시작');
+  e.dataTransfer.setData('data', this.innerHTML);
+  e.dataTransfer.dropEffect = 'copy';
+};
+var drop = document.getElementById('drop');
+drop.ondragover = function(e) {
+  e.preventDefault(); // 필수
+  console.log('무언가 위에 올려져 있습니다');
+  e.dataTransfer.dropEffect = 'move';
+};
+drop.ondrop = function(e) {
+  console.log('무언가 드롭되었습니다.');
+  alert(e.dataTransfer.getData('data'));
+}
+
+var drop = document.getElementById('drop');
+drop.ondragover = function(e) {
+  e.preventDefault(); // 이 부분이 없으면 ondrop 이벤트가 발생하지 않습니다.
+};
+drop.ondrop = function(e) {
+  e.preventDefault(); // 이 부분이 없으면 파일을 브라우저 실행해버립니다.
+  var data = e.dataTransfer;
+  if (data.items) { // DataTransferItemList 객체 사용
+    for (var i = 0; i < data.items.length; i++) { // DataTransferItem 객체 사용
+      if (data.items[i].kind == "file") {
+        var file = data.items[i].getAsFile();
+        alert(file.name);
+      }
+    }
+  } else { // File API 사용
+    for (var i = 0; i < data.files.length; i++) {
+      alert(data.files[i].name);
+    }
+  }
+};
+</script>
+</html>

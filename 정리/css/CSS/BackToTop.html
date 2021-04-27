@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <style media="screen">
+    /* begin Demo Not necessary  */
+    h1 {
+      text-align: center;
+    }
+
+    .matrix {
+      width: 400px;
+      margin: auto;
+      text-align: justify;
+    }
+    /* begin Demo Not necessary   */
+
+    /* begin begin Back to Top button  */
+
+    .back_to_top {
+      position: fixed;
+      bottom: 80px;
+      right: 40px;
+      z-index: 9999;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      background: #f5f5f5;
+      color: #444;
+      cursor: pointer;
+      border-radius: 2px;
+      display: none;
+    }
+
+    .back_to_top:hover {
+      background: #e9ebec;
+    }
+
+    .back_to_top-show {
+      display: block;
+    }
+
+
+    /* end begin Back to Top button  */
+  </style>
+  </head>
+  <body>
+      <!-- begin Demo Not necessary -->
+  <h1>Scroll down</h1>
+  <div class="matrix">
+    <script>
+      for (var i = 0; i < 4000; i++) document.writeln(i)
+    </script>
+  </div>
+  <!-- end Demo Not necessary -->
+
+  <!-- begin Back to Top button -->
+  <a class="back_to_top" title="Наверх">&uarr;</a>
+  <!-- end Back to Top button -->
+
+  <script type="text/javascript">
+      /* begin begin Back to Top button  */
+  (function() {
+    'use strict';
+
+    function trackScroll() {
+      var scrolled = window.pageYOffset;
+      var coords = document.documentElement.clientHeight;
+
+      if (scrolled > coords) {
+        goTopBtn.classList.add('back_to_top-show');
+      }
+      if (scrolled < coords) {
+        goTopBtn.classList.remove('back_to_top-show');
+      }
+    }
+
+    function backToTop() {
+      if (window.pageYOffset > 0) {
+        window.scrollBy(0, -80);
+        setTimeout(backToTop, 0);
+      }
+    }
+
+    var goTopBtn = document.querySelector('.back_to_top');
+
+    window.addEventListener('scroll', trackScroll);
+    goTopBtn.addEventListener('click', backToTop);
+  })();
+  /* end begin Back to Top button  */
+
+  </script>
+  </body>
+</html>

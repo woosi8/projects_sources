@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/master.css">
+    <style media="screen">
+      img{
+        width: 30vw;
+        height: 30vw;
+      }
+
+      div img{
+        transition: all 0.35s;
+        /* margin-left: 0; */
+
+      }
+
+      div:hover img{
+      /* margin-left: 100px; */
+      /* transform,transition 호환이 필요 밴더 프리패스 */
+      /* -0- -webkit- -moz- -ms- */
+      /* transform: translateX(100px); */
+      /* transform: translateZ(100px); */
+      /* 합치기  (가로,) 가로와 콤마가 빈공간이 없어야함*/
+      transform: translate3d(100px,50px,-300px);
+      }
+      div{
+        perspective: 1000px; /*1000내외가 좋다. 값이 작을스록 효과는 커져보인다*/
+        /* 기준점을 창 왼쪽상단으로 잡아서 안틀어지게 하기 */
+        /* perspective-origin: 0 0 ; */
+        /* 기준점을 창 가운데로 */
+        perspective-origin: 50% 50% ;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+<img src="cant.jpg" class="" alt="">
+<span>photo description</span>
+</div>
+  </body>
+</html>

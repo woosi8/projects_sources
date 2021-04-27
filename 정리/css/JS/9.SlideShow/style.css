@@ -1,0 +1,100 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialised;
+}
+
+body {
+    margin-top: 5em;
+    font: 20px/1.5 "Helvetica", Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+  	overflow: hidden;
+  	/* overflow-x: hidden; 세로에 내용이 넘칠경우*/
+}
+
+.slider-container {
+    position: absolute;
+  	width:100%;
+}
+
+.slide {
+	position: absolute;
+	width: 100%;
+	padding:0 10%;
+	box-sizing:border-box;
+  /* 슬라이드마다 높이가 다를수 있기 때문에 가운데 값을줘야 한다 */
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	overflow: hidden;
+}
+
+.slider-container.animated {
+	-webkit-transition: left .3s ease-in;
+	transition: left .3s ease-in;
+}
+
+.grid{
+  position: relative;
+  width: 100%;
+}
+.grid li {
+  position: absolute;
+  width: 100%;
+}
+blockquote {
+    color: #636363;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5em;
+}
+
+cite {
+    font-size: .75em;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Utility */
+.simple-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav */
+#prev,
+#next {
+    position: absolute;
+    /* 가운데에 몰아놓은 다음에 왼쪽, 오른족으로 각각 보내야 사용자가 어떻게 보든 그 위치에 있게 할수있다 */
+    top: 50%;
+	  left:50%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+#prev.disabled, #next.disabled { display:none;}
+
+#prev { background-image: url('arrow-left-out.svg'); margin-left:-480px;}
+
+#prev:hover { background-image: url('arrow-left-over.svg'); }
+
+#next {
+    margin-left:380px;
+    background-image: url('arrow-right-out.svg');
+
+}
+
+#next:hover { background-image: url('arrow-right-over.svg'); }

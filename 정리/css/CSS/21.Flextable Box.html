@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flexbox</title>
+    <style media="screen">
+.wrap{
+  display: flex;
+  flex-direction:row;
+  /* 노렙 아래로 쌓지말라 , 기본속성 */
+  /* flex-wrap: nowrap; */
+  /* 넘치면 아래로 내려와라 */
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap-reverse; */
+
+  /* 방향과 아래로 쌓는 랩을 같이 쓸수있다 */
+  flex-flow:row wrap;
+  /* ==flex-direction: row; ,flex-wrap: wrap; */
+  height: 500px;
+  margin: 20px auto;
+}
+.wrap div{
+  width: 100%;
+}
+
+.wrap img{
+  width: 100%;
+  height: 100%;
+}
+.wrap div:nth-child(1){background: red; order: 1;
+      flex: 1 1 0;
+  /* flex-grow: 부족한 크기를 넗히는 속성 */
+  /* flex-shrink: */
+  /* flex-basis:  */
+  /* 0을 해주면 앞에 비율을 유지하겠다는뜻 */
+}
+.wrap div:nth-child(2){background: dodgerblue; width: 50%; order: 3
+  /* flex: 1 1 0;
+  보통 앞에 2개가 같으면
+  flex-grow: 1;
+  이렇게줌 */
+
+}
+.wrap div:nth-child(3){background: yellow;width: 50%; order: 2;
+  flex: 2 1 0;
+
+}
+
+/* https://codepen.io/alikerock/pen/MmRKwM */
+/* https://codepen.io/alikerock/pen/MmRKwM */
+/* https://codepen.io/alikerock/pen/MmRKwM */
+
+.wrap{
+  /* 앞쪽,뒤부터 채워라 */
+justify-content:flex-start;
+justify-content: flex-end;
+justify-content: center;
+/* 무조건 양쪽 붙이고 가운데 마진은 알아서 맞춰라 */
+justify-content: space-between;
+/* 하나하나에 주변공간을 양쪽 동일하게 잡아라 */
+justify-content: space-between;
+/* 공간을 다 똑같이 같는다 */
+justify-content: space-evenly;
+
+/* order */
+/* flex */
+
+
+
+
+}
+
+    </style>
+  </head>
+  <body>
+
+    <div class="wrap">
+      <div>
+         <img src="cant.jpg" alt="">box1</div>
+      <div>box2</div>
+      <div>box3</div>
+    </div>
+
+
+
+  </body>
+</html>

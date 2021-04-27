@@ -1,0 +1,316 @@
+/* animation */
+@keyframes ani-head {
+    to { transform: rotateX(-10deg); }
+}
+@keyframes ani-running-leg {
+  /* 다리니깐 엑스축 기준으로 움직인다 */
+    from {
+        transform: rotateX(-30deg);
+    }
+    to {
+        transform: rotateX(30deg);
+    }
+}
+@keyframes ani-running-arm {
+    /* 팔이니깐 와이축 기준으로 */
+    from {
+        transform: rotateY(90deg);
+    }
+    to {
+        transform: rotateY(-90deg);
+    }
+}
+
+body {
+    height: 500vw;
+    font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    color: #555;
+    background: #fff000;
+    transition: background .5s;
+}
+body[data-char='ragirl'] {
+    background: #ff7200;
+}
+
+/* world */
+.world {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+.stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+.house {
+    width: 100vw;
+    height: 100vh;
+    transform: translateZ(-490vw);
+    transform-style: preserve-3d;
+}
+.wall {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+}
+.wall-left {
+    width: 1000vw;
+    background: #f8f8f8;
+    transform: rotateY(90deg) translateZ(-500vw);
+}
+.wall-right {
+    width: 1000vw;
+    background: #f8f8f8;
+    transform: rotateY(90deg) translateZ(-400vw);
+}
+.wall-front-a { transform: translateZ(300vw); }
+.wall-front-b { transform: translateZ(50vw); }
+.wall-front-c { transform: translateZ(-200vw); }
+.wall-front-d { transform: translateZ(-500vw); }
+.wall-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.wall-title {
+    font-size: 5rem;
+}
+.progress-bar-con {
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* 부모 따라 아래 깔려있는 바를 끝까지 채워주기 */
+    z-index: 100;
+    width: 100vw;
+    height: 5px;
+    background: #555;
+}
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: #00a8ff;
+}
+
+/* character */
+.character {
+    position: absolute;
+    left: 12%;
+    bottom: 5%;
+    width: 10vw;
+    height: 15.58vw;
+    transform-style: preserve-3d;
+}
+
+/* 캐릭터의 방향셋팅, css는 회전, 방향결정은 JS로 */
+.character[data-direction='forward'] { transform: rotateY(180deg); }
+.character[data-direction='backward'] { transform: rotateY(0deg); }
+.character[data-direction='left'] { transform: rotateY(-90deg); }
+.character[data-direction='right'] { transform: rotateY(90deg); }
+.character-face-con {
+    /* 머리 몸통 팔 다리 각각 위치에 자유자재로 넣기위해 */
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+.character-face {
+  /* 전체 캐릭터들의 앞면 뒷면, 뒷면을 180돌리고 겹쳐놓아서 전체를 돌릴때 잘 보이도록 하기위해 절대값 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* 크기 100%는 자기 부모 즉 CON에서 사이즈를 조절하겠다는뜻 */
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    /* 꽉 차게 container도 상관없다 */
+    background-size: cover;
+
+     /* 겹쳐놓은거 안보이게 하기 */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.character-face.face-back {
+    /* 뒷면 뒤집어서 포개놓기 */
+    transform: rotateY(180deg);
+}
+
+/* //////////////////////////////////여기부터 각 부분 설정  */
+.character-head {
+    /* calc 계산해주는 함수
+    머리 왼쪽남는 여백을 얼마 해줄꺼냐는 식
+            왼쪽여백/ 전체너비    퍼센트  */
+    left: calc(42 / 856 * 100%);
+    top: 0;
+    z-index: 60;
+          /* 머리둘레 / 전체너비*/
+    width: calc(770 / 856 * 100%);
+          /* 머리높이 /전체 높이 */
+    height: calc(648 / 1334 * 100%);
+
+    /* 트랜스폼할때 기준점이 어디에 두는냐, 디폴트는 센터 50%이다.
+                        x축    y축(bottom 준 이유는 트렌지폼할때 목을 기준으로 움직이게 하기위해서) */
+    transform-origin: center bottom;
+    animation: ani-head 0.6s infinite alternate cubic-bezier(0.46, 0.18, 0.66, 0.93);
+                                                /* 가속도 */
+}
+.character-head-face.face-front { background-image: url('../images/ilbuni_head_front.png'); }
+.character-head-face.face-back { background-image: url('../images/ilbuni_head_back.png'); }
+.character-torso {
+    left: calc(208 / 856 * 100%);
+    top: calc(647 / 1334 * 100%);
+    z-index: 50;
+    width: calc(428 / 856 * 100%);
+    height: calc(385 / 1334 * 100%);
+    transform-origin: center center;
+}
+.character-torso-face.face-front { background-image: url('../images/ilbuni_body_front.png'); }
+.character-torso-face.face-back { background-image: url('../images/ilbuni_body_back.png'); }
+.character-arm-right {
+    left: 0;
+    top: calc(648 / 1334 * 100%);
+    width: calc(244 / 856 * 100%);
+    height: calc(307 / 1334 * 100%);
+    transform-origin: right top;
+}
+.character-arm-right .face-front { background-image: url('../images/ilbuni_arm_0.png'); }
+.character-arm-right .face-back { background-image: url('../images/ilbuni_arm_1.png'); }
+.character-arm-left {
+    left: calc(600 / 856 * 100%);
+    top: calc(648 / 1334 * 100%);
+    width: calc(244 / 856 * 100%);
+    height: calc(307 / 1334 * 100%);
+    transform-origin: left top;
+}
+.character-arm-left .face-front { background-image: url('../images/ilbuni_arm_1.png'); }
+.character-arm-left .face-back { background-image: url('../images/ilbuni_arm_0.png'); }
+.character-leg-right {
+    left: calc(200 / 856 * 100%);
+    top: calc(1031 / 1334 * 100%);
+    width: calc(230 /  856 * 100%);
+    height: calc(300 / 1334 * 100%);
+    transform-origin: center top;
+}
+.character-leg-right .face-front { background-image: url('../images/ilbuni_leg_0.png'); }
+.character-leg-right .face-back { background-image: url('../images/ilbuni_leg_1.png'); }
+.character-leg-left {
+    left: calc(414 / 856 * 100%);
+    top: calc(1031 / 1334 * 100%);
+    width: calc(230 /  856 * 100%);
+    height: calc(300 / 1334 * 100%);
+    transform-origin: center top;
+}
+.character-leg-left .face-front { background-image: url('../images/ilbuni_leg_1.png'); }
+.character-leg-left .face-back { background-image: url('../images/ilbuni_leg_0.png'); }
+
+/* 캐릭터에 러닝이 붙으면 레그 라잇트가 실행되게
+   자스에서 해줄건 마우스가 스크롤이 될때 캐릭터에 러닝 클래스를 붙여서 여기가 실행되게 해야한다*/
+.character.running .character-leg-right { animation: ani-running-leg 0.2s alternate infinite linear; }
+.character.running .character-leg-left { animation: ani-running-leg 0.2s alternate-reverse infinite linear; }
+.character.running .character-arm { animation: ani-running-arm 0.2s alternate infinite linear; }
+body[data-char='ragirl'] .character {
+    width: 12vw;
+    height: calc(12vw * 1.4135);
+}
+body[data-char='ragirl'] .character-head {
+    left: calc(23 / 948 * 100%);
+    width: calc(920 / 948 * 100%);
+    height: calc(750 / 1340 * 100%);
+}
+body[data-char='ragirl'] .character-head-face.face-front { background-image: url('../images/ragirl_head_front.png'); }
+body[data-char='ragirl'] .character-head-face.face-back { background-image: url('../images/ragirl_head_back.png'); }
+body[data-char='ragirl'] .character-torso {
+    left: calc(273 / 948 * 100%);
+    top: calc(630 / 1340 * 100%);
+    z-index: 50;
+    width: calc(402 / 948 * 100%);
+    height: calc(444 / 1340 * 100%);
+    transform-origin: center center;
+}
+body[data-char='ragirl'] .character-torso-face.face-front { background-image: url('../images/ragirl_body_front.png'); }
+body[data-char='ragirl'] .character-torso-face.face-back { background-image: url('../images/ragirl_body_back.png'); }
+body[data-char='ragirl'] .character-arm-right {
+    left: calc(134 / 948 * 100%);
+    top: calc(709 / 1340 * 100%);
+    width: calc(138 / 948 * 100%);
+    height: calc(300 / 1340 * 100%);
+    transform-origin: right top;
+}
+body[data-char='ragirl'] .character-arm-right .face-front { background-image: url('../images/ragirl_arm_0_front.png'); }
+body[data-char='ragirl'] .character-arm-right .face-back { background-image: url('../images/ragirl_arm_1_back.png'); }
+body[data-char='ragirl'] .character-arm-left {
+    left: calc(675 / 948 * 100%);
+    top: calc(709 / 1340 * 100%);
+    width: calc(138 / 948 * 100%);
+    height: calc(300 / 1340 * 100%);
+    transform-origin: left top;
+}
+body[data-char='ragirl'] .character-arm-left .face-front { background-image: url('../images/ragirl_arm_1_front.png'); }
+body[data-char='ragirl'] .character-arm-left .face-back { background-image: url('../images/ragirl_arm_0_back.png'); }
+body[data-char='ragirl'] .character-leg-right {
+    left: calc(290 / 948 * 100%);
+    top: calc(1075 / 1340 * 100%);
+    width: calc(186 / 948 * 100%);
+    height: calc(264 / 1340 * 100%);
+    transform-origin: center top;
+}
+body[data-char='ragirl'] .character-leg-right .face-front { background-image: url('../images/ragirl_leg_0.png'); }
+body[data-char='ragirl'] .character-leg-right .face-back { background-image: url('../images/ragirl_leg_1.png'); }
+body[data-char='ragirl'] .character-leg-left {
+    left: calc(474 / 948 * 100%);
+    top: calc(1075 / 1340 * 100%);
+    width: calc(186 / 948 * 100%);
+    height: calc(264 / 1340 * 100%);
+    transform-origin: center top;
+}
+body[data-char='ragirl'] .character-leg-left .face-front { background-image: url('../images/ragirl_leg_1.png'); }
+body[data-char='ragirl'] .character-leg-left .face-back { background-image: url('../images/ragirl_leg_0.png'); }
+
+/* character button */
+.select-character {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 100;
+}
+.select-character-btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.select-character-btn-ilbuni {
+    background-image: url('../images/ilbuni_head_front.png');
+    background-size: 36px auto;
+}
+.select-character-btn-ragirl {
+    background-image: url('../images/ragirl_head_front.png');
+    opacity: 0.5;
+}
+/* body에 데이터 캐릭터 값이 라걸이 되면  */
+body[data-char='ragirl'] .select-character-btn-ilbuni {
+    opacity: 0.5;
+}
+body[data-char='ilbuni'] .select-character-btn-ilbuni,
+body[data-char='ragirl'] .select-character-btn-ragirl {
+    opacity: 1;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <!-- I에서는 완벽히 안된다 -->
+    <!-- I에서는 안된다 -->
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+
+                body { font-family: sans-serif; font-size: 18px; }
+                /* shape outside circle */
+                /* shape outside circle */
+                /* shape outside circle */
+                .megaphone{
+                  float: left;
+                  /* shape-outside: circle(반지름  at 좌표(중심점 :왼쪽상단기준부터)); */
+                /* shape-outside: circle(50% at 50% 50%); 다 똑같으니깐 하나로 써줄수 있다*/
+                /* shape-outside: circle(50%); */
+                /* 번외 - 중심점에서 가까운쪽 */
+                /* shape-outside: circle(closest at 50% 50%); */
+                /* 번외 - 중심점에서 먼쪽 */
+                shape-outside: circle(farthest at 50% 50%);
+                margin-right: 10px;
+                }
+
+
+                /* 그림을 피해 글자가 다 왼쪽으로 들어오도록 */
+                /* 그림을 피해 글자가 다 왼쪽으로 들어오도록 */
+                /* 그림을 피해 글자가 다 왼쪽으로 들어오도록 */
+                .desktop{
+                  float: left;
+                  margin-right: 10px;
+                  /* 상우하좌 */
+                  shape-outside: inset(40px 20px 55px 0);
+                }
+
+                /* 꺽은 모양에서 글자 채우기 */
+                /* 꺽은 모양에서 글자 채우기 */
+                /* css shape editor 크롬 확장프로그램으로 좌표 알아내기 */
+                .logo{
+                  float: left;
+                  margin-right: 10px;
+                  /* 좌표를 먼저 알아야한다 */
+                  /* 개발자 탭에서 그림에 주소에 open in new tab 열기 */
+                  /* 개발자 탭에서 그림에 Shape > shape-out side> +polygon > 모양 잡아주기  */
+                  /* 개발자 탭에서 바뀐 shape 복사해서 클래스에 넣어주기 */
+                  shape-outside: polygon(735px 425px, 819px 297px, 984px 307px, 992px 505px, 818px 535px);"
+                }
+
+                /* 원형안에 텍스트 가두기 */
+                /* 원형안에 텍스트 가두기 */
+                /* 원형안에 텍스트 가두기 svg이용 */
+            /* http://d3plus.org/js/d3.min.js
+               http://d3plus.org/js/d3plus.min.js */
+            .box {
+              width: 200px;
+              height: 200px;
+              border: 1px dashed #000;
+              margin: 2rem auto;
+            }
+            .box svg{
+              width: 100%;
+              height: 100%;
+            }
+            /* 원형과 테투디에 색넣기 */
+            .shape{
+              fill: #eee;
+              stroke:#ccc;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Announcement</h2>
+        <img
+            class="megaphone"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/megaphone.png"
+        />
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum aspernatur pariatur
+            eius, in neque quibusdam dignissimos ratione veniam! Laborum quis unde fuga quibusdam
+            iste voluptas dolorum, doloremque illum molestias sint. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Debitis necessitatibus alias unde rem quae soluta
+            consectetur. Reprehenderit dolorum ducimus at itaque, sapiente ea eligendi, excepturi
+            quibusdam. Inventore suscipit, ex voluptas?Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Libero officia ipsam aliquam nihil vitae, quasi. Perferendis ullam
+            tempora totam dolore optio minima, laudantium nemo corporis tenetur non, et mollitia
+            hic.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis soluta est neque
+            aut eveniet nostrum libero laborum esse, aspernatur eligendi! Culpa nemo voluptates
+            saepe pariatur ea. Minus odit in ad.Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Non laboriosam aliquid quis ipsa eos excepturi, facere vel, saepe accusantium.
+            Pariatur hic enim eaque corporis nostrum labore laborum eligendi fuga magni.
+        </p>
+        <img
+            class="desktop"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/desktop01.png"
+        />
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non voluptate vitae, eligendi
+            eveniet suscipit earum est expedita inventore aliquam perspiciatis deleniti neque
+            distinctio quidem quam quibusdam. Laborum expedita neque repudiandae.Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Autem ad est voluptate sint fugiat quos illum,
+            beatae neque repellendus eius saepe dolorem obcaecati expedita, ea et quas quisquam
+            suscipit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto odit
+            incidunt, deleniti veniam quasi quos illo aliquam facere velit, nulla magni, placeat?
+            Adipisci quisquam vel, ab quo at veniam ipsa.Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Illo omnis debitis vitae quae nulla itaque in sequi quas natus
+            deserunt repudiandae, molestiae necessitatibus non minima dolores, velit officia.
+            Commodi, mollitia! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
+            debitis, eaque nostrum, ratione delectus rerum doloremque voluptatem nam repellat ipsam
+            doloribus aliquam quibusdam, quasi minima magnam consequuntur? Repellat, odio,
+            nisi.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat maiores officia
+            adipisci eos. Similique excepturi fugit et quis perferendis sunt dolorem optio! Possimus
+            rerum iure laborum, reprehenderit harum culpa ipsa?
+        </p>
+        <img
+            class="logo"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/Acme_Insignia.png"
+        />
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptate, eaque at
+            expedita molestias nemo amet eum! Distinctio a pariatur, ut fugit iure minima nesciunt,
+            eius tenetur officia, excepturi odio.Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Sapiente nulla cupiditate et provident, error numquam saepe odio accusamus
+            recusandae explicabo deleniti sed quod similique rerum minus magnam consectetur
+            laboriosam veniam!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
+            voluptates voluptate ipsa ullam sapiente eveniet cum nostrum, facilis totam provident
+            fugit quibusdam, ea iusto incidunt non corporis labore omnis accusamus!Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Quos, expedita. Obcaecati commodi ullam ratione
+            eum quod nam assumenda ex at et incidunt, ab, est, recusandae quasi nisi voluptates sit
+            repudiandae?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis blanditiis
+            quidem at vero modi illo ea similique dicta amet nemo! Alias natus ipsam soluta commodi
+            maiores vero atque illo veritatis?
+        </p>
+
+        <div class="box">
+            <svg>
+                <circle cx="100px" cy="100px" r="100px" class="shape"></circle>
+                <text y="15px" class="wrap">
+                    Here is a long text string that is perfectly wrapped inside a circle.Here is a
+                    long text string that is perfectly wrapped inside a circle.Here is a long text
+                    string that is perfectly wrapped inside a circle.
+                </text>
+            </svg>
+        </div>
+        <!-- 제이쿼리도 필요, html 짧게 이용하기위해 -->
+
+        <script
+            src="http://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="http://d3plus.org/js/d3.min.js"></script>
+        <script src="http://d3plus.org/js/d3plus.min.js"></script>
+
+        <!-- // 감싸는 방법 (원하는 클래스명만 달라진다) -->
+        <script type="text/javascript">
+            d3plus.textwrap().container(d3.select('.wrap')).draw()
+        </script>
+    </body>
+</html>

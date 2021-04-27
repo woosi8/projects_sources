@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Rotatable 3D Cube</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+        />
+
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <!-- 36 여러박스중에 하나를 선택할수 있는건
+            체크박스 ?  -->
+        <style media="screen">
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Open Sans';
+                line-height: 1.618em;
+                color: #444;
+                overflow-y: scroll;
+            }
+            .wrapper {
+                /* 50램보다 브라우저가 클때는 50램, 50램보다 작으면 100% */
+                /* 화면이 50램보다 작아지면 100% */
+                max-width: 50rem;
+                width: 100%;
+                margin: 1rem auto;
+                text-align: center;
+            }
+
+            /* 카메라는 위에서 바라보고 있다 */
+            .perspective {
+                perspective: 2000px;
+                position: relative;
+                /* 400px   y축을 위로 */
+                perspective-origin: 25rem -150px;
+            }
+
+            .cube {
+                position: relative;
+                width: 400px;
+                height: 400px;
+                margin: 3.5rem auto;
+                transition: 0.5s;
+                /* 자식요소가 보존된 상태에서 변화하라 */
+                transform-style: preserve-3d;
+                /* animation: rotate 10s infinite linear; */
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+            .cube div {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                opacity: 0.95;
+            }
+
+            .cube div img {
+                width: 100%;
+                height: 100%;
+            }
+            .front {
+                transform: translateZ(200px);
+            }
+
+            /* 백이 뒤집어 보여서 다시 돌려준다. 트랜스폼은 한줄에 써줘야함, 순서도 중요 */
+            .back {
+                transform: translateZ(-200px) rotateY(180deg);
+            }
+            .left {
+                transform: rotateY(-90deg) translateZ(200px);
+            }
+            .right {
+                transform: rotateY(90deg) translateZ(200px);
+            }
+            .top {
+                transform: rotateX(90deg) translateZ(200px);
+            }
+            .bottom {
+                transform: rotateX(-90deg) translateZ(200px);
+            }
+
+            input {
+                display: none;
+            }
+
+            /* ~형제 클래스 튜브전부 */
+            #rotate:checked ~ .cube {
+                animation: rotate 10s infinite linear;
+            }
+
+            #back:checked ~ .cube {
+                animation: none;
+                transform: rotateY(180deg);
+            }
+            #front:checked ~ .cube {
+                animation: none;
+                /* 앞면이니깐 초기화 */
+                transform: none;
+            }
+            #top:checked ~ .cube {
+                animation: none;
+                transform: rotateX(-90deg);
+            }
+            #bottom:checked ~ .cube {
+                animation: none;
+                transform: rotateX(90deg);
+            }
+            #left:checked ~ .cube {
+                animation: none;
+                transform: rotateY(90deg);
+            }
+            #right:checked ~ .cube {
+                animation: none;
+                transform: rotateY(-90deg);
+            }
+
+            label {
+                /* 글씨 속성도 있고 크기도 잡아라 */
+                display: inline-block;
+                padding: 0.25em 0.5em;
+                border-radius: 0.5rem;
+                background: dodgerblue;
+                color: #fff;
+                margin: 0 0.25rem;
+                transition: 0.25s;
+            }
+
+            /* +인풋의 뒤를 따라오는 라벨 */
+            input:checked + label {
+                background: rgb(238, 29, 10);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="perspective">
+                <!-- 라벨버튼만드는순서
+         input > labe> 움직일 요소cube
+        왜 이렇게 만드냐? css에 만든 순서대로 따라가기위함 -->
+                <!-- name switch 넣어준 이유는 클릭시 하나만 선택되기위함 -->
+                <input type="radio" id="rotate" name="switch" />
+                <label for="rotate">auto</label>
+
+                <input type="radio" id="front" name="switch" />
+                <label for="front">front</label>
+
+                <input type="radio" id="left" name="switch" />
+                <label for="left">left</label>
+
+                <input type="radio" id="back" name="switch" />
+                <label for="back">back</label>
+
+                <input type="radio" id="right" name="switch" />
+                <label for="right">right</label>
+
+                <input type="radio" id="top" name="switch" />
+                <label for="top">top</label>
+
+                <input type="radio" id="bottom" name="switch" />
+                <label for="bottom">bottom</label>
+
+                <div class="cube">
+                    <div class="front">
+                        <img src="Cube/front.jpg" />
+                    </div>
+                    <div class="back">
+                        <img src="Cube/back.jpg" />
+                    </div>
+                    <div class="top">
+                        <img src="Cube/top.jpg" />
+                    </div>
+                    <div class="bottom">
+                        <img src="Cube/bottom.jpg" />
+                    </div>
+                    <div class="left">
+                        <img src="Cube/left.jpg" />
+                    </div>
+                    <div class="right">
+                        <img src="Cube/right.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

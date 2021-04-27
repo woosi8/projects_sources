@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>background</title>
+    <style media="screen">
+
+      .bg{
+        width: 700px;
+        height: 1000px;
+        background-image: url(cant.jpg);
+        background-repeat: no-repeat;
+        /* background-repeat: repeat-x; */
+        background-size: contain;
+                            /* 가로  세로 */
+        /* background-position: left top; 기본값 */
+        /* background-position: right center; */
+        background-position: 50px 50px;
+        /* 그림을 고정시킴으로 스크롤 내리면 그림은 원래 위치에 고정이므로 따라나오지 않아 사라짐 */
+        background-attachment: fixed;
+
+
+      }
+
+      .log a{
+        /* 먼저 그림의 파일 크기 확인이 필요 */
+        width: 725px;
+        height: 725px;
+        background-image: url(cant.jpt);
+        /* a는 인라인 요소라서 그림이 글자와 같이 안나온다 */
+        display: block;
+        /* 텍스트 그림이랑 안겹치게 날려보내기 */
+        text-indent: -999em;
+      }
+
+
+
+
+      /* 한 이미지를 세개 위치 다르게 해서 다 나오게 하기 */
+      li a{
+        background-image: url(cant.jpg);
+        width: 108px;
+        height: 32px;
+        display: block;
+        text-indent: -999em;
+      }
+      li:nth-child(2) a{
+        background-position: -107px 0;
+      }
+      li:nth-child(3) a{
+        background-position: -214px 0;
+
+      }
+      /* 마우스를 올릴때 이미지 위치 변경 */
+      li:nth-child(1) a:hover{
+        background-position: -107px -32px;
+      }
+      li:nth-child(2) a:hover{
+        background-position: -107px -32px;
+      }
+      li:nth-child(3) a:hover{
+        background-position: -214px -32px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="log"><a href="">웹표준HTML</a></div>
+    <ul>
+      <li><a href="">스타</a></li>
+      <li><a href="">프로그램</a></li>
+      <li><a href="">이슈</a></li>
+    </ul>
+  </body>
+</html>

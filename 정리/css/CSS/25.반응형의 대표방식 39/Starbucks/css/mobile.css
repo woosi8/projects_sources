@@ -1,0 +1,23 @@
+@charset "UTF-8";
+html{ font-size: 16px;}
+body {font-size: 1rem; }
+header > div {width: 100%; margin: 0;}
+header h1 img { width: 3.8125rem;}
+header > div h1 {padding: 0.8125rem 0 0.75rem 0.625rem; }
+header > div nav {display: none;}
+header > div .spot i {display: inline-block; font-size: 2rem;}
+header .total {display: inline-block; text-decoration: none;
+  position: absolute;right: 0.75rem; top: 2.3rem;
+  font-size: 2rem;
+}
+header {border: none;}
+header > div .spot li ~ li a::after {display: none;}
+header > div .spot li ~ li a{padding: 0;}
+header > div .spot li ~ li{ padding-left: 1.6875rem;}
+/* 첫번째 네번째 빼고 없애주기 *유동적인 컨텐츠라면 class로 제어하는 것이 낫다*/
+header > div .spot li:nth-child(2),
+header > div .spot li:nth-child(3),
+header > div .spot li:nth-child(5) { display: none;}
+header .total span,
+header > div .spot li span { position: absolute; left: -4000%;}
+header > div .spot {right: 4.5rem; top: 1.3rem;}

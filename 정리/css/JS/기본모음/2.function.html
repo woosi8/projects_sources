@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>함수</h2>
+    <script>
+      // function send(매개변수parameter) {
+      //   alert('rudrh');
+      // }
+      // send(인자argument);
+
+
+      var a=10;
+      var b=20;  //전역변수(어디서든 쓸수있는 변수)
+
+
+      //함수는 위치가 중요하지 않다 (이름이 있는 함수는 익명함수보다 먼저 처리된다)
+      function add(x,y) {
+        var sum = x+y; //지역변수(이 함수 안에서만 쓰이는 변수)
+        // return으로 배달해줘서 밖으로 보내준다
+        return sum;
+      }
+
+      // 배달add을 여기서 받아줘야한다
+      var sum = add(a,b);
+      document.write(sum);
+    </script>
+
+    <h2>객체</h2>
+    <script>
+    //객체 = 변수 + 함수
+
+    // var obj = new Object();  1번째 방법
+
+
+    // var obj ={};          2
+      // var baby={}
+      // baby.age ="two years";
+      // baby.sex="male"
+      // baby.brithday="one Sept"
+
+      var baby={ //객체
+          age:'2',  //property
+          gender:'male',
+          birthday:'15 sep',
+          // getAge:function () {  //함수넣기
+          //     return this.age;}
+          getAge:getAge
+          }
+
+      //함수 밖으로 빼기
+      function getAge() {
+        return this.age;
+      }
+
+      var age = baby.getAge();
+      // document.write(baby.age);
+      document.write(age);
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Flexbox Project 1: Menu i</title>
+    <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="css/style.css">
+    <style media="screen">
+    /* 1. 문자를 가운데로 옮기는법
+    ul을 글자취급해주고 부모에게 가운데 정렬하면되 */
+      * { box-sizing: border-box; }
+body { font-family: Arial; }
+
+/* 1. 문자를 가운데로 옮기는법*/
+/* .main-nav{
+  text-align: center;
+  background-color: #eee;
+} */
+
+
+
+
+
+
+.main-nav .menu {
+  list-style: none;
+  padding-left: 0;
+  height: 60px;
+  /* 1. 문자를 가운데로 옮기는법*/
+  /* display: inline-block; */
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  /* 사이사이 공간 균일하게 먹게하기 */
+  /* 스페이스 어라운드는 공간을 각자 각각 먹기 떄문에 2배로 먹는경우 발생 */
+  justify-content:space-evenly;
+}
+
+
+.main-nav .menu li {
+  padding: 4px;
+  padding-top: 14px;
+}
+
+.main-nav .fa {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.main-nav .menu-text {
+  display: inline-block;
+}
+
+.main-nav h4, .main-nav p {
+  margin: 0;
+}
+
+.main-nav p {
+  font-size: 12px;
+}
+    </style>
+  </head>
+
+  <body>
+	<nav class="main-nav">
+		<ul class="menu">
+  		<li class="menu-home">
+  		  <a>
+  			<i class="fa fa-home"></i>
+  			<div class="menu-text">
+  			  <h4>HOME</h4>
+  			  <p>Start Here</p>
+  			</div>
+  		  </a>
+  		</li>
+  		<li class="menu-products">
+  		  <a>
+  			<i class="fa fa-shopping-basket"></i>
+  			<div class="menu-text">
+  			  <h4>PRODUCTS</h4>
+  			  <p>Shop Now</p>
+  			</div>
+  		  </a>
+  		</li>
+  		<li class="menu-blog">
+  		  <a>
+  			<i class="fa fa-pencil"></i>
+  			<div class="menu-text">
+  			  <h4>BLOG</h4>
+  			  <p>My Thoughts</p>
+  			</div>
+  		  </a>
+  		</li>
+  		<li class="menu-contact">
+  		  <a>
+  			<i class="fa fa-phone"></i>
+  			<div class="menu-text">
+  			  <h4>CONTACT</h4>
+  			  <p>Get in Touch</p>
+  			</div>
+  		  </a>
+  		</li>
+		</ul>
+	</nav>
+
+  </body>
+</html>

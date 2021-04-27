@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Project 3: Banner With Centered Content i</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style media="screen">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    h6 {
+      font-size: 22px;
+    }
+
+    .banner h1,
+    .banner h3,
+    .banner h6 {
+      margin: 0;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    .banner {
+      color: white;
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/409269/banner-flowers.jpg') top left/cover no-repeat;
+      height: 300px;
+
+      /* text-align: center; */
+      /* line-height: 300px; */
+      /* padding-top: 80px; */
+      /* 여기까지 하면 패딩주는 바람에 높이가 합쳐서 400이 됨.  */
+      /* 박스사이징: 내가 위에 준거 300px안에서 보더나 패딩을 뽑아라 */
+      /* box-sizing: border-box; */
+      /* 문제는 픽셀값을 바꿀떄마다 padding-top: 값을 새로줘야한다
+          아래 자식한테 포지션 절대값으로 해결할수도 있다. */
+      /* position: relative; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .banner-text{
+      /* margin-top: 100px; */
+      /* position: absolute; */
+                                  /* 자기 크기에 반만큼 왼쪽,위로가 */
+      /* top: 50%; left: 50%; transform: translate(-50%, -50%); */
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="banner">
+    <div class="banner-text">
+      <h1>Flexbox Banner</h1>
+      <h3>Perfectly Centered</h3>
+      <h6>No matter how many lines of text you use.</h6>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>

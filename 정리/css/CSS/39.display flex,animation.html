@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Striped Navigation_BASE</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <style media="screen">
+    body {
+      font: normal 18px/1.5 "Helvetica Neue", sans-serif;
+    }
+    /*
+    https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-001.jpg
+    https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-002.jpg
+    https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-003.jpg
+    https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-004.jpg
+    https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-005.jpg
+    */
+
+   .flex-wrapper{
+     display: flex;
+     height: 100vh;
+   }
+
+    .flex-wrapper a{
+      flex:1;
+            /* 바뀌는속성(height,width,.all(생략가능)) */
+      transition: flex   0.35s;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .flex-wrapper a:hover{
+      flex:3;
+      background: rgba(0,0,0,0.5);
+    }
+    .flex-wrapper a:hover .overlay{
+      background: rgba(0,0,0,0.5);
+    }
+    /* .flex-wrapper a:hover .overlay-inner h2 , .flex-wrapper a:hover .overlay-inner p{ */
+    .flex-wrapper a:hover .overlay-inner *{
+      /* transform: translateY(0px); */
+      transform: none;
+      opacity: 1;
+    }
+
+    .flex-wrapper a.one{background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-001.jpg);}
+    .flex-wrapper a.two{background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-002.jpg);}
+    .flex-wrapper a.three{background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-003.jpg);}
+    .flex-wrapper a.four{background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-004.jpg);}
+    .flex-wrapper a.five{background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-005.jpg);}
+
+    .flex-wrapper .overlay{
+      /* 전체를 다 커버한다 a태그를 기준으로 */
+      position: absolute;
+      /* a태그 다춰워야한다 */
+      left: 0; right: 0; top: 0; bottom: 0;
+      padding: 0 10px;
+      transition: background 0.35s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .overlay-inner *{
+      /* visibility: hidden; */
+      opacity: 0;
+      color: #fff;
+      text-align: center;
+            /* 듀레이션/ 딜레이         */
+      transition: 0.5s 0.2s;
+    }
+
+    /* 마우스 호버 전에 위에 올라가고 아래에 내려가 있어 */
+  .overlay-inner h2{
+    transform: translateY(-60px);
+  }
+  .overlay-inner p{
+    transform: translateY(60px);
+  }
+
+  /* 800이하에서 세로로 돌리고 효과도 없애기 */
+  @media (max-width:800px) {
+    .flex-wrapper{flex-direction: column;}
+    .flex-wrapper a:hover{flex:1;}
+    .flex-wrapper a:hover .overlay{background:none;}
+    .overlay-inner h2 , .overlay-inner p{transform:none; opacity:1;
+      /* 폰트사이즈 점차적으로 줄이는게 보이게 하면서 줄이기 */
+    font-size: 80%;}
+    /* vw는 반응형에서만 써야한다. 창 너비가 고정되 있을때만,창 너비에 대비해서 값을 갖기 떄문에 */
+    /* font-size: 7vw;} */
+  }
+  @media (max-width:800px) {
+    .overlay-inner h2 , .overlay-inner p{transform:none; opacity:1;
+      }
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="flex-wrapper">
+    <!-- 전체높이를 다써야함 -->
+    <a href="" class="one">
+      <!-- 전체를 검게 해주는 클래스 (앱솔루투로 붕 띄운다)-->
+      <div class="overlay">
+        <!-- 두개르르 묶어주는 클래스 -->
+        <div class="overlay-inner">
+          <h2>Title #1</h2>
+          <p>Fusce vulputate orci at nulla consequat, ac tincidunt quam ultrices.</p>
+        </div>
+      </div>
+    </a>
+    <a href="" class="two">
+      <div class="overlay">
+        <div class="overlay-inner">
+          <h2>Title #2</h2>
+          <p>Quisque facilisis enim eu mi condimentum, id interdum diam pharetra.</p>
+        </div>
+      </div>
+    </a>
+    <a href="" class="three">
+      <div class="overlay">
+        <div class="overlay-inner">
+          <h2>Title #3</h2>
+          <p>Donec laoreet enim sed risus suscipit, rutrum egestas ligula tristique.</p>
+        </div>
+      </div>
+    </a>
+    <a href="" class="four">
+      <div class="overlay">
+        <div class="overlay-inner">
+          <h2>Title #4</h2>
+          <p>Etiam porta, enim non vulputate consectetur, neque lectus finibus erat, eu. </p>
+        </div>
+      </div>
+    </a>
+    <a href="" class="five">
+      <div class="overlay">
+        <div class="overlay-inner">
+          <h2>Title #5</h2>
+          <p>Cras nunc augue, egestas sed maximus non, consectetur in nunc.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+
+
+</body>
+
+</html>

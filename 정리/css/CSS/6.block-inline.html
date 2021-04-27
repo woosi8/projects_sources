@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>block,inline</title>
+  <style media="screen">
+    /* 블럭요소 */
+    h1{
+      background-color: blue;
+      width: 300px;
+    }
+
+    /* a,span태그는 인라인요소 - 크기를 안먹는다 */
+    span{
+      background-color: blue;
+      width: 300px;
+      display:block;
+    }
+    p{
+      text-align: center;
+    }
+    p a{
+      background-color: dodgerblue;
+      color:white;
+      text-decoration: none;
+
+      /* 크기 속성 글자 속성 둘다 필요할때*/
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+
+      /* 글자 행 높이 맞추기 */
+      line-height: 40px;
+
+    }
+    .hidden{
+      /* 공간조차 없음. 원래 없는것처럼 */
+      display: none;
+    }
+    .hide{
+      /* 공간은 차지하지만 안보이게 하는것 */
+      visibility: hidden;
+    }
+
+    /* 리스트가 아니지만 리스트로 보이게 하기 */
+    div i {
+      display: list-item;
+    }
+
+
+    /* 디스플레이 테이블 : 부모가 테이블 선언 , %는 부모가 만들어준 비율안에서 %이다.
+       둘다 너비의 반반쓰게하기*/
+    .services{
+      display: table;
+      width: 800px;
+      border: 1px solid;
+    }
+    .services div{
+      display: table-cell;
+      width: 50%;
+    }
+
+  .overflow{
+    text-align: left;
+    background-color: silver;
+    border: 1px solid;
+    height: 100px;
+    /* overflow:hidden; */
+    /* overflow:scroll; */
+    overflow:auto;
+  }
+
+  </style>
+  </head>
+  <body>
+    <h1>heading</h1>
+    <h2 class="hide">heading2</h2>
+    <span>span tag</span>
+    <div class="hidden">
+      hidden area
+    </div>
+    <p>
+      <!-- a{$}*5 -->
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
+      <a href="">4</a>
+      <a href="">5</a>
+    </p>
+    <div>
+      <i>list</i>
+      <i>list</i>
+      <i>list</i>
+      <i>list</i>
+    </div>
+
+    <div>
+      <div class="services">
+        <div>mobile</div>
+        <div>web application</div>
+      </div>
+    </div>
+    <p class="overflow">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </body>
+</html>

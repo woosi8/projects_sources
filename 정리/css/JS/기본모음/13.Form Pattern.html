@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style media="screen">
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: #f8fafe;
+            }
+
+            .container {
+                width: 45%;
+                margin: 2rem auto;
+                background: #fff;
+                padding: 3rem 2rem;
+                border-radius: 5px;
+                border: 1px solid #dbe1ec;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            form input,
+            form label {
+                display: block;
+            }
+
+            form input[type='text'] {
+                width: 100%;
+                margin-bottom: 1rem;
+                border-radius: 5px;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                padding: 1rem;
+                font-size: 16px;
+                outline: none;
+            }
+
+            form input[type='text'].type-exp-date,
+            form input[type='text'].type-cvv {
+                width: 35%;
+            }
+
+            form button {
+                padding: 1rem 2rem;
+                border: 0;
+                background: #17a15f;
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+
+            form #cc-type {
+                margin-bottom: 1rem;
+                margin-top: -0.5rem;
+                font-size: 75%;
+                display: block;
+            }
+            @media (max-width: 600px) {
+                .container {
+                    background: red;
+                }
+                header {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Enter your credit card information.</h1>
+
+            <form action="">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="type-cc-number" name="cc-number" id="cc-number" />
+                <span id="cc-type">Credit card type</span>
+
+                <label for="cc-exp-date">Expiration date</label>
+                <input type="text" class="type-exp-date" name="cc-exp-date" id="cc-exp-date" />
+
+                <label for="cc-cvv">Security code</label>
+                <input type="text" class="type-cvv" name="cc-cvv" id="cc-cvv" />
+
+                <label for="cc-prefix">Security code</label>
+                <input type="text" class="type-cvv" name="cc-prefix" id="cc-prefix" />
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <script src="12.Responsive SVG/cleave.min.js" charset="utf-8"></script>
+        <script>
+            var cleave = new Cleave('#cc-number', {
+                creditCard: true,
+                onCreditCardTypeChanged: function (type) {
+                    // update UI ...할일
+                    console.log(type)
+                    document.querySelector('#cc-type').innerHTML = type
+                },
+            })
+
+            var cleaveCCV = new Cleave('#cc-exp-date', {
+                date: true,
+                delimiter: '/',
+                datePattern: ['m', 'd', 'Y'],
+            })
+
+            var cleaveCCCVV = new Cleave('#cc-cvv', {
+                // 입력칸수
+                blocks: [3],
+                // uppercase: true
+                numericOnly: true,
+            })
+
+            var cleave = new Cleave('#cc-prefix', {
+                prefix: '보안번호',
+                delimiter: '-',
+                blocks: [4, 4],
+                uppercase: true,
+            })
+        </script>
+    </body>
+</html>

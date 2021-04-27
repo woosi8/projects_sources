@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+
+      .mainmenu{
+      background: #333; padding-left: 40px;
+      }
+
+    .mainmenu:after{content: ''; display: block; clear: both;}
+    .mainmenu > li ul li {padding: 0 10px;}
+
+
+    .mainmenu ul{
+      position: absolute;
+      background: #666;
+      top: -200px;
+      transition:top 0.7s;
+      z-index:-1;
+    }
+    .mainmenu>li{float: left; list-style: none; line-height: 35px; color: #fff;
+    padding: 0 30px;
+    position: relative;
+  }
+
+    .mainmenu > li:hover ul{top:100%;}
+    .mainmenu ul li {white-space: nowrap;}
+
+    </style>
+  </head>
+  <body>
+
+   <ul class="mainmenu">
+     <li> About Us
+       <ul>
+         <li>ceo greeting</li>
+         <li>history</li>
+         <li>vision</li>
+       </ul>
+     </li>
+     <li> Location
+       <ul>
+         <li>ceo greeting</li>
+         <li>history</li>
+         <li>vision</li>
+       </ul>
+     </li>
+     <li> Service
+       <ul>
+         <li>ceo greeting</li>
+         <li>history</li>
+         <li>vision</li>
+       </ul>
+     </li>
+     <li> Works
+       <ul>
+         <li>ceo greeting</li>
+         <li>history</li>
+         <li>vision</li>
+       </ul>
+     </li>
+   </ul>
+  </body>
+</html>

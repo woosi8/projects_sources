@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title    1. 태그로 불러오기
+              2. 아이디를 이용해서
+              3. 클래스명
+              4. css 선택자 방법으로
+></title>
+  </head>
+  <body>
+  <h1 id="title">javascript basic Selector</h1>
+    <div class="container">
+      <ul id="list1" class="list">
+        <li>li 1</li>
+        <li>li 2</li>
+        <li>li 3</li>
+        <li>li 4</li>
+        <li>li 5</li>
+      </ul>
+    </div>
+    <div class="container">
+      <ul id="list2" class="list">
+        <li>li 1</li>
+        <li>li 2</li>
+        <li>li 3</li>
+        <li>li 4</li>
+        <li>li 5</li>
+      </ul>
+    </div>
+    <div class="container">
+      <ul id="list3" class="list">
+        <li class="red" name="red">li 1</li>
+        <li>li 2</li>
+        <li>li 3</li>
+        <li>li 4</li>
+        <li>li 5</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div id="box">box level1
+          <div>
+            box level2
+            <div>
+              box level3
+            </div>
+          </div>
+      </div>
+    </div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <script>
+     var firstTitle = document.getElementById('title'),
+         paragraphs = document.getElementsByTagName('p'),
+         myList = document.getElementsByClassName('list')
+         // css방법
+         myList2 = document.querySelector('.list .red')
+
+    firstTitle.style.display= 'none';
+    // list중에 첫번째 없애기
+    myList[0].style.display='none';
+    // paragraphs[0].style.color='red';
+    console.log(myList2);
+
+    for (var i = 0; i <= paragraphs.length; i++) {
+      paragraphs[i].style.color='red';
+
+    }
+
+  </script>
+  </body>
+</html>

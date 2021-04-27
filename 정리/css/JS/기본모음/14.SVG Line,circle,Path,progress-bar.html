@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .loader {
+        top: 50px;
+        position: absolute;
+        transition: opacity .3s linear;
+      }
+
+      /*  div에 svg코드가 들어오게 되면 크기가 없으면 안나오게 된다 그러니 크기가 필수*/
+      #loading-line {
+        width: 100%;
+        height: 4px;
+        overflow: hidden;
+      }
+
+      #loading-circle{
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading-line" class="loader"></div>
+    <!-- div[id="loading-circle"].loader -->
+    <div id="loading-circle" class="loader circle"></div>
+    <button class="play">p</button>
+    <button class="pause">s</button>
+    <button class="stop">s</button>
+    <div id="heart">
+      <!-- 만든 svg 코드 넣기 -->
+      <path class="heart_path"></path>
+    </div>
+    <!-- /*  div에 svg코드가 들어오게 되면 크기가 없으면 안나오게 된다 그러니 크기가 필수*/ -->
+  <script src="12.Responsive SVG/Progressbar.js" charset="utf-8"></script>
+
+  <script>
+
+
+    //2. 동그라미 만들기
+    // dom이 다 완료되고 할일
+    document.addEventListener('DOMContentLoaded',function () {
+
+      const loadingLine = document.querySelector('#loading-line');
+      const loadingCircle = document.querySelector('#loading-circle');
+
+
+      //1. 홈피에서 가져오기
+      var bar = new ProgressBar.Line(loadingLine, {
+        easing: 'easeInOut',
+        duration : 1500,
+        color: '#0060b2'
+      });
+
+      // Value from 0.0 to 1.0
+      bar.animate(1,function () {
+      // 1. 선 다움직이고 사라지게 하기
+              loadingLine.classList.add('hidden');
+      });
+
+
+
+
+      //2. 동그라미 만들기
+      //2. 위에꺼에서 Circle로 바꿔준다
+      var loadingCir = new ProgressBar.Circle(loadingCircle, {
+        easing: 'easeIn',
+        duration : 2500,
+        strokeWidth:5,
+        // 채워지기 전에 예비선 보여주기
+        trailWidth:0.5,
+        // 색깔 바뀌는 과정 (값이 하나가 아니라서 {중가로})
+        from:{
+          color:'#91ffab'
+        },
+        to:{
+          color:'#00b400'
+        },
+        //칼라가 바뀌는걸 보여줘(함수)
+        step:function (state,circle) {
+          //홈피에 있는 내용
+          circle.path.setAttribute('stroke',state.color);
+        },
+
+      });
+      loadingCir.animate(1);
+
+
+      //3 자기가 만든 그림 컨트롤 하기
+      //  열었을때는 안보이게 하기
+      const heart = document.querySelector('.heart_path');
+      const heartpath = new ProgressBar.Path(heart,{
+        easing: 'easeInOut',
+        duration: 1500,
+
+      });
+      // heartpath.animate(1);
+
+    document.querySelector('.play').addEventListener('click',function () {
+      heartpath.animate(1);
+    });
+    document.querySelector('.pause').addEventListener('click',function () {
+      heartpath.stop();
+    })
+    document.querySelector('.stop').addEventListener('click',function () {
+      heartpath.animate(0);
+    })
+
+
+    }); //DOMcontendLoaded
+  </script>
+  </body>
+
+</html>

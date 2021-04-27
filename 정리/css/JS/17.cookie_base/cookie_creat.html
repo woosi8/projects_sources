@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ABC corporation</title>
+    <button type="button" name="button" onclick="deleteCookie();">
+      Delete
+    </button>
+  </head>
+  <body>
+
+
+
+    <!--
+    쿠키위치
+    C/사용자/.../appData/Local/google/chrome/User Data/default/cache
+    web/coockie_base 생성
+
+    -->
+
+    <script>
+    // 필요한 정보 - cookieName
+    // 1            expires (소멸시기) ex) 2019.09.10 + 오늘날짜부터 일주일
+    var date = new Date();
+    // new date() 현재 날짜 반환
+    // 변수.setDate(새로운 날짜) - 변수.날짜지정
+    // date.getDate()+7 - 날짜를 가져온다
+    date.setDate(date.getDate()+7); //쿠키의 파기날짜
+    //여기까지 쿠키의 파기날짜
+
+    //f12/ application /cooKies / Name,expires
+    var setCookie = '';
+    //setCookie+= 뒤에 이어붙어라는뜻
+    // ;클론으로 값을 구별한 (f12의 name,value,expire...)
+    setCookie += 'CookieName = ABC;';
+                        //위에 date  , UTC날짜방식
+    setCookie += 'expires =' + date.toUTCString();
+
+    //2 위에 정보를 쿠키에 저장하기
+    document.cookie = setCookie;
+    // 23:48 비쥬얼스튜디오에서 서버로 보신다고 하셨는데 전 아톰을 쓰는데 저런 기능이 없는거 같은서 그냥 하는데 cookie에 아무파일도 저장이 안됩니다.
+    //   쿠기를 생성하려면 비쥬얼 스튜디오를 사용해야하나요??
+
+
+    // 삭제 (만기날짜(expires) 이전 날짜로 지정)
+    function deleteCookie() {
+      var date = new Date();
+      date.setDate(date.getDate()-1);
+
+      var setCookie = '';
+      setCookie += 'CookieName = ABC;';
+      setCookie += 'expires =' + date.toUTCString();
+      document.cookie = setCookie;
+
+    }
+    </script>
+
+  </body>
+</html>

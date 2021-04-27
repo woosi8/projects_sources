@@ -1,0 +1,37 @@
+{
+    // key와 value로 구성
+    "items": [
+        {
+            "type": "tshirt",
+            "gender": "female",
+            "size": "large",
+            "color": "pink",
+            "image": "../img/pink_t.png"
+        },
+        {
+            "type": "pants",
+            "gender": "male",
+            "size": "small",
+            "color": "blue",
+            "image": "../img/blue_p.png"
+        },
+        {
+            "type": "tshirt",
+            "gender": "female",
+            "color": "pink",
+            "image": "../img/pink_t.png"
+        },
+        {
+            "type": "tshirt",
+            "gender": "female",
+            "color": "pink",
+            "image": "../img/pink_t.png"
+        },
+        {
+            "type": "tshirt",
+            "gender": "female",
+            "color": "pink",
+            "image": "../img/pink_t.png"
+        }
+    ]
+}

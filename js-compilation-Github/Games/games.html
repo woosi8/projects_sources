@@ -1,0 +1,70 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<script
+		src="https://kit.fontawesome.com/d6ae544de2.js"
+		crossorigin="anonymous"
+	></script>
+	<link rel="stylesheet" href="games.css" />
+	<script src="Lottery.js" defer></script>
+	<script src="Baseball.js" defer></script>
+	<script src="Rock-scissor-paper.js" defer></script>
+	<body>
+		<!-- Lottery -->
+		<section id="lottery" class="container">
+			<h1>Lottery</h1>
+			<div>Winning Numbers</div>
+			<div id="result"></div>
+			<div>Bonus</div>
+			<div class="bonus"></div>
+			<button class="lottery_btn" type="button">
+				<i class="fas fa-bolt"></i>
+			</button>
+		</section>
+		<!-- End -->
+
+		<!-- Baseball -->
+		<section id="baseball" class="container">
+			<h1>Baseball</h1>
+			<h2 class="b">Score: Strike Ball</h2>
+			<div></div>
+			<form action="">
+				<input
+					type="text"
+					maxlength="4"
+					oninput="numberMaxLength(this)"
+					onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+					placeholder="Please start your game"
+				/>
+				<button><i class="fas fa-bolt"></i></button>
+			</form>
+		</section>
+		<!-- End -->
+
+		<!--  Rock_Scissor_Paper  -->
+		<section id="rock_scissor_paper" class="container">
+			<h1>Rock Scissor Paper</h1>
+			<div id="computer"></div>
+			<div class="pic">Score</div>
+			<button id="start"><i class="fas fa-bolt"></i></button>
+			<div class="button">
+				<!-- <button id="rock" class="btn">rock</button>
+                <button id="scissor" class="btn">scissor</button>
+                <button id="paper" class="btn">paper</button> -->
+				<button id="rock" class="btn">
+					<i class="fas fa-hand-rock"></i>rock
+				</button>
+				<button id="scissor" class="btn">
+					<i class="fas fa-cut"></i>scissor
+				</button>
+				<button id="paper" class="btn">
+					<i class="fas fa-hand-paper"></i>paper
+				</button>
+			</div>
+		</section>
+		<!-- End -->
+	</body>
+</html>

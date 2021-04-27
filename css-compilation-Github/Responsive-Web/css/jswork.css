@@ -1,0 +1,255 @@
+
+
+
+
+
+/* HEADER */
+
+header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    /* background: #fff; */
+    background-color: #222324;
+    
+}
+header .log{
+    /* float: left; */
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+
+    /* padding: 2rem 0 0 3rem; */
+}
+header .navbar{
+    /* float: right; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* padding: 2rem 3rem ; */
+
+
+}
+
+header .navbar i{
+    z-index: 3;
+    position: absolute;
+    left:3rem;
+    top: 2rem;
+    /* font-size: 1.6875rem; */
+    font-size: 1.8875rem;
+    color: #13b1cd;
+}
+header ul{
+    display: none;
+    animation:fadeIn 1s forwards ease-in;
+
+}
+
+header .nav-con.nav-contents ul{
+    display: block;
+}
+header .nav-con.nav-contents{
+/* header .nav-con{ */
+    position: absolute;
+    /* margin-top: 5.6rem; */
+    background-color: #222324;
+    width: 15vw;
+    height: 100vh;
+    opacity: 0.8;
+    display: inline-block;
+    animation:fadeIn 1s forwards ease-in;
+    text-transform: uppercase;
+
+}
+
+
+
+/* END HEADER */
+
+
+
+  @keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+  @keyframes fadeOut {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+  }
+
+
+/* Portfolio */
+
+.portfolio-gallery{
+  /* padding: 0 120px; */
+}
+/* button */
+.button-group ,button.is-checked{
+  /* background:#998675; */
+   color:#13b1cd;
+  /* border: 1px solid #998675; */
+}
+
+
+.portfolio-gallery h2{
+padding:4.87rem 0 2rem;
+color: #13b1cd;
+}
+.portfolio-gallery>.button-group {
+
+}
+.portfolio-gallery>.button-group button {
+  border:0;
+  outline:0;
+  background:#fff;
+  font: 400 0.9rem "Lato", sans-serif;
+  padding: 0 12px;
+  text-transform: uppercase;
+  padding-bottom: 3rem;
+}
+/* End button */
+
+
+/* isotope */
+
+.portfolio-gallery>ul{
+  /* width: 100%; */
+  /* background-color: dodgerblue; */
+  margin-bottom: 8.87rem;
+}
+.portfolio-gallery>ul>li{
+  width: calc( 100% / 3 - 0.1875rem);
+  padding-right: 0.1875rem;
+}
+.portfolio-gallery>ul>li:nth-child(-n+3){
+  padding-bottom: 0.1875rem;
+}
+
+.portfolio-gallery>ul>li:nth-child(3n){
+  /* padding-right: 0; */
+}
+
+.grid li img{
+  width: 100%;
+}	
+.grid .img-wrap{
+  position: relative;
+}
+.grid li .hover_contents{
+  position: absolute; background: #13b1cd ;
+  left: 0; right: 0; bottom: 0; top: 0; text-align: center;
+  padding-top: 116px; opacity: 0;transition: 0.5s
+}
+
+.grid li .hover_contents a {
+  color: #fff; margin: 0 15px; font-size: 26px;
+}
+.grid li .hover_contents a:hover {color: greenyellow ;}
+.grid li:hover .hover_contents{opacity: 0.7;}
+
+/* End isotope */
+
+/* End Portfolio */
+
+
+
+
+
+/* End Google map*/
+/* FOOTER*/
+/* bootstrap 12개, 하나너비 70px, 그 사이 30px = 1140px  */
+footer{
+    background: #222324;
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+
+footer .copyright .row{
+    margin: 0 5.56rem;
+    padding: 3.125rem 0.9375rem;
+}
+
+footer .copyright .row .copy-logo{
+    float: left;
+    margin-left: 15rem;
+}
+footer .copyright .row .copy-link{
+    float: right;
+    margin-right: 15rem;
+
+}
+
+
+/* End FOOTER*/
+/* Back to Top*/
+
+
+.top-arrow{
+    position: fixed;
+    bottom: 3em;
+    right: 3em;
+    padding: 1.5rem;
+    /* border: 1px solid #fff; */
+    /* overflow: hidden; */
+}
+#back-to-top {
+
+    /* background-color: rgba(255, 255, 255, .9); */
+    background-color: dodgerblue;
+    width:0.625rem; height:1.25rem; 
+    display:inline-block; 
+    /* background:#7d1919; */
+    transition: all .3s ease-in-out;
+    
+
+    /* color: #313943; */
+
+    /* box-shadow: 0 0 2em 0 rgba(0, 0, 0, .25); */
+    /* text-decoration: none; */
+    /* font-size: .75em; */
+    opacity: 0;
+}
+
+#back-to-top:after {
+    margin-top: 12px;
+    content:''; position:absolute; 
+    /* width:0; height:0;  */
+    border-style:solid;
+    border-width:1.25rem .9375rem;
+    border-color:transparent transparent dodgerblue transparent;
+    /* top:-3.336rem;  */
+    /* top: -3.233rem; */
+    /* top: -3.25rem;
+    left:-.625rem; */
+    /* top: -1.4675rem; */
+    /* left: 1.35rem; */
+    top: -1.75rem;
+    /* left: -0.875rem; */
+    left: 0.8675rem;
+}
+
+.top-arrow:hover #back-to-top {
+    /* background-color: #fff; */
+    height:31px; 
+
+}
+
+/* .top-arrow.active #back-to-top { */
+ .top-arrow.visible #back-to-top{
+    opacity: 1;
+}
+
+
+
+
+
+/* End Back to Top*/
+
+
+
+
+
+
+

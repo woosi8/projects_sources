@@ -1,0 +1,118 @@
+/* common */
+html,
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #000000;
+    background-color: #8fceff;
+}
+
+.container {
+    /* width: 90%; */
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    /* border: 1px solid black;
+    border-radius: 5px; */
+    color: #8fceff;
+    /* padding: 5px; */
+    font-size: 25px;
+    border: 0;
+    outline: 0;
+}
+
+button:hover {
+    color: #0088f2;
+    border: none;
+}
+
+/* Lottery */
+#lottery {
+    margin: 0;
+}
+.ball {
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#lottery div {
+    margin-bottom: 10px;
+}
+#lottery #lottery button svg {
+    /* font-size: 30px; */
+}
+
+#result,
+.bonus {
+    height: 2rem;
+}
+
+/* Baseball */
+form button {
+    vertical-align: middle;
+}
+
+form input {
+    padding: 5px;
+}
+/* Rock_scissor_paper */
+#rock_scissor_paper .btn {
+    color: #000000;
+}
+#rock_scissor_paper .btn:hover {
+    color: #0088f2;
+}
+
+#rock_scissor_paper .button {
+    width: 50%;
+    margin: 0 auto 30px auto;
+}
+
+#rock_scissor_paper .button button {
+    width: 30px;
+    height: 29px;
+    overflow: hidden;
+    padding-right: 40px;
+}
+
+#rock_scissor_paper .button button:last-child {
+    padding-right: 0;
+}
+
+.pic {
+    margin: 0 auto;
+    font-size: 3rem;
+    width: 150px;
+    height: 5rem;
+    line-height: 5rem;
+    color: #3498db;
+}
+#computer {
+    margin: 0 auto;
+    width: 150px;
+    height: 230px;
+    background: url('https://en.pimg.jp/023/182/267/1/23182267.jpg') 0 0;
+}
+
+#start {
+    padding-bottom: 25px;
+}

@@ -1,0 +1,254 @@
+
+
+
+
+
+                                  /* HEADER */
+
+header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    /* background: #fff; */
+    background-color: #222324;
+    
+}
+header .log{
+    /* float: left; */
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+
+    /* padding: 2rem 0 0 3rem; */
+}
+header .navbar{
+    /* float: right; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* padding: 2rem 3rem ; */
+
+
+}
+
+header .navbar i{
+    z-index: 3;
+    position: absolute;
+    left:3rem;
+    top: 2rem;
+    /* font-size: 1.6875rem; */
+    font-size: 1.8875rem;
+    color: #13b1cd;
+}
+header ul{
+    display: none;
+    animation:fadeIn 1s forwards ease-in;
+
+}
+
+header .nav-con.nav-contents ul{
+    display: block;
+}
+header .nav-con.nav-contents{
+/* header .nav-con{ */
+    position: absolute;
+    /* margin-top: 5.6rem; */
+    background-color: #222324;
+    width: 15vw;
+    height: 100vh;
+    opacity: 0.8;
+    display: inline-block;
+    animation:fadeIn 1s forwards ease-in;
+    text-transform: uppercase;
+
+}
+
+                                  /* END HEADER */
+
+                                  /* News */
+
+.news{
+    padding: 3.8rem 0 7.8125rem;
+}   
+                               
+.news>.title{
+    margin-bottom: 5rem;
+    
+}
+
+.news p{
+    color: #13b1cd;
+    margin-bottom: 1.5625rem;
+    letter-spacing: .125rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.news ul{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+}
+.news ul li{
+    width: 22.5rem;
+    height: 37.81rem;
+    padding: 0 .9375rem 0 .9375rem ;
+    
+}
+.news ul li:nth-child(3){
+    margin-bottom: 1.42rem;
+}
+.news ul li img{
+    width: 100%;
+}
+.news .news-box{
+    padding: 2.5rem;
+    border: 1px solid #fff1ff;
+    box-shadow: 0 1.25rem 1.25rem rgba(34, 35, 36, 0.05);
+}
+.news .news-box .content{
+    margin-top: 1rem;
+    color: #242424;
+    font-size: 1.375rem;
+    line-height: 1.453rem;
+
+}
+.news .news-box .sub-content{
+    margin-top: 2rem;   
+    letter-spacing: .0625rem; 
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: #656565;
+    line-height: 1.6;
+}
+
+/* ScrollTrigger */
+#trigger{
+    /* position: absolute;
+    left: 70px; */
+    opacity: 0;
+    position: relative;
+    left: -5rem;
+}
+.active #trigger{
+    /* transform: translateX(0.5em);  */
+    animation:fadeIn 1s forwards ease-in;
+    transition: 2s ease-in-out;
+    /* left: -0.48rem; */
+    left: 0;
+
+  }
+
+  @keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+  @keyframes fadeOut {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+  }
+/* End ScrollTrigger */
+
+
+                                  /* End News */
+                                  /* FOOTER*/
+/* bootstrap 12개, 하나너비 70px, 그 사이 30px = 1140px  */
+footer{
+    background: #222324;
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+footer .copyright{
+    border-top: solid 1px rgba(255, 255, 255, 0.612);
+}
+footer .copyright .row{
+    margin: 0 5.56rem;
+    padding: 3.125rem 0.9375rem;
+}
+
+footer .copyright .row .copy-logo{
+    float: left;
+    margin-left: 15rem;
+}
+footer .copyright .row .copy-link{
+    float: right;
+    margin-right: 15rem;
+
+}
+
+
+                                  /* End FOOTER*/
+                                  /* Back to Top*/
+
+
+.top-arrow{
+    position: fixed;
+    bottom: 3em;
+    right: 3em;
+    padding: 1.5rem;
+    /* border: 1px solid #fff; */
+    /* overflow: hidden; */
+}
+#back-to-top {
+
+    /* background-color: rgba(255, 255, 255, .9); */
+    background-color: dodgerblue;
+    width:0.625rem; height:1.25rem; 
+    display:inline-block; 
+    /* background:#7d1919; */
+    transition: all .3s ease-in-out;
+    
+
+    /* color: #313943; */
+
+    /* box-shadow: 0 0 2em 0 rgba(0, 0, 0, .25); */
+    /* text-decoration: none; */
+    /* font-size: .75em; */
+    opacity: 0;
+}
+
+#back-to-top:after {
+    margin-top: 12px;
+    content:''; position:absolute; 
+    /* width:0; height:0;  */
+    border-style:solid;
+    border-width:1.25rem .9375rem;
+    border-color:transparent transparent dodgerblue transparent;
+    /* top:-3.336rem;  */
+    /* top: -3.233rem; */
+    /* top: -3.25rem;
+    left:-.625rem; */
+    /* top: -1.4675rem; */
+    /* left: 1.35rem; */
+    top: -1.75rem;
+    /* left: -0.875rem; */
+    left: 0.8675rem;
+}
+
+.top-arrow:hover #back-to-top {
+    /* background-color: #fff; */
+    height:31px; 
+
+}
+
+/* .top-arrow.active #back-to-top { */
+ .top-arrow.visible #back-to-top{
+    opacity: 1;
+}
+
+
+
+
+
+                                  /* End Back to Top*/
+
+
+
+
+
+
+
+                                  

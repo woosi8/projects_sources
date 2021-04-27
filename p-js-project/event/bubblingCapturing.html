@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer">
+        <div class="middle">
+            <div class="button"></div>
+        </div>
+    </div>    
+    <script>
+        const outer = document.querySelector('.outer'),
+              middle = document.querySelector('.middle'),
+              button = document.querySelector('.outer');
+
+        outer.addEventListener('click',event =>{
+            // 버블링 막기
+            if (event.target !== event.currentTarget) {
+                return;
+            }
+            // 아래 두개는 안좋은 방법
+            // event.stopPropagation;
+            // event.stopImmediatePropagation
+        })
+
+
+
+    </script>
+</body>
+
+</html>

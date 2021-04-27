@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      .navbar__menu{
+        position: fixed;
+        right: 3em;
+        
+      }
+      .navbar__menu__item{
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      .imgs{
+        list-style: none;
+
+      }
+      .imgs li{
+        
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="navbar__menu">
+      <li class="navbar__menu__item items" data-link="#home">Home</li>
+      <li class="navbar__menu__item items" data-link="#rabbit">rabbit</li>
+      <li class="navbar__menu__item items" data-link="#carrot">carrot</li>
+
+    </ul>
+    <ul class="imgs">
+      <li id="home"><img src="img/carrot.png" alt=""></li>
+      <li class="carrot"><img src="img/carrot.png" alt=""></li>
+      <li class="carrot"><img src="img/carrot.png" alt=""></li>
+      <li class="carrot"><img src="img/carrot.png" alt=""></li>
+      <li id="rabbit"><img src="img/rabbit.png" alt=""></li>
+      <li class="carrot"><img src="img/carrot.png" alt=""></li>
+      <li class="carrot"><img src="img/carrot.png" alt=""></li>
+      <li id="carrot"><img src="img/carrot.png" alt=""></li>
+    </ul>
+    <script>
+
+function scroll(selector) {
+    const scrollTo = document.querySelector(selector)
+    scrollTo.scrollIntoView({ behavior: 'smooth' , block: 'center' })
+}
+
+
+const navbarMenu = document.querySelector('.navbar__menu')
+navbarMenu.addEventListener('click', (event) => {
+    // const target = event.target
+    const link = event.target.dataset.link // 먼저 html에서 data-link로 연결해준다
+
+    // if (link == null) {
+              // link가 null이면 아무것도 하지않고 리턴해서 더이상 밑에 있는 코드가 실행되지 않도록 한다
+    //     return
+    // }
+    // navbarMenu.classList.remove('open')  // 네브바 클릭시 항상 창이 닫힐수있도록(반응형에서)
+    scroll(link)
+})
+    </script>
+  </body>
+</html>
